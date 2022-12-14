@@ -1,0 +1,147 @@
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+}
+.indivisualPage{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 2.5rem;
+    background-color: #fff;
+    flex-direction: column;
+}
+.topSection{
+    display: flex;
+    width: 90vw;
+    /* border: 1px solid black; */
+    border-bottom: 1px solid rgb(225, 219, 219);
+}
+
+.topSection :nth-child(1){
+    width: 50%;
+}
+.topSection :nth-child(2){
+    width: 50%;
+}
+.left-img{
+    display: flex;
+    padding: 1rem;
+    /* border: 1px solid blue; */
+    gap: 25%;
+    object-fit: contain;
+    justify-content: space-evenly;
+}
+.left-img :nth-child(1){
+    width: 20%;
+    left: 20px;
+}
+.left-img :nth-child(2){
+    width: 70%;
+    left: 20px;
+}
+.left-carousel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.right-main{
+    width: 100%;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-data {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem ;   
+     /* border: 1px solid black; */
+    width: 100%;
+}
+.right-data >h3{
+    width: 80%;
+}
+.product__name{
+    /* border: 1px solid blue; */
+    width: 80%;
+}
+.product__name-light{
+    color: rgb(103, 102, 102);
+}
+
+.crossedLine{
+    text-decoration: line-through;
+}
+
+.green__text{
+    color: green;
+}
+.space_Between{
+    margin-right: 15px;
+}
+
+.space_top_bottom{
+    margin: 8px 0;
+}
+.blue_text{
+    color: rgb(45, 103, 202);
+}
+
+.btn{
+    color: white;
+    background-color: rgb(14, 187, 255);
+    width: 170px;
+    padding: 0.6rem;
+    transition: 0.3s;
+    transition-timing-function: ease-in;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    color: rgb(14, 187, 255);
+    background-color: white;
+    border-color: rgb(14, 187, 255);
+    border: 1px solid rgb(14, 187, 255);
+}
+
+.cart-btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.social__links{
+    display: flex;
+    font-size: 1.4rem;
+    width: 100px;
+}
+.mid__section{
+    width: 90vw;
+    padding: 2rem;
+    height: auto;
+}
+.smallSpace{
+    margin-bottom: 8px;
+}
+.visible {
+    margin: auto;
+    /* margin-top: 2rem; */
+    width: 90%;
+    /* border: 1px solid; */
+    padding: 2rem;
+}
+.invisible{
+    margin: auto;
+    width: 90%;
+    padding: 2rem;
+}
