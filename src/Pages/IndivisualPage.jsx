@@ -30,7 +30,7 @@ const IndivisualPage = () => {
   useEffect(() => {
     handleGetdata();
   }, []);
-  console.log(data[index1].imgSrc);
+  // console.log(data[index1].imgSrc);
   return (
     <div className="indivisualPage">
       <div className="topSection">
