@@ -30,4 +30,8 @@
     border-radius: 50%;
     background-color:  #2697e2;
 }
+.AddSubstact>span:nth-child(2){
+    font-size: 18px;
+    color: black;
+}
 

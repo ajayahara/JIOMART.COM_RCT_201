@@ -1,0 +1,30 @@
+.Payment{   
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    margin: 20px 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.Payment>div:nth-child(1){
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.Payment .payee{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Payment .last>div:nth-child(1){
+    font-weight: bold;
+}
+.Payment .green{
+    color: green;
+    font-size: 0.8rem;
+    text-align: end;
+}
+
+

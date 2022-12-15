@@ -7,7 +7,6 @@
     margin: auto;
     box-sizing: border-box;
     margin-top: 20px;
-    border: 1px solid red;
     padding: 20px;
 }
 .CartLoginitems>div>div:nth-child(1)>div:nth-child(1){
@@ -17,17 +16,56 @@
 .CartLoginitems>div>div:nth-child(2){
  width: 100%;
   display: flex;
-  border: 1px solid red;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
 }
+.CartLoginitems>div>div:nth-child(2)>div:nth-child(2){
+    width: 100%;
+}
+.CartLoginitems>div>div:nth-child(2)>div:nth-child(2)>div{
+    width: 100%;
+}
 .CartLoginitems>div>div:nth-child(2)>div:nth-child(1){
     width: 60%;
-    border: 1px solid red;
 }
 .CartLoginitems>div>div:nth-child(2)>div:nth-child(2){
     width: 40%;
-    border: 1px solid black;
+}
+.CartLoginitems .basket{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px;
+}
+.CartLoginitems .basket>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    font-size:18px;
+    font-weight: bold;
+}
+.CartLoginitems .basket>div:nth-child(1)>div>span{
+    font-size: 16px;
+    font-weight: lighter;
+    color: gray;
+}
+.CartLoginitems .basket>div:nth-child(2){
+   width: 100%; 
+}
+.PaymentButton{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    margin: 0px 20px;
+    box-sizing: border-box;
+}
+.PaymentButton button{
+    width: 50%;
+    color: white;
+    font-size: .9rem;
+    padding: 10px 30px;
+    background-color:
+    #008ecc;
+    border: none;
+    border-radius: 5px;
 }
 
