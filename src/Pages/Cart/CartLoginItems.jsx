@@ -1,6 +1,8 @@
 import React from 'react'
 import "../Cart/CartLoginItems.css"
 import { CartItem } from '../../Component/Cart/CartItem'
+import { Applycoupon } from '../../Component/Cart/Applycoupon'
+import { PaymentDetils } from '../../Component/Cart/PaymentDetils'
 export const CartLoginItems = () => {
   return (
     <div className='CartLoginitems' >
@@ -19,7 +21,6 @@ export const CartLoginItems = () => {
                         <div>
                             <CartItem/>
                         </div>
-
                     </div>
                     <div>
 
@@ -29,7 +30,9 @@ export const CartLoginItems = () => {
                     </div>
                 </div>
                 <div>
-
+                    <Applycoupon/>
+                    <PaymentDetils/>
+                    <div className='PaymentButton'><button>Place Order</button></div>
                 </div>
             </div>
         </div>
