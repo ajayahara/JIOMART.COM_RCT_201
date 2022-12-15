@@ -18,3 +18,26 @@ code {
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
  }
+
+ .btn{
+  color: white;
+  background-color: rgb(14, 187, 255);
+  width: 170px;
+  padding: 0.6rem;
+  transition: 0.3s;
+  transition-timing-function: ease-in;
+  border-radius: 5px;
+  border:none;
+}
+
+.btn:hover{
+  color: rgb(14, 187, 255);
+  background-color: white;
+  border-color: rgb(14, 187, 255);
+  border: 1px solid rgb(14, 187, 255);
+}
+
+.cart-btn{
+  display: flex;
+  justify-content: space-between;
+}
