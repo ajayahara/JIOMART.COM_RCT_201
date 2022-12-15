@@ -8,12 +8,18 @@ import { AiOutlineFacebook } from "react-icons/ai";
 import axios from "axios";
 
 const getData = () => {
-  return axios.get("https://kiwi-discovered-pyjama.glitch.me/carousel_idvPage");
+  return axios.get(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData"
+  );
+};
+
+const AddToCart = (payload) => {
+  return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
 };
 
 const IndivisualPage = () => {
   const [description, setDescription] = useState(false);
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   // const [index1, setIndex1] = useState(0);
   // const [index2, setIndex2] = useState(1);
   // const [index3, setIndex3] = useState(2);
@@ -24,6 +30,17 @@ const IndivisualPage = () => {
     getData().then((res) => {
       // console.log(res.data);
       setData(res.data);
+    });
+  };
+  console.log(data);
+
+  const PostToCart = (item) => {
+    AddToCart(item).then((res) => {
+      //   <Alert status="success">
+      //     <AlertIcon />
+      //     Item Added Successfully to the cart
+      //   </Alert>;
+      alert("Item Added Successfully to the cart");
     });
   };
 
@@ -65,20 +82,23 @@ const IndivisualPage = () => {
           <div className="right-main">
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
-              alt="demo1"
+              src={
+                data.img ||
+                "https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              }
+              alt={data.title}
             />
           </div>
         </div>
         <div className="right-data">
           <h3 className="product__name space_top_bottom">
-            Finish Dishwasher 'All in 1 Max Powerball' - Lemon 60 Tablets |
-            World's No. 1 Dishwashing Brand
+            {data.title ||
+              "Finish Dishwasher 'All in 1 Max Powerball' - Lemon 60 Tablets World's No. 1 Dishwashing Brand"}
           </h3>
           <h4 className="product__name-light space_top_bottom">FINISH</h4>
 
           <p className="space_top_bottom">
-            <b className="space_Between">₹ 1065.00 </b> M.R.P:
+            <b className="space_Between">₹ {data.price} </b> M.R.P:
             <span className="crossedLine">₹ 1599.00</span>
           </p>
           <p className="space_top_bottom">
@@ -94,14 +114,25 @@ const IndivisualPage = () => {
           <p className="space_top_bottom">
             Inaugural Offer <b>Free Shipping</b>
           </p>
-          <a className="space_top_bottom btn cart-btn">
+          <button
+            onClick={() => {
+              PostToCart(data);
+            }}
+            className="space_top_bottom btn cart-btn"
+          >
             <span>Add to Cart</span>
             <BsFillBagPlusFill style={{ width: "40px" }} />
-          </a>
+          </button>
           <div className="social__links space_top_bottom">
-            <CiTwitter style={{ width: "40px" }} />
-            <BsWhatsapp style={{ width: "40px" }} />
-            <AiOutlineFacebook style={{ width: "40px" }} />
+            <a href="https://twitter.com/i/flow/login" target="_blank">
+              <CiTwitter style={{ width: "40px" }} />
+            </a>
+            <a href="https://www.whatsapp.com/" target="_blank">
+              <BsWhatsapp style={{ width: "40px" }} />
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+              <AiOutlineFacebook style={{ width: "40px" }} />
+            </a>
           </div>
         </div>
       </div>
@@ -118,7 +149,7 @@ const IndivisualPage = () => {
           </a>
         </h3>
         <div className="visible">
-          <h4>Zimmer Aufraumen Front Load Liquid Detergent (5 Liters)</h4>
+          <h4>{data.title}</h4>
           <p>
             It has excellent emulsifying properties that give the fabric a
             brighter look. The particular safe bio enzymes based detergent

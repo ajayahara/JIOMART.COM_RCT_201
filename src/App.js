@@ -2,7 +2,7 @@
 
 import './App.css';
 
-import Nav from './Pages/Navbar';
+//import Nav from './Pages/Navbar';
 
 function App() {
   return (
