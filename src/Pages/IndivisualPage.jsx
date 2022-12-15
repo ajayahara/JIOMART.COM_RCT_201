@@ -13,12 +13,12 @@ const getData = () => {
 
 const IndivisualPage = () => {
   const [description, setDescription] = useState(false);
-  const [data, setData] = useState([]);
-  const [index1, setIndex1] = useState(0);
-  const [index2, setIndex2] = useState(1);
-  const [index3, setIndex3] = useState(2);
-  const [index4, setIndex4] = useState(3);
-  const [index5, setIndex5] = useState(4);
+  // const [data, setData] = useState([]);
+  // const [index1, setIndex1] = useState(0);
+  // const [index2, setIndex2] = useState(1);
+  // const [index3, setIndex3] = useState(2);
+  // const [index4, setIndex4] = useState(3);
+  // const [index5, setIndex5] = useState(4);
 
   const handleGetdata = () => {
     getData().then((res) => {
