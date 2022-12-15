@@ -18,6 +18,7 @@ export default function Login(){
         <br/>
 
         <Input mr={220} placeholder="Enter your mobile no"/>
+        <button >ok</button>
         </Box>
         </Box>
     </>
