@@ -1,0 +1,33 @@
+.CartLoginitems{
+    width: 100%;
+    background-color: #f6f6f7;
+}
+.CartLoginitems>div{
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 1px solid red;
+    padding: 20px;
+}
+.CartLoginitems>div>div:nth-child(1)>div:nth-child(1){
+    font-size: 25px;
+    font-weight: bold;
+}
+.CartLoginitems>div>div:nth-child(2){
+ width: 100%;
+  display: flex;
+  border: 1px solid red;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.CartLoginitems>div>div:nth-child(2)>div:nth-child(1){
+    width: 60%;
+    border: 1px solid red;
+}
+.CartLoginitems>div>div:nth-child(2)>div:nth-child(2){
+    width: 40%;
+    border: 1px solid black;
+}
+

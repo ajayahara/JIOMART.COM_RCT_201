@@ -1,0 +1,24 @@
+.CartNoLogin{
+ background-color: #f6f6f7 ; 
+ width: 100%;
+ height: 100vh;
+}
+.CartNoLogin>div:nth-child(1){
+    width: 100%;
+    height: 10%;
+    padding: 16px 0px 24px 10% ;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.CartNoLogin>div:nth-child(2){
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.CartNoLogin>div:nth-child(2)>img{
+    height: 170px;
+    width: 220px;
+}

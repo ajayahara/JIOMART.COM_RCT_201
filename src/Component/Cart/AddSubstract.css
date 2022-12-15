@@ -1,0 +1,33 @@
+.AddSubstact{
+    display: flex;
+}
+.AddSubstact>span{
+    height: 32px ;
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AddSubstact>span:nth-child(1)>div:nth-child(1){
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+.AddSubstact>span:nth-child(1)>div:nth-child(2){
+    width: 15px;
+    height: 2px;
+    background-color: white;
+    rotate: 90deg;
+    top: -5px;
+}
+.AddSubstact>span:nth-child(3)>div{
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+.AddSubstact>span:nth-child(1),.AddSubstact>span:nth-child(3){
+    border-radius: 50%;
+    background-color:  #2697e2;
+}
+
