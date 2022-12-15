@@ -1,14 +1,16 @@
 
 
 import './App.css';
-import Login from './Pages/login';
+
+import Nav from './Pages/Navbar';
+
 function App() {
   return (
     <div className="App">
-      {/* <Login /> */}
-      <Products />
+      {/* <Nav /> */}
     </div>
   );
 }
 
 export default App;
+

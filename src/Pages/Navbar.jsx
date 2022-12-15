@@ -3,9 +3,11 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import SidebarData  from './SidebarData';
+import SidebarData2  from './SidebarData2';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
-import { Box } from '@chakra-ui/react';
+import { Box} from '@chakra-ui/react';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -25,13 +27,28 @@ function Navbar() {
         </Box>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
-            <li className='navbar-toggle'>
-              <div className='menu-bars'>
-                <AiIcons.AiOutlineClose />
-              </div>
-            </li>
-            <SidebarData/>
-            {/* {SidebarData.map((item, index) => {
+            <div className='navbar-toggle'>
+            <div className='menu-bars2'>
+            <div id="closeicon">
+             
+           <div id="inline">
+            <p id="contact-icon"><AccountCircleOutlinedIcon/></p>
+            <p id="contact-text"> Hello,  Sign in
+            </p>
+            <p id="contact-cross"> <AiIcons.AiOutlineClose />
+            </p>
+               
+                </div>
+            </div>
+            </div>
+                <div className='sidebuttons'>
+               <button className='sidebuttonss'>Accounts</button>
+               <button className='sidebuttonss'>Orders</button>
+               </div> 
+            </div>
+            
+            <div>
+             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   
@@ -39,8 +56,37 @@ function Navbar() {
                     <span>{item.title}</span>
                  
                 </li>
-              ); */}
-            {/* })} */}
+              ); 
+              })}
+              <br />
+              <hr />
+              {SidebarData2.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  
+                    {item.icon}
+                    <span>{item.title}</span>
+                 
+                </li>
+              ); 
+              })}
+               <br />
+              <hr />
+              <div id="side-cont">
+              <h3>CONTACT US</h3>
+              <p>WhatsApp us : 70003 70003</p>
+              <p>Call Us : 1800 890 1222</p>
+              <p>8:00 AM to 8:00 PM, 365 days</p>
+              <p>Please note that you are accessing the BETA Version of www.jiomart.com</p>
+              <p>Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the beta website, please email us on cs@jiomart.com</p>
+              
+              <h3>DOWNLOAD APP</h3>
+              <div id="dwnld-img">
+                <img src="" alt="" />
+                <img src="" alt="" />
+              </div>
+              </div>
+              </div>
           </ul>
         </nav>
       </IconContext.Provider>
@@ -50,61 +96,3 @@ function Navbar() {
 
 export default Navbar;
 
-// import { Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, IconButton, Img, Input, InputGroup, InputLeftElement, Radio, RadioGroup, SimpleGrid, Stack, Text, useDisclosure, VStack } from '@chakra-ui/react'
-
-
-// import React, { useState, useEffect } from 'react';
-// import BoltIcon from '@mui/icons-material/Bolt';
-// import {  ChevronDownIcon, SearchIcon, } from '@chakra-ui/icons'
-// import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
-// import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-// import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-// import Test from './Inputplace';
-// import {FaBars,FaTimes} from "react-icons/fa"
-// import sslogo from "../Resources/sslogo.png"
-
-
-
-
-
-// const Nav = () => {
-   
-
-
-//     // inside component:
-    
-//     const { isOpen, onOpen, onClose } = useDisclosure()
-//     const [placement, setPlacement] = React.useState('right')
-
-//     const [scrollPosition, setScrollPosition] = useState(0);
-//     const [overflow, setOverflow] = useState("hidden")
-
-
-   
-
-    
-  
-    
- 
-
-//     //
-//     return (
-//         <Box w='100%' h={"80px"}   top={0} zIndex={999} overflow={overflow} position={"sticky"} style={{backgroundColor:"#008ecc",}}>
-//             <SimpleGrid columns={[3, 3, 3, 6]} >
-//                 <Flex>
-//                 <Center mt={"27px"} ml={"75px"}>
-//                 <FaBars size={"32px"} color={"white"} onClick={onOpen}/>
-                
-//            </Center>
-//            </Flex>
-          
-//             </SimpleGrid>
-            
-
-//         </Box>
-
-//     )
-// }
-
-// export default Nav
-// //   {/* <h1>{scrollPosition}</h1>  */}
