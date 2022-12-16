@@ -24,9 +24,22 @@ const AddToCart = (payload) => {
   return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
 };
 
-const Products = () => {
+const filterByCategory = (param) => {
+  return axios.get(
+    `https://kiwi-discovered-pyjama.glitch.me/baverage?category=${param}`
+  );
+};
+
+const BeverageProducts = () => {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [filterData, setFilterData] = useState([
+    "Tea",
+    "Juice",
+    "Cold Drink",
+    "Powder",
+  ]);
+
   const handleGetData = () => {
     setIsLoading(true);
     getData()
@@ -53,6 +66,10 @@ const Products = () => {
     });
   };
 
+  const handleFilterData = (item) => {
+    filterByCategory(item).then((res) => setList(res.data));
+  };
+
   const resetFilters = () => {
     handleGetData();
   };
@@ -69,7 +86,7 @@ const Products = () => {
   useEffect(() => {
     handleGetData();
   }, []);
-  console.log(list);
+  // console.log("filter", filterCategory);
 
   if (isLoading) return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
   return (
@@ -96,6 +113,18 @@ const Products = () => {
         >
           Descending
         </button>
+        <h3>Filter Data by category :</h3>
+        {filterData.map((item, index) => (
+          <button
+            className="btn"
+            key={index}
+            onClick={() => handleFilterData(item)}
+          >
+            {item}
+          </button>
+        ))}
+        <h3>Reset :</h3>
+        {/* Reset  */}
         <button
           className="btn"
           style={{ textAlign: "center" }}
@@ -130,4 +159,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default BeverageProducts;
