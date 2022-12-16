@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import SidebarData  from './SidebarData';
-import SidebarData2  from './SidebarData2';
+import logo from "../Resources/sslogo.png"
 import './Navbar.css';
 import { IconContext } from 'react-icons';
-import { Box} from '@chakra-ui/react';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { Box,Flex,Image,SimpleGrid,Stack,InputGroup,InputLeftElement} from '@chakra-ui/react';
+import Sidebar from './sidebar';
+import { Input } from '@chakra-ui/react'
+import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+
+
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -15,82 +17,59 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <Box className='navbar'>
-            <Box className='sideup'>
-               
-          <Box  className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />
-            </Box>
+    <SimpleGrid coloums={10} >
+      <Box>
+      {/* <IconContext.Provider value={{ color: 'yellow' }}> */}
+        <Flex className='navbar'>
+          {/* fbars icons for side bar */}
+        <Box className='sideup'>
+        <Box  className='menu-bars' >
+        <FaIcons.FaBars onClick={showSidebar} color='white' mt={"5px"}/>
           </Box>
-        </Box>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showSidebar}>
-            <div className='navbar-toggle'>
-            <div className='menu-bars2'>
-            <div id="closeicon">
-             
-           <div id="inline">
-            <p id="contact-icon"><AccountCircleOutlinedIcon/></p>
-            <p id="contact-text"> Hello,  Sign in
-            </p>
-            <p id="contact-cross"> <AiIcons.AiOutlineClose />
-            </p>
-               
-                </div>
-            </div>
-            </div>
-                <div className='sidebuttons'>
-               <button className='sidebuttonss'>Accounts</button>
-               <button className='sidebuttonss'>Orders</button>
-               </div> 
-            </div>
-            
-            <div>
-             {SidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  
-                    {item.icon}
-                    <span>{item.title}</span>
-                 
-                </li>
-              ); 
-              })}
-              <br />
-              <hr />
-              {SidebarData2.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  
-                    {item.icon}
-                    <span>{item.title}</span>
-                 
-                </li>
-              ); 
-              })}
-               <br />
-              <hr />
-              <div id="side-cont">
-              <h3>CONTACT US</h3>
-              <p>WhatsApp us : 70003 70003</p>
-              <p>Call Us : 1800 890 1222</p>
-              <p>8:00 AM to 8:00 PM, 365 days</p>
-              <p>Please note that you are accessing the BETA Version of www.jiomart.com</p>
-              <p>Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the beta website, please email us on cs@jiomart.com</p>
-              
-              <h3>DOWNLOAD APP</h3>
-              <div id="dwnld-img">
-                <img src="" alt="" />
-                <img src="" alt="" />
-              </div>
-              </div>
-              </div>
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
+          </Box>
+          <Sidebar sidebar={sidebar} showSidebar={showSidebar}/> 
+          {/* other items navbar */}
+           <Image src={logo} w={"120px"} h={"80px"} ml={"260px"}/> 
+           <Stack spacing={4}>
+  <InputGroup>
+   
+    <Input bg={"white"} w={"660px"} color={"white"} ml={"60px"} type='text' placeholder='Search essential,goods and much more......' />
+    <InputLeftElement
+     ml={"660px"}
+      pointerEvents='none'
+      children={<FaIcons.FaBars color='grey' />}
+    />
+  </InputGroup>
+</Stack>
+ <Flex color={"white"}  ml={"30px"} gap={2}>
+ <Person2RoundedIcon  />
+ <p >Sign in / Sign up</p>
+ <Flex ml={"30px"} gap={2} >
+  <ShoppingCartRoundedIcon/>
+  <p>Cart</p>
+ </Flex>
+ </Flex>  
+ </Flex>
+ 
+ 
+</Box>
+{/* <ul>
+  <li><a href="#">Home</a></li>
+  <li>
+    <a href="#">Language </a>
+    <ul className='dropdown'>
+    <a href="#">HTML </a>
+    <a href="#">JAVASCRIPT </a>
+    <a href="#">Language </a>
+    </ul>
+    </li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">contact Us</a></li>
+ </ul>  */}
+
+ 
+
+    </SimpleGrid>
   );
 }
 
