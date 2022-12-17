@@ -1,4 +1,4 @@
-import { Box, Flex, SimpleGrid, useColorModeValue, Stack, Link, Heading,Image,Text, Divider } from "@chakra-ui/react"
+import { Box, Flex, SimpleGrid,  Stack, Link, Heading,Image,Text, Divider } from "@chakra-ui/react"
 import { Container } from "@chakra-ui/react"
 import { grey, yellow } from "@mui/material/colors"
 
@@ -41,9 +41,8 @@ const footer = () => {
          
           <Stack align={'flex-start'} w={"350px"} marginLeft={"220px"} >
             <Heading as='h4' size='md' fontSize={14}>CONTACT US</Heading>
-            <p style={{fontSize:"13px"}}>WhatsApp us : 70003 70003</p>
+            <p style={{fontSize:"13px"}}>WhatsApp us : <span className='side-color'>70003 70003 </span></p>
             <br />
-            <p style={{fontSize:"13px"}}>Call Us : 1800 890 1222</p>
             <p style={{fontSize:"13px"}}>8:00 AM to 8:00 PM, 365 days</p>
             <br />
             <p style={{fontSize:"13px"}}>Please note that you are accessing the BETA</p>
@@ -78,7 +77,6 @@ const footer = () => {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}
         >
-        
         <Text>Best viewed on Microsoft Edge 81+, Mozilla Firefox 75+, Safari 5.1.5+, Google Chrome 80</Text>
             </Container>
         </Box>

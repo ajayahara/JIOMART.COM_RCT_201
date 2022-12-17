@@ -11,7 +11,7 @@ import play from "../Resources/play.png"
 const Sidebar = ({sidebar,showSidebar}) => {
     
   return (
-    <div>
+    <Box zIndex={999}>
          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <div className='navbar-toggle'>
@@ -61,8 +61,8 @@ const Sidebar = ({sidebar,showSidebar}) => {
               <hr />
               <div id="side-cont">
               <h3 style={{fontWeight:800}}>CONTACT US</h3>
-              <p>WhatsApp us : 70003 70003</p>
-              <p>Call Us : 1800 890 1222</p>
+              <p>WhatsApp us:<span className='side-color'>70003 70003 </span></p>
+              <p>Call Us : <span className='side-color'>1800 890 1222</span></p>
               <p>8:00 AM to 8:00 PM, 365 days</p>
               <p>Please note that you are accessing the BETA Version of www.jiomart.com</p>
               <p>Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the beta website, please email us on cs@jiomart.com</p>
@@ -78,7 +78,7 @@ const Sidebar = ({sidebar,showSidebar}) => {
           </ul>
           
         </nav>
-    </div>
+    </Box>
   )
 }
 
