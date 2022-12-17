@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import logo from "../Resources/sslogo.png"
 import './Navbar.css';
-import { IconContext } from 'react-icons';
+// import { IconContext } from 'react-icons';
 import { Box,Flex,Image,SimpleGrid,Stack,InputGroup,InputLeftElement} from '@chakra-ui/react';
 import Sidebar from './sidebar';
 import { Input } from '@chakra-ui/react'
@@ -24,7 +24,7 @@ function Navbar() {
           {/* fbars icons for side bar */}
         <Box className='sideup'>
         <Box  className='menu-bars' >
-        <FaIcons.FaBars onClick={showSidebar} color='white' mt={"5px"}/>
+        <FaIcons.FaBars onClick={showSidebar} color='white' mt={"5px"} pt={"5px"}/>
           </Box>
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar}/> 
@@ -53,7 +53,7 @@ function Navbar() {
  
  
 </Box>
-{/* <ul>
+<ul>
   <li><a href="#">Home</a></li>
   <li>
     <a href="#">Language </a>
@@ -65,7 +65,7 @@ function Navbar() {
     </li>
     <li><a href="#">About Us</a></li>
     <li><a href="#">contact Us</a></li>
- </ul>  */}
+ </ul> 
 
  
 

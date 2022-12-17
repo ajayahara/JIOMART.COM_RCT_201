@@ -1,0 +1,10 @@
+#trending:hover{
+    box-shadow: rgba(5, 242, 187, 0.3) 0px 20px ;
+}
+/* #photo{
+
+} */
+#photo:hover{
+    margin-top: "200px";
+    transform: scale(1.2); 
+}
