@@ -1,8 +1,7 @@
-
-
-import './App.css';
-import BeverageProducts from './Pages/BevverageProducts';
-import ElectronicProducts from './Pages/ElectronicProducts';
+import "./App.css";
+import BeverageProducts from "./Pages/BevverageProducts";
+import ElectronicProducts from "./Pages/ElectronicProducts";
+import FruitsAndVegetables from "./Pages/FruitsAndVegetables";
 // import Products from './Pages/BevverageProducts';
 
 //import Nav from './Pages/Navbar';
@@ -12,10 +11,10 @@ function App() {
     <div className="App">
       {/* <Nav /> */}
       {/* <BeverageProducts /> */}
-      <ElectronicProducts />
+      {/* <ElectronicProducts /> */}
+      <FruitsAndVegetables />
     </div>
   );
 }
 
 export default App;
-
