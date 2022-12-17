@@ -1,0 +1,60 @@
+.Address{
+    width: 100%;
+}
+.Address>div:nth-child(2){
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Address>div:nth-child(2)>div:nth-child(1){
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+.Address>div:nth-child(3){
+    width: 90%;
+    margin: auto;
+    padding:  20px;
+    display: flex;
+    gap: 20px;
+}
+.Address>div:nth-child(3)>div:nth-child(1){
+    width: 60%;
+}
+.Address>div:nth-child(3)>div:nth-child(2){
+    width: 40%;
+}
+.PaymentButton{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    margin: 0px 20px;
+    box-sizing: border-box;
+}
+.PaymentButton button{
+    width: 50%;
+    color: white;
+    font-size: .9rem;
+    padding: 10px 30px;
+    background-color:
+    #008ecc;
+    border: none;
+    border-radius: 5px;
+}
+ .basket{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 15px;
+}
+.basket>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    font-size:18px;
+    font-weight: bold;
+}
+.basket>div:nth-child(1)>div>span{
+    font-size: 16px;
+    font-weight: lighter;
+    color: gray;
+}

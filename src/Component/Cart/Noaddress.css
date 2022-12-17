@@ -1,0 +1,15 @@
+.NoAddress{
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 20px auto;
+}
+.NoAddress>button{
+    border: 3px solid blue;
+    background-color: none;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: blue;
+}
