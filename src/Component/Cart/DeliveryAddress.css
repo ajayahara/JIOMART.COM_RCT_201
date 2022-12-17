@@ -1,0 +1,42 @@
+.Delivery{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom: 20px;
+}
+.Delivery>div:nth-child(1){
+font-size: 1.2rem;
+font-weight: bold;
+}
+.Delivery>div:nth-child(2){
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.Delivery>div>div:nth-child(1){
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 10px;
+    background: #f5f5f5;
+}
+.Delivery input{
+    width: 20px;
+}
+
+.button>button{
+    display: block;
+    color: white;
+    width: 80%;
+    height: 50px;
+    font-size: .9rem;
+    background-color:
+    #008ecc;
+    border: none;
+    border-radius: 5px;
+}
+.button{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}

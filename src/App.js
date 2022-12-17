@@ -1,4 +1,3 @@
-
 import './App.css';
 import Home from './Component/Home';
 // import Footer from './Pages/footer';
