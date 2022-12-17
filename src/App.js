@@ -8,8 +8,8 @@ import Nav from './Pages/Navbar';
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Home/>
+      {/* <Nav />
+      <Home/> */}
       {/* <Footer/> */}
     </div>
   );
