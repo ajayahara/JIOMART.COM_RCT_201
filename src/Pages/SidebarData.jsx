@@ -1,54 +1,59 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
 
-// export const SidebarData = [
-//   {
-//     title: 'Home',
-  
-//     icon: <AiIcons.AiFillHome />,
-//     cName: 'nav-text'
-//   },
-//   {
-//     title: 'Reports',
+
+export const SidebarData = [
+  {
+    title: 'Home',
+    cName: 'nav-text'
+  },
+  {
+    title: 'Shops by Category',
     
-//     icon: <IoIcons.IoIosPaper />,
-//     cName: 'nav-text'
-//   },
-//   {
-//     title: 'Products',
+    
+    cName: 'nav-text'
+  },
+  {
+    title: 'My List',
    
-//     icon: <FaIcons.FaCartPlus />,
-//     cName: 'nav-text'
-//   },
-//   {
-//     title: 'Team',
+   
+    cName: 'nav-text'
+  },
+  {
+    title: 'JioMart Wallet',
     
-//     icon: <IoIcons.IoMdPeople />,
-//     cName: 'nav-text'
-//   },
-//   {
-//     title: 'Messages',
+   
+    cName: 'nav-text'
+  },
+  {
+    title: 'JioMart Gift Store',
     
-//     icon: <FaIcons.FaEnvelopeOpenText />,
-//     cName: 'nav-text'
-//   },
-//   {
-//     title: 'Support',
+   
+    cName: 'nav-text'
+  },
+  {
+    title: 'JioMart Gift Card',
   
-//     icon: <IoIcons.IoMdHelpCircle />,
-//     cName: 'nav-text'
-//   }
-// ];import React from 'react'
+    
+    cName: 'nav-text'
+  },
+  {
+    title: 'GoGreen with JioMart',
+    
+   
+    cName: 'nav-text'
+  },
+  {
+    title: 'Coupon Store',
+    
+   
+    cName: 'nav-text'
+  },
+  {
+    title: 'All Offers',
+    
+   
+    cName: 'nav-text'
+  }
+];
 
-const SidebarData = () => {
-  return (
-    <div>
-    <button>Account</button>
-<button>Orders</button>
-</div>
-  )
-}
 
 export default SidebarData
