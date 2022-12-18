@@ -3,6 +3,21 @@ import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { Spinner, Alert, AlertIcon } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  getElectronicsError,
+  getElectronicsRequest,
+  getElectronicsSuccess,
+} from "../redux/electronics/action";
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
 
 const getData = () => {
   return axios.get("https://kiwi-discovered-pyjama.glitch.me/electronics");
@@ -31,38 +46,47 @@ const filterByCategory = (param) => {
 };
 
 const ElectronicProducts = () => {
-  const [list, setList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [filterData, setFilterData] = useState(["Phone", "Watch"]);
-
+  // const [list, setList] = useState([]);
+  const list = useSelector((store) => store.ElectronicsReducer.list);
+  // const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector((store) => store.ElectronicsReducer.isLoading);
+  const filterData = useSelector(
+    (store) => store.ElectronicsReducer.filterData
+  );
+  // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleGetData = () => {
-    setIsLoading(true);
+    dispatch(getElectronicsRequest());
     getData()
       .then((res) => {
-        setIsLoading(false);
-        setList(res.data);
+        dispatch(getElectronicsSuccess(res.data));
+        // setList(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => dispatch(getElectronicsError()));
   };
 
   const handleSortByAsc = () => {
-    setIsLoading(true);
+    dispatch(getElectronicsRequest());
     sortDataByAsc().then((res) => {
-      setIsLoading(false);
-      setList(res.data);
+      dispatch(getElectronicsSuccess(res.data));
+      // setList(res.data);
     });
   };
 
   const handlesortByDesc = () => {
-    setIsLoading(true);
+    dispatch(getElectronicsRequest());
     sortDataByDesc().then((res) => {
-      setIsLoading(false);
-      setList(res.data);
+      dispatch(getElectronicsSuccess(res.data));
+      // setList(res.data);
     });
   };
 
   const handleFilterData = (item) => {
-    filterByCategory(item).then((res) => setList(res.data));
+    dispatch(getElectronicsRequest());
+    filterByCategory(item).then((res) =>
+      dispatch(getElectronicsSuccess(res.data))
+    );
   };
 
   const resetFilters = () => {
@@ -74,6 +98,15 @@ const ElectronicProducts = () => {
       alert("Item Added Successfully to the cart");
     });
   };
+
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      navigate("/indivisualPage")
+    );
+  };
+
   useEffect(() => {
     handleGetData();
   }, []);
@@ -129,7 +162,13 @@ const ElectronicProducts = () => {
           list?.map((item, index) => {
             return (
               <div key={index} className="singleProduct">
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  onClick={() => {
+                    handleCurrentData(item);
+                  }}
+                />
                 <h3>{item.name}</h3>
                 <p>M.R.P : ₹ {item.price}</p>
                 <button

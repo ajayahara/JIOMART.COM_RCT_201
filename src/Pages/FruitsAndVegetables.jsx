@@ -3,6 +3,20 @@ import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { Spinner, Alert, AlertIcon } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getGroceriesRequest,
+  getGrocerriesFailure,
+  getGrocerriesSuccess,
+} from "../redux/groceries/action";
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
 
 const getData = () => {
   return axios.get(
@@ -33,38 +47,53 @@ const filterByCategory = (param) => {
 };
 
 const FruitsAndVegetables = () => {
-  const [list, setList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [filterData, setFilterData] = useState(["Dried/Powder", "Fresh"]);
+  // const [list, setList] = useState([]);
+  const list = useSelector((store) => store.GroceriesReducer.list);
+  // const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector((store) => store.GroceriesReducer.isLoading);
+  const filterData = useSelector(
+    (store) => store.GroceriesReducer.filterData
+  );
+  // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleGetData = () => {
-    setIsLoading(true);
+    dispatch(getGroceriesRequest());
     getData()
       .then((res) => {
-        setIsLoading(false);
-        setList(res.data);
+        // setIsLoading(false);
+        // setList(res.data);
+        dispatch(getGrocerriesSuccess(res.data));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => dispatch(getGrocerriesFailure()));
   };
 
   const handleSortByAsc = () => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    dispatch(getGroceriesRequest());
     sortDataByAsc().then((res) => {
-      setIsLoading(false);
-      setList(res.data);
+      // setIsLoading(false);
+      // setList(res.data);
+      dispatch(getGrocerriesSuccess(res.data));
     });
   };
 
   const handlesortByDesc = () => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    dispatch(getGroceriesRequest());
     sortDataByDesc().then((res) => {
-      setIsLoading(false);
-      setList(res.data);
+      // setIsLoading(false);
+      // setList(res.data);
+      dispatch(getGrocerriesSuccess(res.data));
     });
   };
 
   const handleFilterData = (item) => {
-    filterByCategory(item).then((res) => setList(res.data));
+    dispatch(getGroceriesRequest());
+    filterByCategory(item).then((res) =>
+      dispatch(getGrocerriesSuccess(res.data))
+    );
   };
 
   const resetFilters = () => {
@@ -76,6 +105,15 @@ const FruitsAndVegetables = () => {
       alert("Item Added Successfully to the cart");
     });
   };
+
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      navigate("/indivisualPage")
+    );
+  };
+
   useEffect(() => {
     handleGetData();
   }, []);
@@ -131,7 +169,13 @@ const FruitsAndVegetables = () => {
           list?.map((item, index) => {
             return (
               <div key={index} className="singleProduct">
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  onClick={() => {
+                    handleCurrentData(item);
+                  }}
+                />
                 <h3>{item.name}</h3>
                 <p>M.R.P : ₹ {item.price}</p>
                 <button

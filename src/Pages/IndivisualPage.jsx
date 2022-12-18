@@ -135,7 +135,7 @@ const IndivisualPage = () => {
         </div>
         <div className="right-data">
           <h3 className="product__name space_top_bottom">
-            {data.title || data.name}
+            <b>{data.title || data.name}</b>
           </h3>
           <h4 className="product__name-light space_top_bottom">FINISH</h4>
 
@@ -280,7 +280,7 @@ const IndivisualPage = () => {
           })}
       </Carousel>
       ;
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
