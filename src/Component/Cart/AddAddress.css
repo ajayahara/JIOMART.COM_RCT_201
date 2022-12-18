@@ -8,7 +8,7 @@
     position: absolute;
     top: 0px;
     background-color: whitesmoke;
-    
+    position: fixed;
 }
 .inactive{
     margin-left: 100%;

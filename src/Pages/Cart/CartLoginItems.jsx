@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Cart/CartLoginItems.css"
 import { CartItem } from '../../Component/Cart/CartItem'
 import { Applycoupon } from '../../Component/Cart/Applycoupon'
 import { PaymentDetils } from '../../Component/Cart/PaymentDetils'
+import {CartLogin} from  "./CartLogin"
+import axios from 'axios'
+import { useNavigate } from 'react-router'
 export const CartLoginItems = () => {
-  return (
+    let navigate=useNavigate()
+    let [cart,setCart]=useState([])
+    useEffect(()=>{
+        axios.get("https://kiwi-discovered-pyjama.glitch.me/cart").then((r)=>{
+            setCart(r.data);
+        })
+    })
+  return (cart.length===0)?<CartLogin/>:(
     <div className='CartLoginitems' >
         <div>
             <div>
@@ -19,7 +29,9 @@ export const CartLoginItems = () => {
                             <div>₹129.00</div>
                         </div>
                         <div>
-                            <CartItem/>
+                           {cart.length&&cart.map((el)=>{
+                                return  <CartItem key={el.id} {...el}/>
+                            })}
                         </div>
                     </div>
                     <div>
@@ -34,6 +46,7 @@ export const CartLoginItems = () => {
                     <PaymentDetils/>
                     <div className='PaymentButton'><button onClick={()=>{
                         // need to update
+                        navigate("/")
                     }}>Place Order</button></div>
                 </div>
             </div>

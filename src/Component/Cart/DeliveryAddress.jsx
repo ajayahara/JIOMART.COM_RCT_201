@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Cart/DeliveryAddress.css"
-export const DeliveryAddress = () => {
+export const DeliveryAddress = ({ad,setActive}) => {
   return (
     <div className='Delivery'>
         <div>Select Delivery Address</div>
@@ -10,18 +10,20 @@ export const DeliveryAddress = () => {
                 <input type="radio" checked/>
             </div>
             <div>
-                <p>Ajaya</p>
-                <p>14</p>
-                <p>4</p>
-                <p>6</p>
-                <p>Ajaya</p>
-                <p>krushnapalli</p>
-                <p>krushnapalli</p>
-                <p>+917684889098</p>
+                <p>{ad.i}</p>
+                <p>{ad.a}</p>
+                <p>{ad.b}</p>
+                <p>{ad.c}</p>
+                <p>{ad.d}</p>
+                <p>{ad.e}</p>
+                <p>{ad.f}</p>
+                <p>{ad.g}</p>
             </div>
            </div>
           <div className='button'>
-          <button>Change Address</button>
+          <button onClick={()=>{
+            setActive(true)
+          }}>Change Address</button>
           </div>
         </div>
     </div>

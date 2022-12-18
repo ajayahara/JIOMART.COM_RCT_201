@@ -15,7 +15,6 @@ function App() {
       {/* <Nav />
       <AllRoutes />
       <Footer /> */}
-
     </div>
   );
 }
