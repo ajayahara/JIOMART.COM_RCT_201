@@ -12,4 +12,8 @@ const getAuthError = () => {
   return { type: types.GET_AUTH_FAILURE };
 };
 
+const getAuthLogout = () => {
+  return { type: types.GET_AUTH_LOGOUT };
+};
+
 export { getAuthError, getAuthRequest, getAuthSuccess };

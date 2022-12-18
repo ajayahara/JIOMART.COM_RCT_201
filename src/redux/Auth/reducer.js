@@ -19,6 +19,8 @@ const reducer = (state = initState, action) => {
       return { ...state, isLoading: false, token: payload, isAuth: true };
     case types.GET_AUTH_FAILURE:
       return { ...state, isError: true, isAuth: false };
+    case types.GET_AUTH_LOGOUT:
+      return { ...state, isAuth: false, token: null };
     default:
       return state;
   }
