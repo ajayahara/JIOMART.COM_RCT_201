@@ -1,4 +1,5 @@
 import './App.css';
+<<<<<<< HEAD
 import Home from './Component/Home';
 import IndivisualPage from './Pages/IndivisualPage';
 
@@ -17,6 +18,13 @@ function App() {
       {/* <Footer/> */}
       {/* <IndivisualPage /> */}
       {/* <Navbar /> */}
+=======
+import Login from './Pages/login';
+function App() {
+  return (
+    <div className="App">
+      <Login />
+>>>>>>> ce307e228988c4c58ff3826e6fc1196355796119
     </div>
   );
 }
