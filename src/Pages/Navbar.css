@@ -213,20 +213,3 @@ ul li a{
   margin-left: 160px;
 }
 
-ul li ul.dropdown li {
-  display:block;
-}
-
-ul li ul.dropdown {
-  width:100%;
-  background: #22438C;
-  position: absolute;
-  z-index: 999;
-  display: none;
-}
-ul li a:hover{
-  background: #112C66;
-}
-ul li:hover ul.dropdown{
-  display:block;
-}
