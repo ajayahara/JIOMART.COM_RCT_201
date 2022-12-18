@@ -1,10 +1,15 @@
 #trending:hover{
-    box-shadow: rgba(5, 242, 187, 0.3) 0px 20px ;
+    box-shadow: rgba(241, 235, 235, 0.932) 0px 20px ;
+    
 }
 /* #photo{
 
 } */
 #photo:hover{
     margin-top: "200px";
-    transform: scale(1.2); 
+    transform: scale(0.2); 
+    width:"600px";
+}
+splide{
+    background-color: white;
 }

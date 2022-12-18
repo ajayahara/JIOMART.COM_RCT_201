@@ -16,19 +16,19 @@ const Singleslider = () => {
     },[])
    
   return (
-    <div>
+    <div bg={"white"}>
      <Splide aria-label="My Favorite Images" options={{
         perPage: 2,
-        height: '130px',
+        height: '140px',
         rewind: true,
-        gap: '25px'
+        gap: '0px'
        
       }}>
     {
    single.length>0 && single.map(({img},index)=>(
     <SplideSlide key={index}>
     
-    <Image w={"180%"}src={img} alt="Image1" h={"100px"} />
+    <Image w={"96%"}src={img} alt="Image1" h={"90px"} mt={"18px"} ml={"20px"} mr={"20px"}/>
    
   </SplideSlide>
    ))
