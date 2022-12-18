@@ -1,17 +1,9 @@
 import './App.css';
-import Home from './Component/Home';
-import IndivisualPage from './Pages/IndivisualPage';
-// import Footer from './Pages/footer';
-
-// import Nav from './Pages/Navbar';
-
+import Login from './Pages/login';
 function App() {
   return (
     <div className="App">
-      {/* <Nav />
-      <Home/> */}
-      {/* <Footer/> */}
-      {/* <IndivisualPage /> */}
+      <Login />
     </div>
   );
 }
