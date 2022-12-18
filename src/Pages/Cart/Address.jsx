@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AddressItem } from '../../Component/Cart/AddressItem'
 import { CartNav } from '../../Component/Cart/CartNav'
 import { DeliveryAddress } from '../../Component/Cart/DeliveryAddress'
@@ -7,6 +7,7 @@ import { NoAddress } from '../../Component/Cart/NoAddress'
 import { PaymentDetils } from '../../Component/Cart/PaymentDetils'
 import "../Cart/Address.css"
 export const Address = () => {
+  let [active,setActive]=useState(false)
   return (
     <div className='Address'>
       <CartNav />
@@ -16,7 +17,7 @@ export const Address = () => {
       </div>
       <div>
         <div>
-          <NoAddress/>
+          <NoAddress setActive={setActive} active={active}/>
           <div className='basket'>
             <div>
               <div>Groceries Basket <span>(1 items)</span></div>
@@ -32,7 +33,7 @@ export const Address = () => {
           <div className='PaymentButton'><button>Make Payment</button></div>
         </div>
       </div>
-      <AddAddress/>
+      <AddAddress active={active} setActive={setActive}/>
     </div>
   )
 }

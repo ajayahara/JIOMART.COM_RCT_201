@@ -5,10 +5,18 @@
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow-y: scroll;
-    margin-left: 75%;
     position: absolute;
-    top: 70px;
+    top: 0px;
     background-color: whitesmoke;
+    
+}
+.inactive{
+    margin-left: 100%;
+    transition:  1s;
+}
+.active{
+    margin-left: 75%;
+    transition:  1s;
 }
 /* .container{
     width:100%;

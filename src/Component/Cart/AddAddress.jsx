@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../Cart/AddAddress.css"
 
-export const AddAddress = () => {
+export const AddAddress = ({active,setActive}) => {
     return (
-        <div className='AddAddress active'>
+        <div className={`AddAddress ${active?"active":"inactive"}`}>
             <div>
                 <div>
                     Add Address
                 </div>
-                <img src="https://img.icons8.com/material-sharp/512/multiply.png" alt="" />
+                <img src="https://img.icons8.com/material-sharp/512/multiply.png" alt="" onClick={()=>{
+                    setActive(false)
+                }} />
             </div>
           <div className='container'>
           <div className='Input-element global'>
@@ -16,14 +18,14 @@ export const AddAddress = () => {
                     Address Details
                 </div>
                 <div>
-                    <input placeholder='Pin Code' />
-                    <input placeholder='Flat/House No.' />
-                    <input placeholder='Floor No.' />
-                    <input placeholder='Tower No.' />
-                    <input placeholder='Bulding/Apartment Name' />
-                    <input placeholder='Address' />
-                    <input placeholder='Landmark/Area' />
-                    <input placeholder='City/State' />
+                    <input placeholder='Pin Code' required />
+                    <input placeholder='Flat/House No.'   required/>
+                    <input placeholder='Floor No.' required />
+                    <input placeholder='Tower No.'  required/>
+                    <input placeholder='Bulding/Apartment Name'  required/>
+                    <input placeholder='Address'  required/>
+                    <input placeholder='Landmark/Area'  required/>
+                    <input placeholder='City/State'  required/>
                 </div>
             </div>
             <div className='contact-details global'>
@@ -31,8 +33,8 @@ export const AddAddress = () => {
                     Contact Details
                 </div>
                 <div>
-                    <input type="text" placeholder='Name' />
-                    <input type="number" placeholder='PhoneNo' />
+                    <input type="text" placeholder='Name'  required/>
+                    <input type="number" placeholder='PhoneNo' required/>
 
                 </div>
             </div>
