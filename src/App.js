@@ -12,7 +12,9 @@ import Login from './Pages/login';
 function App() {
   return (
     <div className="App">
-      <Login />
+      {/* <Nav />
+      <AllRoutes />
+      <Footer /> */}
 
     </div>
   );

@@ -10,7 +10,7 @@ const footer = () => {
   return (
     <Box 
          style={{backgroundColor:"rgba(21, 27, 57, 0.08)"}}
-      color={"grey.200"} w={"100vw"} pos={'relative'} bottom={0} m={"auto"}>
+      color={"grey.200"} w={"100%"} pos={'relative'} bottom={0} m={"auto"}>
       <Container as={Stack} maxW={'6xl'} py={14} >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={29}  >
           <Stack align={'flex-start'} marginRight={"150px"}>
