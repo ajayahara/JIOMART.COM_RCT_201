@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
   BeverageReducer,
   ElectronicsReducer,
   GroceriesReducer,
+  AuthReducer,
 });
 
 const store = legacy_createStore(
