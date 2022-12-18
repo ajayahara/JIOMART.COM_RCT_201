@@ -18,12 +18,17 @@ import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
-
+  const val = JSON.parse(localStorage.getItem("Details"));
+  const token = useSelector((store) => store.AuthReducer.token);
+  console.log(token);
+  const [text, setText] = useState("Sign in / Sign up");
+  // setText(val.firstName || "Sign in / Sign up");
   return (
     <SimpleGrid coloums={10}>
       <Box>
@@ -63,18 +68,16 @@ function Navbar() {
           <Flex color={"white"} ml={"30px"} gap={2}>
             <Person2RoundedIcon />
             <p style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
-              Sign in / Sign up
+              {token}
             </p>
-            <Flex ml={"30px"} gap={2} style={{cursor:"pointer"}} >
-              <ShoppingCartRoundedIcon onClick={()=> navigate('/cart')}/>
-              <p onClick={()=> navigate('/cart')}>Cart</p>
+            <Flex ml={"30px"} gap={2} style={{ cursor: "pointer" }}>
+              <ShoppingCartRoundedIcon onClick={() => navigate("/cart")} />
+              <p onClick={() => navigate("/cart")}>Cart</p>
             </Flex>
           </Flex>
         </Flex>
       </Box>
-      <Box>
-        {/* <Navlist /> */}
-      </Box>
+      <Box>{/* <Navlist /> */}</Box>
     </SimpleGrid>
   );
 }
