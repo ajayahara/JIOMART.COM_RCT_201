@@ -12,6 +12,7 @@ import ProdItems from '../Pages/ProdItems'
 import Singleslider from '../Pages/Singleslider'
 
 
+
 const Home = () => {
 
  
@@ -42,7 +43,7 @@ const Home = () => {
       </Center>
       <Box>
       <Text textAlign={"left"} ml={"40px"} fontSize={"20px"} fontWeight={600} mt={"9px"} >Trending Brands</Text>
-        <Imagesslider/>
+        <Imagesslider />
       </Box>
       <Box>
       <Text textAlign={"left"} ml={"40px"} fontSize={"20px"} fontWeight={600} mt={"9px"} >Shop From Top Categories</Text>
@@ -68,7 +69,7 @@ const Home = () => {
       </Box>
       <Box>
       <Text textAlign={"left"} ml={"40px"} fontSize={"25px"} fontWeight= {'bold'}>Top Deals</Text>
-        <Prodcustom url="https://kiwi-discovered-pyjama.glitch.me/prod_Phone"/>
+        <Prodcustom  url="https://kiwi-discovered-pyjama.glitch.me/prod_Phone"/>
       </Box>
       <Box>
       <Text textAlign={"left"} ml={"40px"} fontSize={"20px"} fontWeight={600} mt={"9px"} >Top Living Categories</Text>

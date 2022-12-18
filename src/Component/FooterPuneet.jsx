@@ -1,9 +1,9 @@
-import  Styles  from "./Styles.module.css";
+import "./Styles.css";
 
 const Footer = () =>{
 
     return (
-        <div className={Styles.footer}>
+        <div className='footer'>
             <div>
                 <div>
                     <h4>MOST POPULAR CATEGORIES</h4>

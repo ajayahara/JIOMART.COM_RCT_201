@@ -40,7 +40,7 @@ export const Address = () => {
   })
   return (
     <div className='Address'>
-      <CartNav />
+      <br />
       <div>
         <div>Order Summary</div>
         <div></div>
@@ -64,7 +64,7 @@ export const Address = () => {
         </div>
         <div>
           <PaymentDetils/>
-          <div className='PaymentButton'><button>Make Payment</button></div>
+          <div className='PaymentButton'><button onClick={()=> navigate('/payment')}>Make Payment</button></div>
         </div>
       </div>
       <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} />

@@ -24,7 +24,7 @@ const Prodcustom = ({url}) => {
 
     }
   return (
-    <div className='container' >
+    <div className='cont' >
     
     
      <Slider {...settings}>

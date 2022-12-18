@@ -7,7 +7,6 @@ import { AiOutlineFacebook } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link, Navigate } from "react-router-dom";
-import Footer from './footer'
 import axios from "axios";
 const CurrentIndivisualData = (payload) => {
   return axios.put(
@@ -279,7 +278,7 @@ const IndivisualPage = () => {
           })}
       </Carousel>
       ;
-      {/* <Footer /> */}
+      
     </div>
   );
 };

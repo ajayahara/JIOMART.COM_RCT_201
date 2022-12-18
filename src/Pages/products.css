@@ -1,7 +1,6 @@
 .productPage{
     width: 100vw;
     /* border: 1px solid black; */
-    height: 100vh;
     display: flex;
     text-align: center;
     margin: auto;

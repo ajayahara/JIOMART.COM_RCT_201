@@ -5,7 +5,7 @@
     #008ecc;
     display: flex;
     align-items: center;
-   
+   position:fixed;
 }
 .cartnav>div{
     margin-left: 10%;

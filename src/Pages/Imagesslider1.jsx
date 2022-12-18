@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Image, Text } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 
 import "./imgslid.css"
@@ -10,6 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Imagesslidershop = ({url}) => {
+    const navigate=useNavigate()
     const [cat, setCat] = useState([])
     useEffect(() => {
         axios.get(url)
@@ -23,8 +25,8 @@ const Imagesslidershop = ({url}) => {
     
          }
   return (
-    <div>
-        <Box className="container" mt={"25px"} >
+    <div onClick={()=>navigate('/electronicProducts')}>
+        <Box className="cont" mt={"25px"} >
              
         <Slider  {...settings}>
         {

@@ -3,7 +3,7 @@ import "../Cart/AddAddress.css"
 
 export const AddAddress = ({active,setActive,onchange,onsubmit}) => {
     return (
-        <div className={`AddAddress ${active?"active":"inactive"}`}>
+        <div className={`AddAddress ${active?"activeer":"inactiveer"}`}>
             <div>
                 <div>
                     Add Address

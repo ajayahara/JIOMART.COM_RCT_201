@@ -46,7 +46,7 @@ export const CartLoginItems = () => {
                     <PaymentDetils/>
                     <div className='PaymentButton'><button onClick={()=>{
                         // need to update
-                        navigate("/")
+                        navigate("/address")
                     }}>Place Order</button></div>
                 </div>
             </div>

@@ -1,29 +1,28 @@
 import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import "./Styles.css";
+import {useNavigate} from 'react-router-dom'
 
 const Navlist = () => {
+  const navigate=useNavigate()
   return (
     <div className="navlist">
       <ul>
         <li>
           Groceries
           <ChevronDownIcon />
-          <Link >
             <ul className='dropdown'>
-              <li>Fruits & Vegetables</li>
+              <li onClick={()=>navigate('/fruitsAndVegetables')}>Fruits & Vegetables</li>
               <li>Dairy & Bakery</li>
               <li>Staples</li>
               <li>Snacks & Branded foods</li>
-              <li>Beverages</li>
+              <li onClick={()=>navigate('/beverages')}>Beverages</li>
               <li>Personal Care</li>
               <li>Home Care</li>
               <li>Beauty</li>
             </ul>
-          </Link>
         </li>
         <li>
-          <Link >
             Premium Fruits
             <ChevronDownIcon />
             <ul className="dropdown">
@@ -36,16 +35,14 @@ const Navlist = () => {
               <li>Exotic Fruits</li>
               <li>Seasonal & Minor Fruits</li>
             </ul>
-          </Link>
         </li>
         <li>
-          <Link >
             Home & Kitchen
             <ChevronDownIcon />
             <ul className="dropdown">
               <li>Kitchenware</li>
               <li>Dining</li>
-              <li>Electricals</li>
+              <li >Electricals</li>
               <li>Furniture</li>
               <li>Home Appliances</li>
               <li>Toys & Games</li>
@@ -54,7 +51,6 @@ const Navlist = () => {
               <li>Garden</li>
               <li>Pooja Needs</li>
             </ul>
-          </Link>
         </li>
         <li>
           <Link>
@@ -75,7 +71,7 @@ const Navlist = () => {
             Electronics
             <ChevronDownIcon />
             <ul className="dropdown">
-              <li>Mobiles & Tablets</li>
+              <li onClick={()=>navigate('/electronicProducts')}>Mobiles & Tablets</li>
               <li>TV & speakers</li>
               <li>Home Appliance</li>
               <li>Camera</li>

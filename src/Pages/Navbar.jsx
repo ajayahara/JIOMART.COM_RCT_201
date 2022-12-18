@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import logo from "../Resources/smstr.png";
 import "./Navbar.css";
-// import { IconContext } from 'react-icons';
+import { IconContext } from 'react-icons';
 import {
   Box,
   Flex,
@@ -39,14 +39,14 @@ function Navbar() {
               <FaIcons.FaBars
                 onClick={showSidebar}
                 color="white"
-                mt={"5px"}
-                pt={"5px"}
+                // mt={"5px"}
+                // pt={"5px"}
               />
             </Box>
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
           {/* other items navbar */}
-          <Image src={logo} w={"180px"} h={"140px"} ml={"260px"} />
+          <Image src={logo} w={"180px"} h={"140px"} ml={"160px"} onClick={()=>navigate('/')} />
           <Stack spacing={4}>
             <InputGroup>
               <Input

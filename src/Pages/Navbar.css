@@ -11,7 +11,7 @@
 }
 
 .menu-bars {
-  margin-left: 10rem;
+  /* margin-left: 10rem; */
   align-items: left;
   font-size: 1.5rem;
   background: none;
@@ -101,7 +101,8 @@ span {
 .sideup{
   width:30px;
   height:50px;
-  
+  margin-left:50px;
+  padding:12px;
 }
 .menu-bars2>#acc{
   margin-right: 19rem;

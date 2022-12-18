@@ -10,11 +10,11 @@
     background-color: whitesmoke;
     position: fixed;
 }
-.inactive{
+.inactiveer{
     margin-left: 100%;
     transition:  1s;
 }
-.active{
+.activeer{
     margin-left: 75%;
     transition:  1s;
 }
