@@ -18,7 +18,7 @@ const Home = () => {
  
   return (
     <Box >
-      <Autocrausel/>
+      {/* <Autocrausel/> */}
       <Center>
       <Flex direction={"column"} pt={"10px"} w={"99%"}>
        
@@ -27,6 +27,7 @@ const Home = () => {
        
       </Flex>
       </Center>
+      <Autocrausel/>
       <Box mt=
     {"10px"} w={"99%"}>
       <Singleslider/>

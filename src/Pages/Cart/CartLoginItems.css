@@ -1,6 +1,7 @@
 .CartLoginitems{
-    width: 100%;
+    width: 95%;
     background-color: #f6f6f7;
+    box-sizing: border-box;
 }
 .CartLoginitems>div{
     width: 90%;

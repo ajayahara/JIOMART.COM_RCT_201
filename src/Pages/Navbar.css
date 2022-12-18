@@ -194,23 +194,3 @@ hr{
 .side-color{
   color:#008ecc
 }
-ul{
-  list-style: none;
-  background: #f1f1ea;
-  
-}
-ul li{
-  display: inline-block;
-  position: relative;
- 
-}
-ul li a{
-  display: block;
-  /* padding: 5px 20px; */
-  color:#FFF;
-  text-decoration: none;
-  text-align: center;
-  font-size: 20px;
-  margin-left: 160px;
-}
-

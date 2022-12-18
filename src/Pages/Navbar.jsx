@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
-import logo from "../Resources/sslogo.png";
+import logo from "../Resources/smstr.png";
 import "./Navbar.css";
 // import { IconContext } from 'react-icons';
 import {
@@ -42,7 +42,7 @@ function Navbar() {
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
           {/* other items navbar */}
-          <Image src={logo} w={"120px"} h={"80px"} ml={"260px"} />
+          <Image src={logo} w={"180px"} h={"140px"} ml={"260px"} />
           <Stack spacing={4}>
             <InputGroup>
               <Input
@@ -73,7 +73,7 @@ function Navbar() {
         </Flex>
       </Box>
       <Box>
-        {/* <Navlist /> */}
+        <Navlist />
       </Box>
     </SimpleGrid>
   );

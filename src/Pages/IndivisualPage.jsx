@@ -8,7 +8,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link, Navigate } from "react-router-dom";
 import Footer from './footer'
-
+import axios from "axios";
 const CurrentIndivisualData = (payload) => {
   return axios.put(
     "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
@@ -16,7 +16,6 @@ const CurrentIndivisualData = (payload) => {
   );
 };
 
-import axios from "axios";
 
 const responsive = {
   desktop: {
