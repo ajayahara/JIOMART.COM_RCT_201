@@ -24,10 +24,9 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
-  const val = JSON.parse(localStorage.getItem("Details"));
+  const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer.token);
   console.log(token);
-  const [text, setText] = useState("Sign in / Sign up");
   // setText(val.firstName || "Sign in / Sign up");
   return (
     <SimpleGrid coloums={10}>
@@ -68,7 +67,7 @@ function Navbar() {
           <Flex color={"white"} ml={"30px"} gap={2}>
             <Person2RoundedIcon />
             <p style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
-              {token}
+              {val || "Sign in/ Sign Up"}
             </p>
             <Flex ml={"30px"} gap={2} style={{ cursor: "pointer" }}>
               <ShoppingCartRoundedIcon onClick={() => navigate("/cart")} />
