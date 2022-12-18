@@ -4,8 +4,8 @@ const getAuthRequest = () => {
   return { type: types.GET_AUTH_REQUEST };
 };
 
-const getAuthSuccess = () => {
-  return { type: types.GET_AUTH_SUCCESS };
+const getAuthSuccess = (payload) => {
+  return { type: types.GET_AUTH_SUCCESS, payload };
 };
 
 const getAuthError = () => {
