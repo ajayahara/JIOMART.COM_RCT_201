@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import {Box,Image,Text,Input, Button, InputGroup, InputLeftAddon, useToast, InputRightElement} from "@chakra-ui/react"
 import Navbar from "../Pages/Navbar";
-import footer from "../Pages/footer";
 import Navlist from "./Navlist";
+import { Navigate } from "react-router";
 
 const initMsg = {
   status: false,
@@ -14,39 +14,77 @@ const initMsg = {
 export default function Login(){
   const [msg, setMsg] = useState(initMsg);
   const [phoneNumber, setPhoneNumber] = useState('')
-  const [otp, setOtp] = useState('760714')
+  const [inputOtp, setInputOtp] = useState('')
+  const [otp, setOtp] = useState('767696')
   const [otpRequestSend, setOtpRequestSend] = useState(false);
   const toast = useToast()
+
+
   const handleOtpSend = async () => {
-    setOtpRequestSend(!otpRequestSend);
-    if (parseInt(phoneNumber) > 6700000000 && parseInt(phoneNumber) < 10000000000)
-    {
-      var a = Math.floor(100000 + Math.random() * 900000)
+    if(parseInt(phoneNumber) > 6700000000 && parseInt(phoneNumber) < 10000000000)
+    { 
+     var a = Math.floor(100000 + Math.random() * 900000)
       a = a.toString().substring(0, 6);
       a =  parseInt(a);
       setOtp(a);
-      console.log('Invalid')
+
       { !otpRequestSend && toast({
         title: 'Verification Reminder',
-        description: `"${otp} is your One-Time Password. Please do not share your OTP with anyone. Team Smart Store"`,
+        description: `"${a} is your One-Time Password. Please do not share your OTP with anyone. Team Smart Store"`,
         status: 'success',
         duration: 5000,
         isClosable: true,
+        position:'top'
       })}
       setMsg({ status: false })
-    } 
+      setOtpRequestSend(!otpRequestSend);
+    }
+
     else{
-      console.log('Sucess')
       setMsg({...msg, status:true, notice: "Please enter valid Mobile Number!"})
     }
    
   }
+
+
   const handleNumberChange = ()=>{
-    setOtpRequestSend(!otpRequestSend);
     setPhoneNumber("")
+    setOtpRequestSend(!otpRequestSend);
   }
-  // const 
-console.log(msg);
+  const resetOtp = () =>{
+    var a = Math.floor(100000 + Math.random() * 900000)
+    a = a.toString().substring(0, 6);
+    a =  parseInt(a);
+    setOtp(a);
+     toast({
+      title: 'Verification Reminder',
+      description: `"${a} is your One-Time Password. Please do not share your OTP with anyone. Team Smart Store"`,
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+      position: 'top'
+    })
+    setInputOtp("")
+  }
+    
+  const handleVerify=()=>{
+  
+    if(inputOtp === "")
+    {
+      setMsg({status:true, notice: "Please enter your OTP!"})
+    }
+    else if(inputOtp == otp)
+    {
+      localStorage.setItem("phone", phoneNumber);
+       console.log("Sucess")
+       Navigate('/RegisterForm')
+    }
+    else{
+      setMsg({status:true, notice: "Invalid OTP!"});
+    }
+
+  }
+
 
     return(
         <>
@@ -83,7 +121,7 @@ console.log(msg);
           )}
            </InputGroup>
 
-           {otpRequestSend ? (
+           {!otpRequestSend ? (
           <Box>
             {msg.status ? (
               <Text fontSize="xs" color="crimson">
@@ -92,22 +130,36 @@ console.log(msg);
             ) : null}
             
             </Box>) : <Box>
+            <InputGroup>
             <Input
               mt={'10px'}
               mb={"10px"}
               placeholder="Enter your OTP"
-              // value={inputOtp}
-              // onChange={handleInputOtp}
+              value={inputOtp}
+              onChange={(e) => setInputOtp(e.target.value)}
             />
+            
+            <InputRightElement width="4.5rem" mt={3}>
+              <Button bg='white' size="xs" color='crimson' onClick={()=>handleVerify(otp,inputOtp)}>
+                Verify
+              </Button>
+            </InputRightElement>
+          
+            </InputGroup>
             <Button
               fontSize={"13px"}
               color="#e23911"
               boder="0"
               bg="white"
-              // onClick={resetOtp}
+              onClick={resetOtp}
             >
               Resend OTP
             </Button>
+            {msg.status ? (
+              <Text fontSize="xs" color="crimson">
+                {msg.notice}
+              </Text>
+            ) : null}
 
 
             </Box>
@@ -149,7 +201,6 @@ console.log(msg);
       
         <br />
         <br />
-        <footer/>
     </>
         )
 }
