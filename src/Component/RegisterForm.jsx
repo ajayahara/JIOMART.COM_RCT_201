@@ -56,6 +56,7 @@ const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(initMsg);
    let value = localStorage.getItem("phone");
+   
   const token = useSelector((store) => store.AuthReducer.token);
   const dispatch =useDispatch()
   const { firstName, lastName, email, password1, password2 } = form;
