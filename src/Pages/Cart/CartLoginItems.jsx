@@ -32,7 +32,9 @@ export const CartLoginItems = () => {
                 <div>
                     <Applycoupon/>
                     <PaymentDetils/>
-                    <div className='PaymentButton'><button>Place Order</button></div>
+                    <div className='PaymentButton'><button onClick={()=>{
+                        // need to update
+                    }}>Place Order</button></div>
                 </div>
             </div>
         </div>

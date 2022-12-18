@@ -1,7 +1,7 @@
 import React from 'react'
 import "../Cart/CartItem.css"
 import { AddSubstact } from './AddSubstact'
-export const CartItem = () => {
+export const CartItem = ({}) => {
   return (
     <div className='CartItem'>
         <div>
