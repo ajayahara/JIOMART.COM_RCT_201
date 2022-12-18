@@ -157,10 +157,12 @@ a:hover{
     /* gap:1rem; */
     height: auto;
     object-fit: cover;
+    background-color: #fff;
     margin: 0.7rem;
     border-radius: 10px;
 }
 
 .idvCarousel >img{
     height: 150px;
+    cursor: pointer;
 }

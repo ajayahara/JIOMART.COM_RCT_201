@@ -3,6 +3,15 @@ import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { Spinner, Alert, AlertIcon } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
+
 
 const getData = () => {
   return axios.get("https://kiwi-discovered-pyjama.glitch.me/baverage");
@@ -39,6 +48,7 @@ const BeverageProducts = () => {
     "Cold Drink",
     "Powder",
   ]);
+  const navigate = useNavigate()
 
   const handleGetData = () => {
     setIsLoading(true);
@@ -82,6 +92,14 @@ const BeverageProducts = () => {
       //   </Alert>;
       alert("Item Added Successfully to the cart");
     });
+  };
+
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      navigate('/indivisualPage')
+    );
   };
   useEffect(() => {
     handleGetData();
@@ -140,7 +158,13 @@ const BeverageProducts = () => {
           list?.map((item, index) => {
             return (
               <div key={index} className="singleProduct">
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  onClick={() => {
+                    handleCurrentData(item);
+                  }}
+                />
                 <h3>{item.name}</h3>
                 <p>M.R.P : ₹ {item.price}</p>
                 <button
@@ -155,6 +179,7 @@ const BeverageProducts = () => {
             );
           })}
       </div>
+      <div></div>
     </div>
   );
 };
