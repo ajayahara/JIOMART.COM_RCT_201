@@ -6,6 +6,15 @@ import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link, Navigate } from "react-router-dom";
+import Footer from './footer'
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
 
 import axios from "axios";
 
@@ -51,14 +60,21 @@ const IndivisualPage = () => {
   // const [index4, setIndex4] = useState(3);
   // const [index5, setIndex5] = useState(4);
 
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      handleGetdata()
+    );
+  };
+
   const handleGetdata = () => {
     getData().then((res) => {
-      // console.log(res.data);
       setData(res.data);
     });
     getCarouselData().then((res) => setImgList(res.data));
   };
-  console.log(imgList);
+  console.log(data);
 
   const PostToCart = (item) => {
     AddToCart(item).then((res) => {
@@ -81,45 +97,45 @@ const IndivisualPage = () => {
           <div className="left-carousel">
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
               alt="demo1"
             />
           </div>
           <div className="right-main">
             <img
               style={{ width: "90%" }}
-              src={
-                data.img ||
-                "https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
-              }
-              alt={data.title}
+              src={data.image || data.imgSrc}
+              alt={data.title || data.name}
             />
           </div>
         </div>
         <div className="right-data">
           <h3 className="product__name space_top_bottom">
-            {data.title ||
-              "Finish Dishwasher 'All in 1 Max Powerball' - Lemon 60 Tablets World's No. 1 Dishwashing Brand"}
+            {data.title || data.name}
           </h3>
           <h4 className="product__name-light space_top_bottom">FINISH</h4>
 
@@ -168,7 +184,7 @@ const IndivisualPage = () => {
           <a
             className="btn"
             onClick={() => setDescription(!description)}
-            style={{ marg: "1rem" }}
+            style={{ marginRight: "1re3" }}
           >
             {description ? "Show Less" : "Show More"}
           </a>
@@ -238,7 +254,14 @@ const IndivisualPage = () => {
           imgList?.map((item) => {
             return (
               <div key={item.id} className="smallSpace idvCarousel">
-                <img className="smallSpace" src={item.imgSrc} alt="img" />
+                <img
+                  className="smallSpace"
+                  src={item.imgSrc}
+                  alt="img"
+                  onClick={() => {
+                    handleCurrentData(item);
+                  }}
+                />
                 <p className="smallSpace">
                   <b>{item.title}</b>
                 </p>
@@ -257,6 +280,7 @@ const IndivisualPage = () => {
           })}
       </Carousel>
       ;
+      <Footer />
     </div>
   );
 };
