@@ -12,7 +12,7 @@ export const CartLogin = () => {
                     <div>
                     <img src="https://www.jiomart.com/msassets/images/emptycart.svg" alt="noCartImage" />
                     <p>Your Cart is empty!</p>
-                    <div>Check the items below or <span><Link to="/product"> continue shopping</Link> </span></div>
+                    <div>Check the items below or <span><Link to="/products"> continue shopping</Link> </span></div>
                     </div>
                 </div>
                 <div>
