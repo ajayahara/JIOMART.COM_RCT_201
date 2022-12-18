@@ -4,13 +4,37 @@ import { BsFillBagPlusFill } from "react-icons/bs";
 import { CiTwitter } from "react-icons/ci";
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import axios from "axios";
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+    slidesToSlide: 5, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 564 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+};
 
 const getData = () => {
   return axios.get(
     "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData"
   );
+};
+
+const getCarouselData = () => {
+  return axios.get("https://kiwi-discovered-pyjama.glitch.me/carousel_idvPage");
 };
 
 const AddToCart = (payload) => {
@@ -20,6 +44,7 @@ const AddToCart = (payload) => {
 const IndivisualPage = () => {
   const [description, setDescription] = useState(false);
   const [data, setData] = useState({});
+  const [imgList, setImgList] = useState([]);
   // const [index1, setIndex1] = useState(0);
   // const [index2, setIndex2] = useState(1);
   // const [index3, setIndex3] = useState(2);
@@ -31,8 +56,9 @@ const IndivisualPage = () => {
       // console.log(res.data);
       setData(res.data);
     });
+    getCarouselData().then((res) => setImgList(res.data));
   };
-  console.log(data);
+  console.log(imgList);
 
   const PostToCart = (item) => {
     AddToCart(item).then((res) => {
@@ -136,10 +162,9 @@ const IndivisualPage = () => {
           </div>
         </div>
       </div>
-
       <div className="mid__section space_top_bottom space_Between">
         <h3 className="space_top_bottom">
-          Description{" "}
+          <b>Description</b>{" "}
           <a
             className="btn"
             onClick={() => setDescription(!description)}
@@ -195,23 +220,51 @@ const IndivisualPage = () => {
           </div>
         )}
       </div>
-      <div className="bot-section">
-        {/* <h4>You May Also Like</h4>
-        <div className="carousel_idvPage">
-          <div className="carousel__content">
-            <img src={data[index1].imgSrc} alt={data[index1].title} />
-            <h4>{data[index1].title}</h4>
-            <p>
-              ₹ <span className="crossedLine">{data[index1].mrp}</span>
-            </p>
-            <p>
-              ₹ <span>{data[index1].price}</span>
-            </p>
-          </div>
-        </div> */}
-      </div>
+      <h3>
+        <b>You May Also Like</b>
+      </h3>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        className="visible"
+        keyBoardControl={true}
+        containerClass="carousel-container"
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {imgList &&
+          imgList?.map((item) => {
+            return (
+              <div key={item.id} className="smallSpace idvCarousel">
+                <img className="smallSpace" src={item.imgSrc} alt="img" />
+                <p className="smallSpace">
+                  <b>{item.title}</b>
+                </p>
+                <p className="smallSpace">
+                  <b>₹ {item.price}</b>
+                </p>
+                <p className="smallSpace">
+                  M.R.P :<span className="crossedLine">{item.mrp}</span>
+                </p>
+                <button className="btn cart-btn">
+                  <span>Add To Cart</span>
+                  <BsFillBagPlusFill />
+                </button>
+              </div>
+            );
+          })}
+      </Carousel>
+      ;
     </div>
   );
 };
 
 export default IndivisualPage;
+// {imgList &&
+//   imgList?.map((item) => (
+//     <div key={item.id}>
+//       <img src={item.imgSrc} alt="img" />
+//     </div>
+//   ))}

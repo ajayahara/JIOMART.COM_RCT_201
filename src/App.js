@@ -1,8 +1,9 @@
 import './App.css';
 import Home from './Component/Home';
+import IndivisualPage from './Pages/IndivisualPage';
 // import Footer from './Pages/footer';
 
-import Nav from './Pages/Navbar';
+// import Nav from './Pages/Navbar';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* <Nav />
       <Home/> */}
       {/* <Footer/> */}
+      {/* <IndivisualPage /> */}
     </div>
   );
 }
