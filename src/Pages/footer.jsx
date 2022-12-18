@@ -10,10 +10,10 @@ const footer = () => {
   return (
     <Box 
          style={{backgroundColor:"rgba(21, 27, 57, 0.08)"}}
-      color={"grey.200"} w={"100%"} m={"auto"}>
+      color={"grey.200"} w={"100%"} pos={'relative'} bottom={0} m={"auto"}>
       <Container as={Stack} maxW={'6xl'} py={14} >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={29}  >
-          <Stack align={'flex-start'} marginRightt={"150px"}>
+          <Stack align={'flex-start'} marginRight={"150px"}>
           <Heading as='h5' size='md'fontSize={14} >MOST POPULAR CATEGORIES</Heading>
             <Link href={'#'} fontSize={14} >Staples</Link>
             <Stack direction={'row'} align={'center'} spacing={10}>
@@ -39,7 +39,7 @@ const footer = () => {
             
           </Stack>
          
-          <Stack align={'flex-start'} w={"350px"} marginLeft={"220px"} >
+          <Stack align={'flex-end'} w={"350px"} marginLeft={"220px"} >
             <Heading as='h4' size='md' fontSize={14}>CONTACT US</Heading>
             <p style={{fontSize:"13px"}}>WhatsApp us : <span className='side-color'>70003 70003 </span></p>
             <br />

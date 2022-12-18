@@ -53,3 +53,7 @@
     /* width: 100%; */
     cursor: pointer;
 }
+
+.singleProduct > img{
+    cursor: pointer;
+}

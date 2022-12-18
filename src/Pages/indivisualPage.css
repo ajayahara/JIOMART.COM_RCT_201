@@ -146,3 +146,23 @@ a:hover{
     width: 90%;
     padding: 2rem;
 }
+
+.idvCarousel{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* gap:1rem; */
+    height: auto;
+    object-fit: cover;
+    background-color: #fff;
+    margin: 0.7rem;
+    border-radius: 10px;
+}
+
+.idvCarousel >img{
+    height: 150px;
+    cursor: pointer;
+}

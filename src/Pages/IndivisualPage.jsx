@@ -4,13 +4,46 @@ import { BsFillBagPlusFill } from "react-icons/bs";
 import { CiTwitter } from "react-icons/ci";
 import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { Link, Navigate } from "react-router-dom";
+import Footer from './footer'
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
 
 import axios from "axios";
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 5,
+    slidesToSlide: 5, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 564 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+};
 
 const getData = () => {
   return axios.get(
     "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData"
   );
+};
+
+const getCarouselData = () => {
+  return axios.get("https://kiwi-discovered-pyjama.glitch.me/carousel_idvPage");
 };
 
 const AddToCart = (payload) => {
@@ -20,17 +53,26 @@ const AddToCart = (payload) => {
 const IndivisualPage = () => {
   const [description, setDescription] = useState(false);
   const [data, setData] = useState({});
+  const [imgList, setImgList] = useState([]);
   // const [index1, setIndex1] = useState(0);
   // const [index2, setIndex2] = useState(1);
   // const [index3, setIndex3] = useState(2);
   // const [index4, setIndex4] = useState(3);
   // const [index5, setIndex5] = useState(4);
 
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      handleGetdata()
+    );
+  };
+
   const handleGetdata = () => {
     getData().then((res) => {
-      // console.log(res.data);
       setData(res.data);
     });
+    getCarouselData().then((res) => setImgList(res.data));
   };
   console.log(data);
 
@@ -55,45 +97,45 @@ const IndivisualPage = () => {
           <div className="left-carousel">
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
+              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
-              src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+              src={data.image || data.imgSrc}
               alt="demo1"
             />
           </div>
           <div className="right-main">
             <img
               style={{ width: "90%" }}
-              src={
-                data.img ||
-                "https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
-              }
-              alt={data.title}
+              src={data.image || data.imgSrc}
+              alt={data.title || data.name}
             />
           </div>
         </div>
         <div className="right-data">
           <h3 className="product__name space_top_bottom">
-            {data.title ||
-              "Finish Dishwasher 'All in 1 Max Powerball' - Lemon 60 Tablets World's No. 1 Dishwashing Brand"}
+            <b>{data.title || data.name}</b>
           </h3>
           <h4 className="product__name-light space_top_bottom">FINISH</h4>
 
@@ -136,14 +178,13 @@ const IndivisualPage = () => {
           </div>
         </div>
       </div>
-
       <div className="mid__section space_top_bottom space_Between">
         <h3 className="space_top_bottom">
-          Description{" "}
+          <b>Description</b>{" "}
           <a
             className="btn"
             onClick={() => setDescription(!description)}
-            style={{ marg: "1rem" }}
+            style={{ marginRight: "1re3" }}
           >
             {description ? "Show Less" : "Show More"}
           </a>
@@ -195,23 +236,59 @@ const IndivisualPage = () => {
           </div>
         )}
       </div>
-      <div className="bot-section">
-        {/* <h4>You May Also Like</h4>
-        <div className="carousel_idvPage">
-          <div className="carousel__content">
-            <img src={data[index1].imgSrc} alt={data[index1].title} />
-            <h4>{data[index1].title}</h4>
-            <p>
-              ₹ <span className="crossedLine">{data[index1].mrp}</span>
-            </p>
-            <p>
-              ₹ <span>{data[index1].price}</span>
-            </p>
-          </div>
-        </div> */}
-      </div>
+      <h3>
+        <b>You May Also Like</b>
+      </h3>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        showDots={true}
+        responsive={responsive}
+        className="visible"
+        keyBoardControl={true}
+        containerClass="carousel-container"
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {imgList &&
+          imgList?.map((item) => {
+            return (
+              <div key={item.id} className="smallSpace idvCarousel">
+                <img
+                  className="smallSpace"
+                  src={item.imgSrc}
+                  alt="img"
+                  onClick={() => {
+                    handleCurrentData(item);
+                  }}
+                />
+                <p className="smallSpace">
+                  <b>{item.title}</b>
+                </p>
+                <p className="smallSpace">
+                  <b>₹ {item.price}</b>
+                </p>
+                <p className="smallSpace">
+                  M.R.P :<span className="crossedLine">{item.mrp}</span>
+                </p>
+                <button className="btn cart-btn">
+                  <span>Add To Cart</span>
+                  <BsFillBagPlusFill />
+                </button>
+              </div>
+            );
+          })}
+      </Carousel>
+      ;
+      {/* <Footer /> */}
     </div>
   );
 };
 
 export default IndivisualPage;
+// {imgList &&
+//   imgList?.map((item) => (
+//     <div key={item.id}>
+//       <img src={item.imgSrc} alt="img" />
+//     </div>
+//   ))}
