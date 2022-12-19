@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { AddressItem } from '../../Component/Cart/AddressItem'
-import { CartNav } from '../../Component/Cart/CartNav'
 import { DeliveryAddress } from '../../Component/Cart/DeliveryAddress'
 import {AddAddress} from "../../Component/Cart/AddAddress"
 import { NoAddress } from '../../Component/Cart/NoAddress'
@@ -25,6 +24,7 @@ export const Address = () => {
     i:"",
     j:""
   })
+  let [cartPrice,setCartPrice]=useState(0);
   let onchange=(e)=>{
       let {name,value}=e.target;
       setAd1({...ad1,[name]:value})
@@ -34,10 +34,16 @@ export const Address = () => {
     setActive(false)
   }
   useEffect(()=>{
-      axios.get("https://kiwi-discovered-pyjama.glitch.me/cart").then((r)=>{
-          setCart(r.data);
-      })
-  })
+    axios.get("https://kiwi-discovered-pyjama.glitch.me/cart").then((r)=>{
+        setCart(r.data);
+    })
+},[])
+useEffect(()=>{
+  let x=cart.reduce((total,el)=>{
+      return total+el.price;
+  },0)
+   setCartPrice(x)
+  },[cart])
   return (
     <div className='Address'>
       <br />
@@ -51,8 +57,8 @@ export const Address = () => {
           {(ad==null)?  <NoAddress setActive={setActive} active={active}/>:<DeliveryAddress setActive={setActive} ad={ad}/>}
           <div className='basket'>
             <div>
-              <div>Groceries Basket <span>(1 items)</span></div>
-              <div>₹129.00</div>
+              <div>Groceries Basket <span>{`(${cart.length} items)`}</span></div>
+              <div></div>
             </div>
             <div>
             {cart.length&&cart.map((el)=>{
@@ -63,8 +69,11 @@ export const Address = () => {
           </div>
         </div>
         <div>
-          <PaymentDetils/>
-          <div className='PaymentButton'><button onClick={()=> navigate('/payment')}>Make Payment</button></div>
+          <PaymentDetils cartPrice={cartPrice}/>
+          <div className='PaymentButton'><button onClick={()=>{
+            localStorage.setItem("price",cartPrice)
+              navigate('/payment')
+          } }>Make Payment</button></div>
         </div>
       </div>
       <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} />

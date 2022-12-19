@@ -6,26 +6,17 @@ export const PaymentPage = () => {
     let navigate=useNavigate()
     return (
         <>
-            <div className='Payment'>
-                <div>
-                    <div>
-                        <img src="https://myjio-rl-prod.jioconnect.com/jiopay-pgapp/images/logo_Jio_blue.svg" alt="" />
-                        Payments
-                    </div>
-                    <div>
-                        <img src="https://myjio-rl-prod.jioconnect.com/jiopay-pgapp/images/ic_100_secured.svg" alt="" />
-                    </div>
-                </div>
-            </div>
             <div className='container'>
                 <div>
-                    <div>{`< Go Back`}</div>
+                    <div onClick={()=>{
+                        navigate('/address')
+                    }}>{`< Go Back`}</div>
                     <div>
                         <div>
                             Total Amount
                         </div>
                         <div>
-                        ₹3140
+                        {localStorage.getItem("price")}
                         </div>
                     </div>
                 </div>
@@ -51,7 +42,7 @@ export const PaymentPage = () => {
                         <div>
                         Pay using Cash on Delivery
                         </div>
-                        <div>
+                        <div className='Ajaya'>
                             <input onChange={()=>{
                                 setChecked(true)
                             }} type="radio" />    

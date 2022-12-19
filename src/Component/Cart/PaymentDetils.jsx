@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Cart/PaymentDetails.css"
-export const PaymentDetils = () => {
+export const PaymentDetils = ({cartPrice}) => {
     return (
         <div className='Payment'>
             <div>
@@ -8,20 +8,20 @@ export const PaymentDetils = () => {
             </div>
             <div className='payee'>
                 <div>MRP</div>
-                <div>200</div>
+                <div>{cartPrice}</div>
             </div>
             <hr />
             <div className='payee'>
                 <div>Product Discount</div>
-                <div>-71</div>
+                <div>-{Math.floor(cartPrice*0.2)}</div>
             </div>
             <hr />
             <div className='payee last'>
                 <div>Total Amount</div>
-                <div>129</div>
+                <div>{Math.floor(cartPrice*0.8)}</div>
             </div>
             <div className='green'>
-                You will save 71
+                You will save {Math.floor(cartPrice*0.2)}
             </div>
         </div>
     )
