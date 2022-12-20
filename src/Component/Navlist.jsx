@@ -21,14 +21,16 @@ const Navlist = () => {
             <li onClick={() => navigate("/beverages")}>Beverages</li>
             <li>Personal Care</li>
             <li>Home Care</li>
-            <li>Beauty</li>
+            <li onClick={() => navigate("/electronicProducts")}> Beauty</li>
           </ul>
         </li>
         <li>
           Premium Fruits
           <ChevronDownIcon />
           <ul className="dropdown">
-            <li>Apples & Peers</li>
+            <li >
+              Apples & Peers
+            </li>
             <li>Avocado, Peach, Plum</li>
             <li>Banana,Melons & Coconut</li>
             <li>Dates</li>
@@ -42,9 +44,9 @@ const Navlist = () => {
           Home & Kitchen
           <ChevronDownIcon />
           <ul className="dropdown">
-            <li>Kitchenware</li>
+            <li >Kitchenware</li>
             <li>Dining</li>
-            <li>Electricals</li>
+            <li onClick={() => navigate("/electronicProducts")}>Electricals</li>
             <li>Furniture</li>
             <li>Home Appliances</li>
             <li>Toys & Games</li>
@@ -74,9 +76,7 @@ const Navlist = () => {
             <ChevronDownIcon />
             <ul className="dropdown">
               <li>Mobiles & Tablets</li>
-              <li onClick={() => navigate("/electronicProducts")}>
-                TV & speakers
-              </li>
+              <li>TV & speakers</li>
               <li>Home Appliance</li>
               <li>Camera</li>
               <li>Kitchen Appliance</li>
