@@ -9,11 +9,18 @@ import { useNavigate } from 'react-router'
 export const CartLoginItems = () => {
     let navigate=useNavigate()
     let [cart,setCart]=useState([])
+    let [cartPrice,setCartPrice]=useState(0);
     useEffect(()=>{
         axios.get("https://kiwi-discovered-pyjama.glitch.me/cart").then((r)=>{
             setCart(r.data);
         })
-    })
+    },[])
+    useEffect(()=>{
+    let x=cart.reduce((total,el)=>{
+        return total+el.price;
+    },0)
+     setCartPrice(x)
+    },[cart])
   return (cart.length===0)?<CartLogin/>:(
     <div className='CartLoginitems' >
         <div>
@@ -25,8 +32,8 @@ export const CartLoginItems = () => {
                 <div>
                     <div className='basket'>
                         <div>
-                            <div>Groceries Basket <span>(1 items)</span></div>
-                            <div>₹129.00</div>
+                            <div>Groceries Basket <span>({cart.length} items)</span></div>
+                            <div>{Math.ceil(cartPrice*0.8)}</div>
                         </div>
                         <div>
                            {cart.length&&cart.map((el)=>{
@@ -43,7 +50,7 @@ export const CartLoginItems = () => {
                 </div>
                 <div>
                     <Applycoupon/>
-                    <PaymentDetils/>
+                    <PaymentDetils cartPrice={cartPrice}/>
                     <div className='PaymentButton'><button onClick={()=>{
                         // need to update
                         navigate("/address")

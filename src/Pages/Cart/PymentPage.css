@@ -1,26 +1,4 @@
-.Payment{
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-.Payment>div{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.Payment>div>div:nth-child(1){
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.Payment img{
-    width: 50px;
-    height: 50px;
-}
+
 .container{
     width: 60%;
     margin: auto;
@@ -69,4 +47,8 @@
 }
 .disabled{
     background-color: rgb(236, 229, 229) ;
+}
+.Ajaya{
+    display: flex;
+    justify-content: space-between;
 }
