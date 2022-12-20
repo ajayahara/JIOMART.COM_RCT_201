@@ -19,7 +19,11 @@ import { FaWhatsappSquare } from "react-icons/fa";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import {getAuthError, getAuthRequest, getAuthSuccess} from '../redux/Auth/action'
+import {
+  getAuthError,
+  getAuthRequest,
+  getAuthSuccess,
+} from "../redux/Auth/action";
 const initMsg = {
   firstName: {
     status: false,
@@ -55,10 +59,10 @@ const RegisterForm = () => {
   const [form, setform] = useState(initform);
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(initMsg);
-   let value = localStorage.getItem("phone");
-   
+  let value = localStorage.getItem("phone");
+
   const token = useSelector((store) => store.AuthReducer.token);
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
   const navigate = useNavigate();
   const handleChange = (event) => {
@@ -71,7 +75,7 @@ const RegisterForm = () => {
 
   const handleForm = async (e) => {
     // e.prevantDefault();
-    dispatch(getAuthRequest())
+    dispatch(getAuthRequest());
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
@@ -83,13 +87,13 @@ const RegisterForm = () => {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
+    } else {
+      dispatch(getAuthSuccess(form.firstName));
+      navigate("/");
+      console.log(form);
     }
-
-    // localStorage.setItem("Details", JSON.stringify(form));
- dispatch(getAuthSuccess(form.firstName))
-    navigate("/");
-    console.log(form);
   };
+  // localStorage.setItem("Details", JSON.stringify(form));
 
   return (
     <>
