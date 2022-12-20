@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import "../Cart/PymentPage.css";
 export const PaymentPage = () => {
     let [checked,setChecked]=useState(false)
+    const toast = useToast()
     let navigate=useNavigate()
     return (
         <>
@@ -50,7 +51,15 @@ export const PaymentPage = () => {
                           Cash On Delivery
                         </div>
                         <button disabled={!checked} onClick={(e)=>{
-                            alert("Purchage Successful")
+                            // alert("Purchage Successful")
+                            toast({
+                                title: "Verification Reminder",
+                                description: `"Item Added To Cart Successfully."`,
+                                status: "success",
+                                duration: 5000,
+                                isClosable: true,
+                                position: "top",
+                              });
                             navigate('/')
                         }} className={`${(checked===true)?"blue":""}`}>
                           Pay 3140 

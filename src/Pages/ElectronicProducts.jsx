@@ -96,7 +96,7 @@ const ElectronicProducts = () => {
 
   const PostToCart = (item) => {
     AddToCart(item).then((res) => {
-      // alert("Item Added Successfully to the cart");
+      alert("Item Added Successfully to the cart");
       toast({
         title: "Verification Reminder",
         description: `"Item Added To Cart Successfully."`,
