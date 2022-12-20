@@ -1,56 +1,58 @@
 import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import "./Styles.css";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Navlist = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="navlist">
       <ul>
         <li>
           Groceries
           <ChevronDownIcon />
-            <ul className='dropdown'>
-              <li onClick={()=>navigate('/fruitsAndVegetables')}>Fruits & Vegetables</li>
-              <li>Dairy & Bakery</li>
-              <li>Staples</li>
-              <li>Snacks & Branded foods</li>
-              <li onClick={()=>navigate('/beverages')}>Beverages</li>
-              <li>Personal Care</li>
-              <li>Home Care</li>
-              <li>Beauty</li>
-            </ul>
+          <ul className="dropdown">
+            <li onClick={() => navigate("/fruitsAndVegetables")}>
+              Fruits & Vegetables
+            </li>
+            <li>Dairy & Bakery</li>
+            <li>Staples</li>
+            <li>Snacks & Branded foods</li>
+            <li onClick={() => navigate("/beverages")}>Beverages</li>
+            <li>Personal Care</li>
+            <li>Home Care</li>
+            <li>Beauty</li>
+          </ul>
         </li>
         <li>
-            Premium Fruits
-            <ChevronDownIcon />
-            <ul className="dropdown">
-              <li>Apples & Peers</li>
-              <li>Avocado, Peach, Plum</li>
-              <li>Banana,Melons & Coconut</li>
-              <li>Dates</li>
-              <li>Citrus, Mangoes & Graps</li>
-              <li>Cherries, Berries</li>
-              <li>Exotic Fruits</li>
-              <li>Seasonal & Minor Fruits</li>
-            </ul>
+          Premium Fruits
+          <ChevronDownIcon />
+          <ul className="dropdown">
+            <li>Apples & Peers</li>
+            <li>Avocado, Peach, Plum</li>
+            <li>Banana,Melons & Coconut</li>
+            <li>Dates</li>
+            <li>Citrus, Mangoes & Graps</li>
+            <li>Cherries, Berries</li>
+            <li>Exotic Fruits</li>
+            <li>Seasonal & Minor Fruits</li>
+          </ul>
         </li>
         <li>
-            Home & Kitchen
-            <ChevronDownIcon />
-            <ul className="dropdown">
-              <li>Kitchenware</li>
-              <li>Dining</li>
-              <li >Electricals</li>
-              <li>Furniture</li>
-              <li>Home Appliances</li>
-              <li>Toys & Games</li>
-              <li>Disposable</li>
-              <li>Stationary</li>
-              <li>Garden</li>
-              <li>Pooja Needs</li>
-            </ul>
+          Home & Kitchen
+          <ChevronDownIcon />
+          <ul className="dropdown">
+            <li>Kitchenware</li>
+            <li>Dining</li>
+            <li>Electricals</li>
+            <li>Furniture</li>
+            <li>Home Appliances</li>
+            <li>Toys & Games</li>
+            <li>Disposable</li>
+            <li>Stationary</li>
+            <li>Garden</li>
+            <li>Pooja Needs</li>
+          </ul>
         </li>
         <li>
           <Link>
@@ -71,8 +73,10 @@ const Navlist = () => {
             Electronics
             <ChevronDownIcon />
             <ul className="dropdown">
-              <li onClick={()=>navigate('/electronicProducts')}>Mobiles & Tablets</li>
-              <li>TV & speakers</li>
+              <li>Mobiles & Tablets</li>
+              <li onClick={() => navigate("/electronicProducts")}>
+                TV & speakers
+              </li>
               <li>Home Appliance</li>
               <li>Camera</li>
               <li>Kitchen Appliance</li>
