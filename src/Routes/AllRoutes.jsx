@@ -11,6 +11,8 @@ import FruitsAndVegetables from '../Pages/FruitsAndVegetables'
 import RegisterForm from '../Component/RegisterForm'
 import {Address} from '../Pages/Cart/Address';
 import {PaymentPage} from '../Pages/Cart/PaymentPage';
+import Admin from '../Pages/Admin';
+import Adminpanel from '../Pages/AdminPanel';
 const AllRoutes = () => {
   return (
     <div>
@@ -26,6 +28,8 @@ const AllRoutes = () => {
             <Route path='/register' element={<RegisterForm />}/>
             <Route path='/address' element={<Address />}/>
             <Route path='/payment' element={<PaymentPage />}/>
+            <Route path='/admin' element={<Admin />}/>
+            <Route path='/adminPanel' element={<Adminpanel />}/>
             <Route path='*' element={<h1>*Error* Page Not Found</h1>}/>
         </Routes>
     </div>
