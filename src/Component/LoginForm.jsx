@@ -27,7 +27,7 @@ export default function Login() {
   const [otp, setOtp] = useState("767696");
   const [otpRequestSend, setOtpRequestSend] = useState(false);
   const toast = useToast();
-const navigate =useNavigate()
+  const navigate = useNavigate();
   const handleOtpSend = async () => {
     if (
       parseInt(phoneNumber) > 6700000000 &&
@@ -85,8 +85,8 @@ const navigate =useNavigate()
       setMsg({ status: true, notice: "Please enter your OTP!" });
     } else if (inputOtp == otp) {
       localStorage.setItem("phone", phoneNumber);
-      console.log("Sucess");
-      navigate('/register')
+      // console.log("Sucess");
+      navigate("/register");
     } else {
       setMsg({ status: true, notice: "Invalid OTP!" });
     }
@@ -96,6 +96,11 @@ const navigate =useNavigate()
     <>
       {/* <Navbar/> */}
       {/* <Navlist /> */}
+      <Box ml="90%" mt="10px">
+        <Button onClick={() => navigate("/admin")} colorScheme="blue">
+          Admin Login
+        </Button>
+      </Box>
       <br />
       <br />
       <Box w="90%" m="auto" display="flex">

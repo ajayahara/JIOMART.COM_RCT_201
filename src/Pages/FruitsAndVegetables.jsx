@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { Spinner, Alert, AlertIcon } from "@chakra-ui/react";
+import { Spinner, Alert, AlertIcon , useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -10,6 +10,7 @@ import {
   getGrocerriesFailure,
   getGrocerriesSuccess,
 } from "../redux/groceries/action";
+
 
 const CurrentIndivisualData = (payload) => {
   return axios.put(
@@ -57,6 +58,7 @@ const FruitsAndVegetables = () => {
   // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toast = useToast()
 
   const handleGetData = () => {
     dispatch(getGroceriesRequest());
@@ -102,7 +104,15 @@ const FruitsAndVegetables = () => {
 
   const PostToCart = (item) => {
     AddToCart(item).then((res) => {
-      alert("Item Added Successfully to the cart");
+      // alert("Item Added Successfully to the cart");
+      toast({
+        title: "Verification Reminder",
+        description: `"Item Added To Cart Successfully."`,
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
     });
   };
 
