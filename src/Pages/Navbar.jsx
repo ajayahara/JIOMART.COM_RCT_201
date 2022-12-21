@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import logo from "../Resources/smstr.png";
 import "./Navbar.css";
-import { IconContext } from 'react-icons';
+import { IconContext } from "react-icons";
 import {
   Box,
   Flex,
@@ -11,6 +11,7 @@ import {
   Stack,
   InputGroup,
   InputLeftElement,
+  Text,
 } from "@chakra-ui/react";
 import Sidebar from "./sidebar";
 import { Input } from "@chakra-ui/react";
@@ -19,7 +20,10 @@ import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-
+import axios from "axios";
+const getData = () => {
+  return axios.get("https://kiwi-discovered-pyjama.glitch.me/cart");
+};
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +31,15 @@ function Navbar() {
   const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer.token);
   console.log(token);
+  const handleGet = () => {
+    getData().then((res) => setLength(res.data.length));
+  };
+  const [length, setLength] = useState(0);
+  useEffect(() => {
+    handleGet();
+  }, []);
   // setText(val.firstName || "Sign in / Sign up");
+  console.log(length);
   return (
     <SimpleGrid coloums={10}>
       <Box>
@@ -46,7 +58,13 @@ function Navbar() {
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
           {/* other items navbar */}
-          <Image src={logo} w={"180px"} h={"140px"} ml={"160px"} onClick={()=>navigate('/')} />
+          <Image
+            src={logo}
+            w={"180px"}
+            h={"140px"}
+            ml={"160px"}
+            onClick={() => navigate("/")}
+          />
           <Stack spacing={4}>
             <InputGroup>
               <Input
@@ -71,6 +89,22 @@ function Navbar() {
             </p>
             <Flex ml={"30px"} gap={2} style={{ cursor: "pointer" }}>
               <ShoppingCartRoundedIcon onClick={() => navigate("/cart")} />
+              <Box
+                style={{
+                  position: "absolute",
+                  right: "14.5%",
+                  backgroundColor: "red",
+                  color: "white",
+                  borderRadius: "40px",
+                  height: "20px",
+                  width: "20px",
+                  lineHeight: "22px",
+                  textAlign: "center",
+                  top: "12px",
+                }}
+              >
+                {length}
+              </Box>
               <p onClick={() => navigate("/cart")}>Cart</p>
             </Flex>
           </Flex>

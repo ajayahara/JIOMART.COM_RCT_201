@@ -25,9 +25,9 @@ const Imagesslidershop = ({url}) => {
     
          }
   return (
-    <div onClick={()=>navigate('/electronicProducts')}>
+    <div >
         <Box className="cont" mt={"25px"} >
-             
+        {/* onClick={()=>navigate('/electronicProducts')}   */}
         <Slider  {...settings}>
         {
                     cat.length > 0 && cat.map(({ img, title }, index) => (
