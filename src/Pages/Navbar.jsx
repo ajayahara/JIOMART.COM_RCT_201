@@ -92,7 +92,7 @@ function Navbar() {
               <Box
                 style={{
                   position: "absolute",
-                  right: "14.5%",
+                  right: "11.1%",
                   backgroundColor: "red",
                   color: "white",
                   borderRadius: "40px",
@@ -100,7 +100,7 @@ function Navbar() {
                   width: "20px",
                   lineHeight: "22px",
                   textAlign: "center",
-                  top: "12px",
+                  top: "12.6px",
                 }}
               >
                 {length}
