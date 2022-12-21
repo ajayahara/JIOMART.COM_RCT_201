@@ -15,9 +15,9 @@ export const CartItem = ({image,name,price}) => {
                 {name}
             </div>
             <div>
-                <span>{price*0.8}</span>
+                <span>{Math.ceil(price*0.8)}</span>
                 <span>{price}</span>
-                <span>You Save {price*0.2}</span>
+                <span>You Save {Math.ceil(price*0.2)}</span>
             </div>
             <div>
                 <span>Sold By </span>
