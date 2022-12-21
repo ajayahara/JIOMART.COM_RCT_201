@@ -12,8 +12,8 @@ import {
   Spacer,
   Checkbox,
 } from "@chakra-ui/react";
-import Navbar from "../Pages/Navbar";
-import Navlist from "./Navlist";
+// import Navbar from "../Pages/Navbar";
+// import Navlist from "./Navlist";
 import { Navigate } from "react-router";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { BsFillPatchCheckFill } from "react-icons/bs";
@@ -55,6 +55,7 @@ const RegisterForm = () => {
   const [form, setform] = useState(initform);
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(initMsg);
+  const [send, setSend] = useState(false)
    let value = localStorage.getItem("phone");
    
   const token = useSelector((store) => store.AuthReducer.token);
@@ -71,7 +72,7 @@ const RegisterForm = () => {
 
   const handleForm = async (e) => {
     // e.prevantDefault();
-    dispatch(getAuthRequest())
+   dispatch(getAuthRequest())
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
@@ -84,10 +85,12 @@ const RegisterForm = () => {
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     }
-
-    // localStorage.setItem("Details", JSON.stringify(form));
- dispatch(getAuthSuccess(form.firstName))
-    navigate("/");
+    else {
+      dispatch(getAuthSuccess(form.firstName))
+      navigate("/");
+    }
+   
+  
     console.log(form);
   };
 
