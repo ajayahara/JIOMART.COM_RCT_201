@@ -22,7 +22,7 @@ export const CartLoginItems = () => {
           <div>{`My Cart : (${cart.length})`}</div>
           <div></div>
         </div>
-        <div>
+        <div className="cart1">
           <div>
             <div className="basket">
               <div>

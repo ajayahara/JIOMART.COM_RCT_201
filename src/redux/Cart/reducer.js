@@ -19,6 +19,8 @@ export const reducer = (oldState = initialData, action) => {
                 newArray=newArray.map((el)=>{
                     if(el.id===payload){
                         return {...el,quantity:el.quantity+1}
+                    }else{
+                        return el;
                     }
                 })
                 return {...oldState,cart:[...newArray]}
@@ -27,6 +29,8 @@ export const reducer = (oldState = initialData, action) => {
                 newArray=newArray.map((el)=>{
                     if(el.id===payload){
                         return {...el,quantity:el.quantity-1}
+                    }else{
+                        return el;
                     }
                 })
                 return {...oldState,cart:[...newArray]}
