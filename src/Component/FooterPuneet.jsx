@@ -33,8 +33,8 @@ const Footer = () =>{
                     <p>Should you encounter any bugs, glitches, lack <br /> of functionality, delayed deliveries, billing errors <br /> or other problems on the beta website, please <br /> email us on <span> cs@jiomart.com</span></p>
                     <h4>DOWNLOAD APP</h4>
                     <div style={{display:'flex', justifyContent:"space-evenly"}}>
-                    <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/play_store.png" alt="" />
-                    <img src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/ios_store.png" alt="" />
+                    <img className="R-footer-icon" src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/play_store.png" alt="" />
+                    <img className="R-footer-icon" src="https://www.jiomart.com/images/cms/wysiwyg/app-icons/ios_store.png" alt="" />
                     </div>
                 </div>
             </div>

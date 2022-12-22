@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as FaIcons from "react-icons/fa";
-import logo from "../Resources/smstr.png";
+// import logo from "../Resources/smstr.png";
+import logo from "../Resources/bcg-noBackground.png";
+// import logo from "../Resources/sslogo.png";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import {
@@ -41,8 +43,8 @@ function Navbar() {
   // setText(val.firstName || "Sign in / Sign up");
   console.log(length);
   return (
-    <SimpleGrid coloums={10}>
-      <Box>
+    <Box>
+      <Box style={{ display: "flex", justifyContent: "space-evenly" }}>
         {/* <IconContext.Provider value={{ color: 'yellow' }}> */}
         <Flex className="navbar">
           {/* fbars icons for side bar */}
@@ -58,63 +60,75 @@ function Navbar() {
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
           {/* other items navbar */}
-          <Image
+          <img
             src={logo}
-            w={"180px"}
-            h={"140px"}
-            ml={"160px"}
+            // w={"180px"}
+            // h={"140px"}
+            // ml={"160px"}
+            className="R-input-logo"
             onClick={() => navigate("/")}
           />
-          <Stack spacing={4}>
+          <div>
             <InputGroup>
-              <Input
-                bg={"white"}
-                w={"660px"}
-                color={"white"}
-                ml={"60px"}
+              <input
+                // bg={"white"}
+                // w={"660px"}
+                // color={"white"}
+                // ml={"60px"}
+                // style={{width:"660px"}}
+                className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
               />
-              <InputLeftElement
-                ml={"660px"}
-                pointerEvents="none"
-                children={<FaIcons.FaBars color="grey" />}
-              />
             </InputGroup>
-          </Stack>
-          <Flex color={"white"} ml={"30px"} gap={2}>
-            <Person2RoundedIcon />
+          </div>
+          <Flex color={"white"} gap={{ base: 1, md: 2, lg: 4 }} className='R-icons-top' >
+            <Person2RoundedIcon
+              className="accountIcon"
+              onClick={() => navigate("/login")}
+            />
             <p style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
-              {val || "Sign in/ Sign Up"}
+              {/* className='R-Text' */}
+              <span className="R-Text">{val || "Sign in/ Sign Up"}</span>
             </p>
-            <Flex ml={"30px"} gap={2} style={{ cursor: "pointer" }}>
+            <Flex
+              gap={{ base: 1, md: 2, lg: 4 }}
+              color="white"
+              style={{ cursor: "pointer" }}
+                className='R-icons-top'
+            >
               <ShoppingCartRoundedIcon onClick={() => navigate("/cart")} />
               <Box
                 style={{
                   position: "absolute",
-                  right: "11.1%",
+                  right: "7%",
                   backgroundColor: "red",
                   color: "white",
                   borderRadius: "40px",
-                  height: "20px",
-                  width: "20px",
-                  lineHeight: "22px",
+                  height: "15px",
+                  width: "15px",
+                  fontSize: "13px",
+                  lineHeight: "13px",
                   textAlign: "center",
-                  top: "12.6px",
+                  top: "25px",
                 }}
+                className="R-icons-top"
               >
                 {length}
               </Box>
-              <p onClick={() => navigate("/cart")}>Cart</p>
+              
+              <p onClick={() => navigate("/cart")}>
+                <span className="R-Text">Cart</span>
+              </p>
             </Flex>
           </Flex>
         </Flex>
       </Box>
+      <Box>{/* <Navlist /> */}</Box>
       <Box>
         <Navlist />
       </Box>
-      <Box>{/* <Navlist /> */}</Box>
-    </SimpleGrid>
+    </Box>
   );
 }
 

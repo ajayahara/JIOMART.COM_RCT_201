@@ -19,6 +19,8 @@
     
 }
 
+
+
 .navlist>ul{
     padding-left: 10px;
     
@@ -112,8 +114,17 @@
     cursor: pointer;
 }
 
+.R-footer-icon{
+    width: 100px;
+} 
 @media (max-width: 1300px) {
     .navlist {
       display: none;
+    }
+  }
+
+  @media (max-width:720px){
+    .R-footer-icon{
+        width: 60px;
     }
   }

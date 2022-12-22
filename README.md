@@ -1,4 +1,4 @@
-<h1 align="center">Well Come To Smart Store</h1>
+<h1 align="center">Wellcome To Smart Store</h1>
 <h4>Introduction:-</h4>
 <p>Hi buddy 👋, This is a clone website of a well known grocery website Jiomart.com.
    This is a constructive week project at Masai made by four people within four days.
