@@ -1,4 +1,5 @@
 
+
 .container{
     width: 60%;
     margin: auto;
@@ -8,33 +9,53 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 10px;
 }
-.container>div:nth-child(1)>div:nth-child(1){
-    font-size: 10px;
-    border-bottom: 0.2px solid rgb(219, 211, 211);
+.container-div1>div:nth-child(1){
+    border-bottom: 1px solid gainsboro;
 }
-.container>div:nth-child(1)>div:nth-child(2)>div:nth-child(2){
-    font-size: 30px;
+.container-div1>div:nth-child(2){
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
-.container>div:nth-child(2){
+.container-div2{
     display: flex;
 }
-.container>div:nth-child(2)>div:nth-child(1){
-    width: 40%;
-    font-size: 20px;
+.container input{
+    width: 20px;
+    height: 20px;
 }
-.container>div:nth-child(2)>div:nth-child(2){
+.container-div2-left{
+    width: 35%;
+    font-size: 18px;
+}
+.container-div2-left>div{
+    padding: 5px;
+    border-bottom: 1px solid rgb(182, 180, 180) ;
+    border-right: 1px solid rgb(182, 180, 180) ;
+}
+.container-div2-left .disabled{
+    background-color: gainsboro;
+}
+.container-div2-right{
     width: 60%;
-    font-size: 20px;
+    font-size: 18px;
 }
-.container>div:nth-child(2)>div>div{
-    padding: 15px;
-    border-bottom: 0.2px solid rgb(219, 211, 211);
+.container-div2-right>div{
+    padding: 5px;
+    border-bottom: 1px solid rgb(182, 180, 180) ;
+    padding-left: 20px ;
 }
+.container-div2-right>div:nth-child(2){
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 .container button{
-    width: 80%;
+    width: 60%;
     display: block;
-    margin:20px  auto;
+    margin:20px auto;
     border-radius: 10px;
     background-color: gray;
     padding: 10px;
@@ -51,4 +72,19 @@
 .Ajaya{
     display: flex;
     justify-content: space-between;
+}
+@media all and (max-width:727px){
+    .container{
+        width: 80%;
+    }
+}
+@media all and (max-width:727px){
+.container{
+    width: 90%;
+}
+}
+@media all and (max-width:500px){
+    .container{
+        width: 99%;
+    }
 }

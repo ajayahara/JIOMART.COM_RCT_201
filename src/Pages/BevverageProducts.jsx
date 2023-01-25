@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { Spinner, Alert, AlertIcon, useToast } from "@chakra-ui/react";
+import {  useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+
+import { AddToCart } from "../redux/Cart/action";
 
 import {
   getBeverageError,
@@ -32,10 +34,6 @@ const sortDataByDesc = () => {
   return axios.get(
     "https://kiwi-discovered-pyjama.glitch.me/baverage?_sort=price&_order=desc"
   );
-};
-
-const AddToCart = (payload) => {
-  return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
 };
 
 const filterByCategory = (param) => {
@@ -106,12 +104,7 @@ const BeverageProducts = () => {
   };
 
   const PostToCart = (item) => {
-    AddToCart(item).then((res) => {
-      //   <Alert status="success">
-      //     <AlertIcon />
-      //     Item Added Successfully to the cart
-      //   </Alert>;
-      // alert("Item Added Successfully to the cart");
+      dispatch(AddToCart(item))
       toast({
         title: "Verification Reminder",
         description: `"Item Added To Cart Successfully."`,
@@ -120,7 +113,6 @@ const BeverageProducts = () => {
         isClosable: true,
         position: "top",
       });
-    });
   };
 
   const handleCurrentData = (item) => {

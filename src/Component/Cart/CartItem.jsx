@@ -1,19 +1,7 @@
-import { Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+
 import "../Cart/CartItem.css";
 import { AddSubstact } from "./AddSubstact";
-export const CartItem = ({ image, name, price, id }) => {
-    const [quantity, setQuantity] = useState(1);
-    const handleAdd = (val) => {
-        setQuantity((prev) => prev + val);
-    };
-    const store = useSelector((store)=> store.CartReducer)
-
-    console.log(store)
-    const handleReduce = (val) => {
-        setQuantity((prev) => prev - val);
-    };
+export const CartItem = ({ qty,image, name, price, id }) => {
     return (
         <div className="CartItem">
             <div>
@@ -33,12 +21,12 @@ export const CartItem = ({ image, name, price, id }) => {
                         <span>You Save {(price * 0.2).toFixed(2)}</span>
                     </div>
                     <div>
-                        <span>Sold By </span>
+                        <span>Sold By: </span>
                         <span>Reliance Retail</span>
                     </div>
                     <div>
                         <div>SAVE FOR LATER</div>
-                        <AddSubstact />
+                        <AddSubstact  quantity={qty}/>
                     </div>
                 </div>
             </div>

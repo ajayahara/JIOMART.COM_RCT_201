@@ -8,15 +8,8 @@ export const PaymentPage = () => {
   let navigate = useNavigate();
   return (
     <>
-      <Spinner
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="blue.500"
-        size="xl"
-      />
       <div className="container">
-        <div>
+        <div className="container-div1">
           <div
             onClick={() => {
               navigate("/address");
@@ -27,17 +20,17 @@ export const PaymentPage = () => {
             <div>{localStorage.getItem("price")}</div>
           </div>
         </div>
-        <div>
-          <div>
+        <div className="container-div2">
+          <div className="container-div2-left">
             <div className="disabled">UPI</div>
             <div className="disabled">CREDIT / DEBIT / ATM CARD</div>
             <div className="disabled">NETBANKING</div>
             <div className="disabled">WALLETS</div>
             <div>CASH ON DELIVERY</div>
           </div>
-          <div>
+          <div className="container-div2-right">
             <div>Pay using Cash on Delivery</div>
-            <div className="Ajaya">
+            <div>
               <input
                 onChange={() => {
                   setChecked(true);
@@ -49,7 +42,6 @@ export const PaymentPage = () => {
             <button
               disabled={!checked}
               onClick={(e) => {
-                // alert("Purchage Successful")
                 toast({
                   title: "Payments Successfull",
                   description: `"Thankyou for shopping. Please Visit us Again"`,
@@ -62,7 +54,7 @@ export const PaymentPage = () => {
               }}
               className={`${checked === true ? "blue" : ""}`}
             >
-              Pay 3140
+            Pay {localStorage.getItem("price")}
             </button>
           </div>
         </div>
