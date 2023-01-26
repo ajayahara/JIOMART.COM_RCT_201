@@ -12,7 +12,7 @@ let ResetCart=()=>dispatch=>{
 let AddCartitems=(id)=>dispatch=>{
     dispatch({type:types.ADD_CART_ITEMS,payload:id})
 }
-let ReduceCartItems=(payload)=>dispatch=>{
-    // dispatch({type:types.REDUCE_CART_ITEMS,payload:id})
+let ReduceCartItems=(id)=>dispatch=>{
+    dispatch({type:types.REDUCE_CART_ITEMS,payload:id})
 }
 export {AddToCart,DeleteFromCart,ResetCart,ReduceCartItems,AddCartitems}

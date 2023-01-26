@@ -126,7 +126,7 @@ const BeverageProducts = () => {
     handleGetData();
   }, []);
   // console.log("filter", filterCategory);
-
+  console.log(list)
   if (isLoading) return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
   return (
     <div className="productPage">

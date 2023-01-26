@@ -1,7 +1,7 @@
 
 import "../Cart/CartItem.css";
 import { AddSubstact } from "./AddSubstact";
-export const CartItem = ({ qty,image, name, price, id }) => {
+export const CartItem = ({ qty, image, name, price, id }) => {
     return (
         <div className="CartItem">
             <div>
@@ -26,7 +26,7 @@ export const CartItem = ({ qty,image, name, price, id }) => {
                     </div>
                     <div>
                         <div>SAVE FOR LATER</div>
-                        <AddSubstact  quantity={qty}/>
+                        <AddSubstact quantity={qty} id={id} />
                     </div>
                 </div>
             </div>
