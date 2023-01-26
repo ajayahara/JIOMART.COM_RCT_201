@@ -101,7 +101,7 @@ span {
 .sideup{
   width:30px;
   height:50px;
-  margin-left:50px;
+  /* margin-left:50px; */
   padding:12px;
 }
 .menu-bars2>#acc{

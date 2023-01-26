@@ -96,11 +96,11 @@ export default function Login() {
     <>
       {/* <Navbar/> */}
       {/* <Navlist /> */}
-      <Box ml="90%" mt="10px">
-        <Button onClick={() => navigate("/admin")} colorScheme="blue">
+      {/* <Box ml="90%" mt="10px">
+        <Button  colorScheme="blue">
           Admin Login
         </Button>
-      </Box>
+      </Box> */}
       <br />
       <br />
       <Box w="90%" m="auto" display="flex">
