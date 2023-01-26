@@ -55,7 +55,7 @@
             </li>
              <li>
                 <h4>Deployed Link:-</h4>
-                <p><a href="melodic-wisp-f3c5fb.netlify.app/">melodic-wisp-f3c5fb.netlify.app/</a></p>
+                <p>latest link to be upadted by end of the sunday</p>
             </li>
         </ul>
        
