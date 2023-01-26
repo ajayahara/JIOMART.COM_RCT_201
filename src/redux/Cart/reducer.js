@@ -9,21 +9,22 @@ const initialData = {
 }
 export const reducer = (oldState = initialData, action) => {
     let { type, payload } = action;
-    console.log(type, action)
+    console.log(type, action);
+    let newArray=[]
     switch (type) {
         case types.ADD_TO_CART:
             return { ...oldState, cart: [...oldState.cart, { ...payload, qty: 1 }] }
         case types.DELETE_FROM_CART:
-            let newArray = [...oldState.cart];
+            newArray = [...oldState.cart];
             newArray = newArray.filter((el) => {
-                return el.id !== payload;
+                return el.image !== payload;
             })
             return { ...oldState, cart: [...newArray] }
         case types.ADD_CART_ITEMS:
             newArray = [...oldState.cart]
             newArray = newArray.map((el) => {
-                if (el.id === payload) {
-                    return { ...el, quantity: el.quantity + 1 }
+                if (el.image=== payload) {
+                    return { ...el, qty: el.qty + 1 }
                 } else {
                     return el;
                 }
@@ -32,8 +33,8 @@ export const reducer = (oldState = initialData, action) => {
         case types.REDUCE_CART_ITEMS:
             newArray = [...oldState.cart]
             newArray = newArray.map((el) => {
-                if (el.id === payload) {
-                    return { ...el, quantity: el.quantity - 1 }
+                if (el.image === payload) {
+                    return { ...el, qty: el.qty - 1 }
                 } else {
                     return el;
                 }

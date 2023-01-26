@@ -6,7 +6,7 @@ import { PaymentDetils } from "../../Component/Cart/PaymentDetils";
 import { CartLogin } from "./CartLogin";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-export const CartLoginItems = () => {
+export const CartLoginItems = () =>{
   let navigate = useNavigate();
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
@@ -16,7 +16,7 @@ export const CartLoginItems = () => {
       x=x+cart[i].price*cart[i].qty
     }
     setPrice(x);
-  },[])
+  },[cart])
   return cart.length === 0 ? (
     <CartLogin />
   ) : (
