@@ -192,7 +192,21 @@ function Navbar() {
     icon={ <Person2RoundedIcon  />}
     variant='outline'
   />
-  <MenuList boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
+  <MenuList p="0px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
+  <Box
+                      borderRadius="5px 5px 0% 0%"
+                      bgColor="#008ECC"
+                      h="65px"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="space-evenly"
+                      gap={5}
+                    >
+                      <FaIcons.FaUserCircle fontSize="35px" color="#fff" />
+                      <Text color="#fff" fontWeight="bold">
+                        {val.toUpperCase()}
+                      </Text>
+                    </Box>
     <MenuItem icon={<AddIcon />} >
       My Order
     </MenuItem>
