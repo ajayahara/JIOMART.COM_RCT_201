@@ -23,7 +23,7 @@ export const CartItem = ({ image, name, price ,id}) => {
         <div>
           <span>₹ {(price * 0.8 * quantity).toFixed(2)}</span>
           <span> ₹ {price}</span>
-          <span>You Save ₹  {price * 0.2}</span>
+          <span>You Save ₹  {(price * 0.2).toFixed(2)}</span>
         </div>
         <div>
           <span>Sold By </span>
