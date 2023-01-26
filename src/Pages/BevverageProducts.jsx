@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import {  useToast } from "@chakra-ui/react";
+import {  Center, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
+import Load from "../Resources/Seen.gif"
 import { useSelector, useDispatch } from "react-redux";
 
 import { AddToCart } from "../redux/Cart/action";
@@ -127,7 +128,7 @@ const BeverageProducts = () => {
   }, []);
   // console.log("filter", filterCategory);
   console.log(list)
-  if (isLoading) return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
+  if (isLoading) return <Center m="150px"> <img width={"350px"} src={Load} ></img></Center>;
   return (
     <div className="productPage">
       <div className="options">

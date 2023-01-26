@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { Spinner, Alert, AlertIcon , useToast } from "@chakra-ui/react";
+import { Spinner, Alert, AlertIcon , useToast, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+import Load from "../Resources/Seen.gif"
 import {
   getGroceriesRequest,
   getGrocerriesFailure,
@@ -127,7 +128,7 @@ const FruitsAndVegetables = () => {
   useEffect(() => {
     handleGetData();
   }, []);
-  if (isLoading) return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
+  if (isLoading) return <Center m="150px"> <img width={"350px"} src={Load} ></img></Center>;
   return (
     <div className="productPage">
       <div className="options">
