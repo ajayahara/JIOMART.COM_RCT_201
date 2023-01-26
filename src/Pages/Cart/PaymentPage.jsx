@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useToast, Spinner } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import "../Cart/PymentPage.css";
+import { useDispatch } from "react-redux";
+import { ResetCart } from "../../redux/Cart/action";
 export const PaymentPage = () => {
   let [checked, setChecked] = useState(false);
   const toast = useToast();
   let navigate = useNavigate();
+  const dispatch=useDispatch()
   return (
     <>
       <div className="container">
@@ -42,6 +45,7 @@ export const PaymentPage = () => {
             <button
               disabled={!checked}
               onClick={(e) => {
+                dispatch(ResetCart())
                 toast({
                   title: "Payments Successfull",
                   description: `"Thankyou for shopping. Please Visit us Again"`,

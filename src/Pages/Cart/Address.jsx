@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { AddressItem } from '../../Component/Cart/AddressItem'
-import { DeliveryAddress } from '../../Component/Cart/DeliveryAddress'
-import {AddAddress} from "../../Component/Cart/AddAddress"
-import { NoAddress } from '../../Component/Cart/NoAddress'
 import { PaymentDetils } from '../../Component/Cart/PaymentDetils'
 import "../Cart/Address.css"
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 export const Address = () => {
-  let [active,setActive]=useState(false)
+  // let [active,setActive]=useState(false)
   let navigate=useNavigate()
-  let [ad,setAdd]=useState(null);
-  let [ad1,setAd1]=useState({
-    a:"",
-    b:"",
-    c:"",
-    d:"",
-    e:"",
-    f:"",
-    g:"",
-    h:"",
-    i:"",
-    j:""
-  })
+  // let [ad,setAdd]=useState(null);
+  // let [ad1,setAd1]=useState({
+  //   a:"",
+  //   b:"",
+  //   c:"",
+  //   d:"",
+  //   e:"",
+  //   f:"",
+  //   g:"",
+  //   h:"",
+  //   i:"",
+  //   j:""
+  // })
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
   useEffect(()=>{
@@ -41,8 +38,6 @@ export const Address = () => {
       </div>
       <div>
         <div>
-        
-          {(ad==null)?  <NoAddress setActive={setActive} active={active}/>:<DeliveryAddress setActive={setActive} ad={ad}/>}
           <div className='basket'>
             <div>
               <div>Groceries Basket <span>{`(${cart.length} items)`}</span></div>
@@ -52,19 +47,18 @@ export const Address = () => {
             {cart.length&&cart.map((el,i)=>{
                return  <AddressItem  key={i} {...el}/>
             })}
-            
             </div>
           </div>
         </div>
         <div>
           <PaymentDetils cartPrice={price}/>
           <div className='PaymentButton'><button onClick={()=>{
-            localStorage.setItem("price",price)
+            localStorage.setItem("price",(price*0.8).toFixed(2))
               navigate('/payment')
           } }>Make Payment</button></div>
         </div>
       </div>
-      <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} />
+      {/* <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} /> */}
     </div>
   )
 }

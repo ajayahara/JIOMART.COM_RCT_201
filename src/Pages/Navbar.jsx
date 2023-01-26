@@ -36,7 +36,7 @@ function Navbar() {
   const [length, setLength] = useState(0);
   useEffect(() => {
     handleGet();
-  }, []);
+  }, [cart]);
   return (
     <Box>
       <Box style={{ display: "flex", justifyContent: "space-evenly" }}>

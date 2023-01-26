@@ -26,7 +26,7 @@ export const CartItem = ({ qty, image, name, price, id }) => {
                     </div>
                     <div>
                         <div>SAVE FOR LATER</div>
-                        <AddSubstact quantity={qty} id={id} />
+                        <AddSubstact quantity={qty} image={image} />
                     </div>
                 </div>
             </div>
