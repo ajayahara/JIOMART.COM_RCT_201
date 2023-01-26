@@ -1,6 +1,5 @@
 .Address{
     width: 100%;
-  position: relative;
 }
 .Address>div:nth-child(2){
     width: 90%;
@@ -10,6 +9,7 @@
     align-items: center;
 }
 .Address>div:nth-child(2)>div:nth-child(1){
+
     font-size: 1.7rem;
     font-weight: bold;
 }
@@ -58,4 +58,17 @@
     font-size: 16px;
     font-weight: lighter;
     color: gray;
+}
+@media all and (max-width:820px){
+.Address>div:nth-child(3){
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+}
+.Address>div:nth-child(3)>div:nth-child(1){
+    width: 100%;
+}
+.Address>div:nth-child(3)>div:nth-child(2){
+    width: 100%;
+}
 }
