@@ -173,11 +173,11 @@ function Navbar() {
                 type="text"
                 placeholder="Search essential,goods and much more......"
               />
-              <InputLeftElement
-                ml={"660px"}
+              {/* <InputLeftElement
+                // ml={"660px"}
                 pointerEvents="none"
                 children={<FaIcons.FaBars color="grey" />}
-              />
+              /> */}
             </InputGroup>
           </Stack>
           
