@@ -44,6 +44,12 @@ function Navbar() {
   useEffect(() => {
     handleGet();
   }, [cart]);
+  const handleLogin=()=>{
+    if(val==null)
+    {
+      navigate("/login")
+    }
+  }
   return (
     <Box>
       <Box style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -110,7 +116,7 @@ function Navbar() {
     </MenuItem>
   </MenuList>
 </Menu>:""}
-<p display={{base:"none", md:"block"}} style={{ cursor: "pointer" }} onClick={handleLogin}>
+<p className="R-Text" display={{base:"none", md:"block"}} style={{ cursor: "pointer" }} onClick={handleLogin}>
               {val || "Sign in/ Sign Up"}
              
             </p>
