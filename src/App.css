@@ -15,3 +15,18 @@
   }
 }
 
+button:hover{
+  cursor: pointer;
+
+}
+
+
+img:hover{
+  cursor: pointer;
+  scale: 1.1;
+  transition:0.5s;
+}
+.scale_img:hover{
+ scale: 1.1em;
+ transition:0.5s;
+}
