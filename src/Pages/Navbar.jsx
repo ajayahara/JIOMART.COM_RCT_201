@@ -29,6 +29,7 @@ import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { AddIcon, EditIcon, ExternalLinkIcon, RepeatIcon } from "@chakra-ui/icons";
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
@@ -83,15 +84,38 @@ function Navbar() {
               />
             </InputGroup>
           </div>
-          <Flex color={"white"} gap={{ base: 1, md: 2, lg: 4 }} className='R-icons-top' >
-            <Person2RoundedIcon
-              className="accountIcon"
-              onClick={() => navigate("/login")}
-            />
-            <p style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
-              {/* className='R-Text' */}
-              <span className="R-Text">{val || "Sign in/ Sign Up"}</span>
+          <Flex color={"white"} ml={"30px"} gap={2}>
+            {/* <Person2RoundedIcon  /> */}
+            <Center gap={2}>          
+            {val!=null?
+              <Menu>
+  <MenuButton
+    as={IconButton}
+    aria-label='Options'
+    icon={ <Person2RoundedIcon  />}
+    variant='outline'
+  />
+  <MenuList boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
+    <MenuItem icon={<AddIcon />} >
+      My Order
+    </MenuItem>
+    <MenuItem icon={<ExternalLinkIcon />} >
+      My Cart
+    </MenuItem>
+    <MenuItem icon={<RepeatIcon />} >
+      Admin Panel
+    </MenuItem>
+    <MenuItem icon={<EditIcon />} >
+      LogOut
+    </MenuItem>
+  </MenuList>
+</Menu>:""}
+<p display={{base:"none", md:"block"}} style={{ cursor: "pointer" }} onClick={handleLogin}>
+              {val || "Sign in/ Sign Up"}
+             
             </p>
+</Center>
+ 
             <Flex
               gap={{ base: 1, md: 2, lg: 4 }}
               color="white"
