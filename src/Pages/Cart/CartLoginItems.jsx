@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import "../Cart/CartLoginItems.css";
 import { CartItem } from "../../Component/Cart/CartItem";
 import { Applycoupon } from "../../Component/Cart/Applycoupon";
 import { PaymentDetils } from "../../Component/Cart/PaymentDetils";
 import { CartLogin } from "./CartLogin";
-import axios from "axios";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-import { store } from "../../redux/store";
 export const CartLoginItems = () => {
   let navigate = useNavigate();
-  let [cartPrice, setCartPrice] = useState(0);
-  console.log(store)
+  let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
+  useEffect(()=>{
+   let x=0;
+    for(let i=0;i<cart.length;i++){
+      x=x+cart[i].price*cart[i].qty
+    }
+    setPrice(x);
+  },[])
   return cart.length === 0 ? (
     <CartLogin />
   ) : (
@@ -29,19 +33,15 @@ export const CartLoginItems = () => {
                 <div>
                   Groceries Basket <span>({cart.length} items)</span>
                 </div>
-                <div>₹ {(cartPrice * 0.8).toFixed(2)}</div>
+                <div>₹ {(price*0.8).toFixed(2)}</div>
               </div>
               <div>
                 {cart.length &&
-                  cart.map((el) => {
+                  cart.map((el,i) => {
                     return (
                       <CartItem
-                        q={0}
-                        handleAdd={"ajaya"}
-                        handleReduce={"ajaya"}
-                        key={el.id}
-                        id={el.id}
-                        {...el}
+                      key={i}
+                      {...el}
                       />
                     );
                   })}
@@ -52,11 +52,10 @@ export const CartLoginItems = () => {
           </div>
           <div>
             <Applycoupon />
-            <PaymentDetils cartPrice={cartPrice} />
+            <PaymentDetils cartPrice={price} />
             <div className="PaymentButton">
               <button
                 onClick={() => {
-                  // need to update
                   navigate("/address");
                 }}
               >

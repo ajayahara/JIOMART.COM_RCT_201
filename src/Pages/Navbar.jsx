@@ -23,25 +23,20 @@ import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
-const getData = () => {
-  return axios.get("https://kiwi-discovered-pyjama.glitch.me/cart");
-};
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
   const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer.token);
-  console.log(token);
+  let cart=useSelector((store)=>store.CartReducer.cart);
   const handleGet = () => {
-    getData().then((res) => setLength(res.data.length));
+  setLength(cart.length)
   };
   const [length, setLength] = useState(0);
   useEffect(() => {
     handleGet();
   }, []);
-  // setText(val.firstName || "Sign in / Sign up");
-  console.log(length);
   return (
     <Box>
       <Box style={{ display: "flex", justifyContent: "space-evenly" }}>
