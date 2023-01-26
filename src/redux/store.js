@@ -2,6 +2,7 @@ import { reducer as BeverageReducer } from "./beverage/reducer";
 import { reducer as ElectronicsReducer } from "./electronics/reducer";
 import { reducer as GroceriesReducer } from "./groceries/reducer";
 import { reducer as AuthReducer } from "./Auth/reducer";
+import {reducer as CartReducer} from "./Cart/reducer"
 import {
   legacy_createStore,
   applyMiddleware,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   ElectronicsReducer,
   GroceriesReducer,
   AuthReducer,
+  CartReducer
 });
 
 const store = legacy_createStore(

@@ -1,4 +1,4 @@
-<h1 align="center">Well Come To Smart Store</h1>
+<h1 align="center">Wellcome To Smart Store</h1>
 <h4>Introduction:-</h4>
 <p>Hi buddy 👋, This is a clone website of a well known grocery website Jiomart.com.
    This is a constructive week project at Masai made by four people within four days.
@@ -55,7 +55,7 @@
             </li>
              <li>
                 <h4>Deployed Link:-</h4>
-                <p><a href="melodic-wisp-f3c5fb.netlify.app/">melodic-wisp-f3c5fb.netlify.app/</a></p>
+                <p>latest link to be upadted by end of the sunday</p>
             </li>
         </ul>
        

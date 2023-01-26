@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Cart/AddressItem.css"
-export const AddressItem = ({image,name,price}) => {
+export const AddressItem = ({image,name,price,qty}) => {
   return (
     <div className='CartItem'>
     <div>
@@ -22,7 +22,7 @@ export const AddressItem = ({image,name,price}) => {
             <span>Reliance Retail</span>
         </div>
         <div>
-            <div>Qty: 1</div>
+            <div>Qty: {qty}</div>
         </div>
     </div>
 </div>

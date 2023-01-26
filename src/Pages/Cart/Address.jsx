@@ -1,49 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { AddressItem } from '../../Component/Cart/AddressItem'
-import { DeliveryAddress } from '../../Component/Cart/DeliveryAddress'
-import {AddAddress} from "../../Component/Cart/AddAddress"
-import { NoAddress } from '../../Component/Cart/NoAddress'
 import { PaymentDetils } from '../../Component/Cart/PaymentDetils'
 import "../Cart/Address.css"
 import { useNavigate } from 'react-router'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 export const Address = () => {
-  let [active,setActive]=useState(false)
+  // let [active,setActive]=useState(false)
   let navigate=useNavigate()
-  let [cart,setCart]=useState([])
-  let [ad,setAdd]=useState(null);
-  let [ad1,setAd1]=useState({
-    a:"",
-    b:"",
-    c:"",
-    d:"",
-    e:"",
-    f:"",
-    g:"",
-    h:"",
-    i:"",
-    j:""
-  })
-  let [cartPrice,setCartPrice]=useState(0);
-  let onchange=(e)=>{
-      let {name,value}=e.target;
-      setAd1({...ad1,[name]:value})
-  }
-  let onsubmit=()=>{
-    setAdd(ad1)
-    setActive(false)
-  }
+  // let [ad,setAdd]=useState(null);
+  // let [ad1,setAd1]=useState({
+  //   a:"",
+  //   b:"",
+  //   c:"",
+  //   d:"",
+  //   e:"",
+  //   f:"",
+  //   g:"",
+  //   h:"",
+  //   i:"",
+  //   j:""
+  // })
+  let [price,setPrice]=useState(0);
+  let cart=useSelector((store)=>store.CartReducer.cart);
   useEffect(()=>{
-    axios.get("https://kiwi-discovered-pyjama.glitch.me/cart").then((r)=>{
-        setCart(r.data);
-    })
-},[])
-useEffect(()=>{
-  let x=cart.reduce((total,el)=>{
-      return total+el.price;
-  },0)
-   setCartPrice(x)
-  },[cart])
+   let x=0;
+    for(let i=0;i<cart.length;i++){
+      x=x+cart[i].price*cart[i].qty
+    }
+    setPrice(x);
+  },[])
   return (
     <div className='Address'>
       <br />
@@ -53,30 +38,27 @@ useEffect(()=>{
       </div>
       <div>
         <div>
-        
-          {(ad==null)?  <NoAddress setActive={setActive} active={active}/>:<DeliveryAddress setActive={setActive} ad={ad}/>}
           <div className='basket'>
             <div>
               <div>Groceries Basket <span>{`(${cart.length} items)`}</span></div>
               <div></div>
             </div>
             <div>
-            {cart.length&&cart.map((el)=>{
-                                return  <AddressItem  key={el.id} {...el}/>
-                            })}
-            
+            {cart.length&&cart.map((el,i)=>{
+               return  <AddressItem  key={i} {...el}/>
+            })}
             </div>
           </div>
         </div>
         <div>
-          <PaymentDetils cartPrice={cartPrice}/>
+          <PaymentDetils cartPrice={price}/>
           <div className='PaymentButton'><button onClick={()=>{
-            localStorage.setItem("price",cartPrice)
+            localStorage.setItem("price",(price*0.8).toFixed(2))
               navigate('/payment')
           } }>Make Payment</button></div>
         </div>
       </div>
-      <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} />
+      {/* <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} /> */}
     </div>
   )
 }

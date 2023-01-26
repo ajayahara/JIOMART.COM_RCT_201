@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as FaIcons from "react-icons/fa";
-import logo from "../Resources/smstr.png";
+// import logo from "../Resources/smstr.png";
+import logo from "../Resources/bcg-noBackground.png";
+// import logo from "../Resources/sslogo.png";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import {
@@ -27,120 +29,23 @@ import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { AddIcon, EditIcon, ExternalLinkIcon, HamburgerIcon, RepeatIcon } from "@chakra-ui/icons";
-const getData = () => {
-  return axios.get("https://kiwi-discovered-pyjama.glitch.me/cart");
-};
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
   const showSidebar = () => setSidebar(!sidebar);
   const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer.token);
-  console.log(token);
+  let cart=useSelector((store)=>store.CartReducer.cart);
   const handleGet = () => {
-    getData().then((res) => setLength(res.data.length));
+  setLength(cart.length)
   };
   const [length, setLength] = useState(0);
   useEffect(() => {
     handleGet();
-  }, []);
-  // setText(val.firstName || "Sign in / Sign up");
-  // console.log(length);
-  const handleLogin=()=>{
-    if(val==null)
-    {
-      navigate("/login")
-    }
-    else{
-
-      // <Menu>
-      //  <MenuButton
-      //   border={"none"}
-      //   backgroundColor={"transparent"}
-      //   fontWeight={"500"}
-      //   as={IconButton}
-      //   aria-label="Options"
-    //     icon={
-    //       <Tag bg={"#ff645f"} color={"white"} h={10}>
-    //         {data !== "SIGN IN" ? data.toUpperCase() : "Sign In"}
-    //       </Tag>
-    //     }
-    //     variant="outline"
-    //   />
-    //   <MenuList
-    //     p="0px"
-    //     boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
-    //   >
-    //     <Box
-    //       borderRadius="5px 5px 0% 0%"
-    //       bgColor="#24A3B5"
-    //       h="65px"
-    //       display="flex"
-    //       alignItems="center"
-    //       justifyContent="center"
-    //       gap={5}
-    //     >
-    //       <FaIcons.FaUserCircle fontSize="35px" color="#fff" />
-    //       {/* <Img
-    //         w="40px"
-    //         h="40px"
-    //         borderRadius="50%"
-    //         src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
-    //         alt="error in url"
-    //       /> */}
-    //     <Text color="#fff" fontWeight="bold">
-    //         {data.toUpperCase()}
-    //      </Text>
-    //   </Box>
-  
-        
-    //        <MenuItem
-    //         p="8px 15px"
-    //         fontSize="18px"
-    //         onClick={AuthorisedOrNot}
-    //         icon={<RiAdminLine />}
-    //       >
-    //         Admin Page
-    //       </MenuItem>
-        
-        
-    //     <MenuItem
-    //       p="8px 15px"
-    //       fontSize="18px"
-    //       icon={<FaRegHeart />}
-    //     >
-    //       WishList
-    //     </MenuItem>
-    //     <MenuItem
-    //       p="8px 15px"
-    //       fontSize="18px"
-    //       icon={<MdOutlineSwitchAccount />}
-    //     >
-    //       My Profie
-    //     </MenuItem>
-    //     <MenuItem
-    //       p="8px 15px"
-    //       fontSize="18px"
-    //       icon={<FiShoppingCart />}
-    //     >
-    //       <Link href="/cart">My Cart</Link>
-    //     </MenuItem>
-    //     <MenuItem
-    //       p="8px 15px 15px 15px"
-    //       onClick={() => handleLogout()}
-    //       fontSize="18px"
-    //       icon={<BiLogOut />}
-    //     >
-    //       Logout
-    //     </MenuItem>
-    //   </MenuList>
-    // </Menu>
-    }
-  }
+  }, [cart]);
   return (
-    <SimpleGrid coloums={10}>
-      <Box>
+    <Box>
+      <Box style={{ display: "flex", justifyContent: "space-evenly" }}>
         {/* <IconContext.Provider value={{ color: 'yellow' }}> */}
         <Flex className="navbar">
           {/* fbars icons for side bar */}
@@ -156,106 +61,75 @@ function Navbar() {
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
           {/* other items navbar */}
-          <Image
+          <img
             src={logo}
-            w={{base:"120px", md:"140px", lg:"180px"}}
-            h={{base:"80px", md:"80px", lg:"120px"}}
-            ml={{base:"20px", md:"40px", lg:"160px"}}
+            // w={"180px"}
+            // h={"140px"}
+            // ml={"160px"}
+            className="R-input-logo"
             onClick={() => navigate("/")}
           />
-          <Stack spacing={4}>
+          <div>
             <InputGroup>
-              <Input
-                bg={"white"}
-                w={{base:"150px", md:"380px", lg:"660px"}}
-                color={"white"}
-                ml={{base:"10px", md:"30px", lg:"60px"}}
+              <input
+                // bg={"white"}
+                // w={"660px"}
+                // color={"white"}
+                // ml={"60px"}
+                // style={{width:"660px"}}
+                className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
               />
-              {/* <InputLeftElement
-                // ml={"660px"}
-                pointerEvents="none"
-                children={<FaIcons.FaBars color="grey" />}
-              /> */}
             </InputGroup>
-          </Stack>
-          
-          <Flex color={"white"} ml={"30px"} gap={2}>
-            {/* <Person2RoundedIcon  /> */}
-            <Center gap={2}>          
-            {val!=null?
-              <Menu>
-  <MenuButton
-    as={IconButton}
-    aria-label='Options'
-    icon={ <Person2RoundedIcon  />}
-    variant='outline'
-  />
-  <MenuList p="0px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
-  <Box
-                      borderRadius="5px 5px 0% 0%"
-                      bgColor="#008ECC"
-                      h="65px"
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-evenly"
-                      gap={5}
-                    >
-                      <FaIcons.FaUserCircle fontSize="35px" color="#fff" />
-                      <Text color="#fff" fontWeight="bold">
-                        {val.toUpperCase()}
-                      </Text>
-                    </Box>
-    <MenuItem icon={<AddIcon />} >
-      My Order
-    </MenuItem>
-    <MenuItem icon={<ExternalLinkIcon />} >
-      My Cart
-    </MenuItem>
-    <MenuItem icon={<RepeatIcon />} >
-      Admin Panel
-    </MenuItem>
-    <MenuItem icon={<EditIcon />} >
-      LogOut
-    </MenuItem>
-  </MenuList>
-</Menu>:""}
-<p display={{base:"none", md:"block"}} style={{ cursor: "pointer" }} onClick={handleLogin}>
-              {val || "Sign in/ Sign Up"}
-             
+          </div>
+          <Flex color={"white"} gap={{ base: 1, md: 2, lg: 4 }} className='R-icons-top' >
+            <Person2RoundedIcon
+              className="accountIcon"
+              onClick={() => navigate("/login")}
+            />
+            <p style={{ cursor: "pointer" }} onClick={() => navigate("/login")}>
+              {/* className='R-Text' */}
+              <span className="R-Text">{val || "Sign in/ Sign Up"}</span>
             </p>
-</Center>
- 
-           
-            <Flex ml={"30px"} gap={2} style={{ cursor: "pointer" }}>
+            <Flex
+              gap={{ base: 1, md: 2, lg: 4 }}
+              color="white"
+              style={{ cursor: "pointer" }}
+                className='R-icons-top'
+            >
               <ShoppingCartRoundedIcon onClick={() => navigate("/cart")} />
               <Box
                 style={{
                   position: "absolute",
-                  right: "11.1%",
+                  right: "7%",
                   backgroundColor: "red",
                   color: "white",
                   borderRadius: "40px",
-                  height: "20px",
-                  width: "20px",
-                  lineHeight: "22px",
+                  height: "15px",
+                  width: "15px",
+                  fontSize: "13px",
+                  lineHeight: "13px",
                   textAlign: "center",
-                  top: "12.6px",
+                  top: "25px",
                 }}
+                className="R-icons-top"
               >
                 {length}
               </Box>
-              <p onClick={() => navigate("/cart")}>Cart</p>
+              
+              <p onClick={() => navigate("/cart")}>
+                <span className="R-Text">Cart</span>
+              </p>
             </Flex>
           </Flex>
         </Flex>
       </Box>
+      <Box>{/* <Navlist /> */}</Box>
       <Box>
         <Navlist />
       </Box>
-      <Box>{/* <Navlist /> */}</Box>
-    </SimpleGrid>
+    </Box>
   );
 }
 

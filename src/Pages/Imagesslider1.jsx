@@ -33,8 +33,8 @@ const Imagesslidershop = ({url}) => {
                     cat.length > 0 && cat.map(({ img, title }, index) => (
 
                         <div key={index}>
-                            <Box>
-                                <Image w={"230px"} src={img} alt="Image" h={"210px"} />
+                            <Box className='image_crausal'>
+                                <Image className='scale_img' w={"200px"} src={img} alt="Image" h={"210px"} />
                             </Box>
                             <Text>{title}</Text>
                         </div>
