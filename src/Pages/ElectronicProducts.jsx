@@ -6,6 +6,7 @@ import { Spinner, Alert, AlertIcon, useToast, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import Load from "../Resources/Seen.gif"
+import { AddToCart } from "../redux/Cart/action";
 
 import {
   getElectronicsError,
@@ -36,9 +37,9 @@ const sortDataByDesc = () => {
   );
 };
 
-const AddToCart = (payload) => {
-  return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
-};
+// const AddToCart = (payload) => {
+//   return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
+// };
 
 const filterByCategory = (param) => {
   return axios.get(
@@ -96,7 +97,7 @@ const ElectronicProducts = () => {
   };
 
   const PostToCart = (item) => {
-    AddToCart(item).then((res) => {
+   dispatch(AddToCart(item)).then((res) => {
       alert("Item Added Successfully to the cart");
       toast({
         title: "Verification Reminder",

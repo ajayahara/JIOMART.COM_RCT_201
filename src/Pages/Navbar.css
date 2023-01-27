@@ -210,6 +210,7 @@ hr{
   width: 180px;
   /* height: 100%; */
   margin-left: -100px;
+  cursor: pointer;
   /* border: 1px solid red; */
 }
 /* .R-input-Element{
