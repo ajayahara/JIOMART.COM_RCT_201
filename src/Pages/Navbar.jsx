@@ -37,8 +37,8 @@ function Navbar() {
   const navigate = useNavigate();
   const [log, setLog] = useState(false)
   const showSidebar = () => setSidebar(!sidebar);
-  const val = JSON.parse(localStorage.getItem("Jio Mart User"));
-  const token = useSelector((store) => store.AuthReducer.token);
+  const val = JSON.parse(localStorage.getItem("Jio Mart User")) ;
+  const token = useSelector((store) => store.AuthReducer);
   let cart=useSelector((store)=>store.CartReducer.cart);
   const handleGet = () => {
   setLength(cart.length)
@@ -103,11 +103,14 @@ setLog(true)
               style={{ cursor: "pointer" }}
                 className='R-icons-top'
             >
+                 <p onClick={() => navigate("/cart")}>
+                <span className="R-Text">Cart</span>
+              </p>
               <ShoppingCartRoundedIcon  onClick={() => navigate("/cart")} />
               <Box
                 style={{
                   position: "absolute",
-                  right: "20.6%",
+                  right: "19.8%",
                   backgroundColor: "red",
                   color: "white",
                   borderRadius: "40px",
@@ -124,9 +127,7 @@ setLog(true)
                 {length}
               </Box>
               
-              <p onClick={() => navigate("/cart")}>
-                <span className="R-Text">Cart</span>
-              </p>
+           
             </Flex>
           <Flex color={"white"} ml={"30px"} gap={2}>
           

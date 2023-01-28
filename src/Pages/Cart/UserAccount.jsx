@@ -15,29 +15,30 @@ import {
   import { BsCreditCardFill } from "react-icons/bs";
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  import { logout } from "../Redux/Login/action";
-  import { GetData } from "../Utils/localStorage";
-  import OrderList from "../Components/OrdersList"
+  // import { logout } from "../Redux/Login/action";
+  // import { GetData } from "../Utils/localStorage";
+  // import OrderList from "../Components/OrdersList"
   
   const AccountPage = () => {
-    const { isAuth } = useSelector((state) => state.auth);
+    const user = useSelector((store) => console.log("users",store));
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [orders, setOrders] = useState([])
+    let data=null
     // console.log(orders)
   
-    const handleLogout = () =>{
-      dispatch(logout())
-      navigate("/account/login")
-    }
+    // const handleLogout = () =>{
+    //   dispatch(logout())
+    //   navigate("/account/login")
+    // }
   
-    useEffect(() => {
-      // console.log(isAuth)
-      if (!isAuth) {
-        navigate("/account/login");
-      }
-      setOrders(GetData("JioMartCloneOrders"))
-    }, []);
+    // useEffect(() => {
+    //   // console.log(isAuth)
+    //   if (!isAuth) {
+    //     navigate("/account/login");
+    //   }
+    //   setOrders(GetData("JioMartCloneOrders"))
+    // }, []);
   
     return (
       <Box bg={"whitesmoke"} padding={"50px 150px"}>
@@ -216,7 +217,7 @@ import {
               </Text>
             </Box>
             <hr />
-            <Box p={"20px"} onClick={handleLogout}>
+            <Box p={"20px"} >
               <Text fontSize={"sm"} as={"b"}>
                 Logout
               </Text>

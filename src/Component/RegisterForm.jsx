@@ -66,7 +66,8 @@ const RegisterForm = () => {
 
 
 
-  const token = useSelector((store) => store.AuthReducer.token);
+  // const token = useSelector((store) => store.AuthReducer.userData);
+  // console.log("store",token)
 
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
@@ -98,14 +99,14 @@ const RegisterForm = () => {
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     } else {
-      dispatch(getAuthSuccess(form.firstName));
+      dispatch(getAuthSuccess(form));
       navigate("/");
-      console.log(form);
+      // console.log(form);
     }
    
    
   
-    console.log(form);
+    // console.log(form);
 
   };
   // localStorage.setItem("Details", JSON.stringify(form));
