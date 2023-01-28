@@ -214,12 +214,14 @@ a:hover {
     width: 90%;
     margin: auto;
     gap: 1rem;
+
+    
     justify-content: center;
     align-items: center;
     /* border: 1px solid blue; */
   }
 
-  
+
 
   .left-carousel {
     display: flex;
