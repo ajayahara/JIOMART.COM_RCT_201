@@ -35,6 +35,7 @@ import { AiOutlineDown } from "react-icons/ai";
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const navigate = useNavigate();
+  const [log, setLog] = useState(false)
   const showSidebar = () => setSidebar(!sidebar);
   const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer.token);
@@ -45,7 +46,7 @@ function Navbar() {
   const [length, setLength] = useState(0);
   useEffect(() => {
     handleGet();
-  }, [cart]);
+  }, [cart,log]);
   const handleLogin=()=>{
     if(val==null)
     {
@@ -54,7 +55,7 @@ function Navbar() {
   }
   const handleLogout = () => {
     localStorage.removeItem("Jio Mart User");
-    cart=0;
+setLog(true)
   };
   return (
     <Box>

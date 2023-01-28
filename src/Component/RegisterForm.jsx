@@ -36,7 +36,7 @@ const initMsg = {
   },
   email: {
     status: false,
-    notice: "Please enter your Email",
+    notice: "Please enter a valid Email",
   },
   password1: {
     status: false,
@@ -84,14 +84,14 @@ const RegisterForm = () => {
 
    dispatch(getAuthRequest())
 
-    dispatch(getAuthRequest());
+    // dispatch(getAuthRequest());
 
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
     } else if (lastName === "") {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
-    } else if (email === "" ) {
+    } else if (email === "" || !email.includes("@") ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
     } else if (password1 === "" || password1.length < 8) {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
@@ -160,6 +160,7 @@ const RegisterForm = () => {
               placeholder="Your Email Id"
               name="email"
                type="email"
+              
               onChange={handleChange}
               value={email}
             />

@@ -64,12 +64,12 @@ import {
                 <CgProfile />{" "}
               </GridItem>
               <GridItem ml="-135px" w="100%" h="10" bg="#008ecc">
-                <Text as={"b"}>{`${isAuth.firstName} ${isAuth.lastName}`}</Text> <br />
+                <Text as={"b"}>{`${data.firstName} ${data.lastName}`}</Text> <br />
                 <Text as={"i"} color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.email}
+                  {data.email}
                 </Text>
                 <Text color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.number}
+                  {data.number}
                 </Text>
               </GridItem>
   
@@ -145,7 +145,7 @@ import {
                   Full Name
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                {`${isAuth.firstName} ${isAuth.lastName}`}
+                {`${data.firstName} ${data.lastName}`}
                 </Text>
               </GridItem>
               <GridItem w="100%" h="10">
@@ -162,7 +162,7 @@ import {
                   Email id
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.email}
+                  {data.email}
                 </Text>
               </GridItem>
   
@@ -171,7 +171,7 @@ import {
                   Mobile Number
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.number}
+                  {data.number}
                 </Text>
               </GridItem>
             </Grid>
@@ -223,9 +223,9 @@ import {
             </Box>
           </GridItem>
   
-          <GridItem w="120%" ml='-28' >
+          {/* <GridItem w="120%" ml='-28' >
             {orders.map((order,index)=> <OrderList key={index} order={order} visible={false}/>)}
-          </GridItem>
+          </GridItem> */}
         </Grid>
       </Box>
     );
