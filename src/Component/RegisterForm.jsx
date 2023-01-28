@@ -89,7 +89,7 @@ const RegisterForm = () => {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
     } else if (lastName === "") {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
-    } else if (email === "") {
+    } else if (email === "" ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
     } else if (password1 === "") {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
@@ -157,6 +157,7 @@ const RegisterForm = () => {
               mt={"30px"}
               placeholder="Your Email Id"
               name="email"
+              type="Email"
               onChange={handleChange}
               value={email}
             />
