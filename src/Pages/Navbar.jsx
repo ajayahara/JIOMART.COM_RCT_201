@@ -111,6 +111,7 @@ function Navbar() {
 
   useEffect(() => {
     handleGetAllData();
+    
   }, []);
 
   return (

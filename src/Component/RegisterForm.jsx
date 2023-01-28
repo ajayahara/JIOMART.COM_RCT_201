@@ -117,13 +117,13 @@ const RegisterForm = () => {
         <Navlist /> */}
       <br />
       <br />
-      <Box w="90%" m="auto" display="flex">
+      <Box w="90%" m={"auto"} display={{ lg:"flex"}}>
         <Image
-          m={50}
+          margin={{md:"auto",lg:"0px"}}
           h={600}
           src="https://www.jiomart.com/msassets/images/login-banner.jpg"
         />
-        <Box ml="200px" mt="100px">
+        <Box ml={{base:"15px",md:"40px",lg:"200px"}} mt="100px">
           <Text fontSize="27px" fontWeight="bold">
             Sign up
           </Text>
@@ -161,7 +161,6 @@ const RegisterForm = () => {
               placeholder="Your Email Id"
               name="email"
                type="email"
-              
               onChange={handleChange}
               value={email}
             />
@@ -250,13 +249,13 @@ const RegisterForm = () => {
               </Box>
             </Flex>
 
-            <Text as={"span"} mb={"10px"} fontSize="14px" color="##e3c6b0">
+            <Text as={"span"}  mb={"10px"} fontSize="14px" color="##e3c6b0">
               This Phone Number is already Verified{" "}
               <Text as={"b"}>+91-{value}</Text>{" "}
             </Text>
 
             <Button
-              ml={10}
+              ml={{md:10}}
               fontSize={"13px"}
               color="#e23911"
               boder="0"
