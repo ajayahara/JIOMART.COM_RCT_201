@@ -36,7 +36,7 @@ const initMsg = {
   },
   email: {
     status: false,
-    notice: "Please enter your Email",
+    notice: "Please enter a valid Email",
   },
   password1: {
     status: false,
@@ -66,7 +66,8 @@ const RegisterForm = () => {
 
 
 
-  const token = useSelector((store) => store.AuthReducer.token);
+  // const token = useSelector((store) => store.AuthReducer.userData);
+  // console.log("store",token)
 
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
@@ -84,28 +85,28 @@ const RegisterForm = () => {
 
    dispatch(getAuthRequest())
 
-    dispatch(getAuthRequest());
+    // dispatch(getAuthRequest());
 
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
     } else if (lastName === "") {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
-    } else if (email === "" ) {
+    } else if (email === "" || !email.includes("@") ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
     } else if (password1 === "" || password1.length < 8) {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     } else {
-      dispatch(getAuthSuccess(form.firstName));
+      dispatch(getAuthSuccess(form));
       navigate("/");
-      console.log(form);
+      // console.log(form);
     }
    
    
   
-    console.log(form);
+    // console.log(form);
 
   };
   // localStorage.setItem("Details", JSON.stringify(form));
@@ -160,6 +161,7 @@ const RegisterForm = () => {
               placeholder="Your Email Id"
               name="email"
                type="email"
+              
               onChange={handleChange}
               value={email}
             />

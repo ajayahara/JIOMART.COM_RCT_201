@@ -15,29 +15,30 @@ import {
   import { BsCreditCardFill } from "react-icons/bs";
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  import { logout } from "../Redux/Login/action";
-  import { GetData } from "../Utils/localStorage";
-  import OrderList from "../Components/OrdersList"
+  // import { logout } from "../Redux/Login/action";
+  // import { GetData } from "../Utils/localStorage";
+  // import OrderList from "../Components/OrdersList"
   
   const AccountPage = () => {
-    const { isAuth } = useSelector((state) => state.auth);
+    const user = useSelector((store) => console.log("users",store));
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [orders, setOrders] = useState([])
+    let data=null
     // console.log(orders)
   
-    const handleLogout = () =>{
-      dispatch(logout())
-      navigate("/account/login")
-    }
+    // const handleLogout = () =>{
+    //   dispatch(logout())
+    //   navigate("/account/login")
+    // }
   
-    useEffect(() => {
-      // console.log(isAuth)
-      if (!isAuth) {
-        navigate("/account/login");
-      }
-      setOrders(GetData("JioMartCloneOrders"))
-    }, []);
+    // useEffect(() => {
+    //   // console.log(isAuth)
+    //   if (!isAuth) {
+    //     navigate("/account/login");
+    //   }
+    //   setOrders(GetData("JioMartCloneOrders"))
+    // }, []);
   
     return (
       <Box bg={"whitesmoke"} padding={"50px 150px"}>
@@ -64,12 +65,12 @@ import {
                 <CgProfile />{" "}
               </GridItem>
               <GridItem ml="-135px" w="100%" h="10" bg="#008ecc">
-                <Text as={"b"}>{`${isAuth.firstName} ${isAuth.lastName}`}</Text> <br />
+                <Text as={"b"}>{`${data.firstName} ${data.lastName}`}</Text> <br />
                 <Text as={"i"} color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.email}
+                  {data.email}
                 </Text>
                 <Text color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.number}
+                  {data.number}
                 </Text>
               </GridItem>
   
@@ -145,7 +146,7 @@ import {
                   Full Name
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                {`${isAuth.firstName} ${isAuth.lastName}`}
+                {`${data.firstName} ${data.lastName}`}
                 </Text>
               </GridItem>
               <GridItem w="100%" h="10">
@@ -162,7 +163,7 @@ import {
                   Email id
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.email}
+                  {data.email}
                 </Text>
               </GridItem>
   
@@ -171,7 +172,7 @@ import {
                   Mobile Number
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.number}
+                  {data.number}
                 </Text>
               </GridItem>
             </Grid>
@@ -216,16 +217,16 @@ import {
               </Text>
             </Box>
             <hr />
-            <Box p={"20px"} onClick={handleLogout}>
+            <Box p={"20px"} >
               <Text fontSize={"sm"} as={"b"}>
                 Logout
               </Text>
             </Box>
           </GridItem>
   
-          <GridItem w="120%" ml='-28' >
+          {/* <GridItem w="120%" ml='-28' >
             {orders.map((order,index)=> <OrderList key={index} order={order} visible={false}/>)}
-          </GridItem>
+          </GridItem> */}
         </Grid>
       </Box>
     );
