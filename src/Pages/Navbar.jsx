@@ -54,6 +54,7 @@ function Navbar() {
   }
   const handleLogout = () => {
     localStorage.removeItem("Jio Mart User");
+    cart=0;
   };
   return (
     <Box>

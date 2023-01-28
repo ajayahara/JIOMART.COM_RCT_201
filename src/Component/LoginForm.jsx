@@ -11,8 +11,8 @@ import {
   useToast,
   InputRightElement,
 } from "@chakra-ui/react";
-import Navbar from "../Pages/Navbar";
-import Navlist from "./Navlist";
+// import Navbar from "../Pages/Navbar";
+// import Navlist from "./Navlist";
 import { useNavigate } from "react-router";
 
 const initMsg = {

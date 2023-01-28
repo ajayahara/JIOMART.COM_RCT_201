@@ -11,6 +11,7 @@ import {
   Flex,
   Spacer,
   Checkbox,
+  FormControl,
 } from "@chakra-ui/react";
 // import Navbar from "../Pages/Navbar";
 // import Navlist from "./Navlist";
@@ -39,7 +40,7 @@ const initMsg = {
   },
   password1: {
     status: false,
-    notice: "Please enter your Password",
+    notice: "Please enter a strong Password",
   },
   password2: {
     status: false,
@@ -66,6 +67,7 @@ const RegisterForm = () => {
 
 
   const token = useSelector((store) => store.AuthReducer.token);
+
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
   const navigate = useNavigate();
@@ -91,7 +93,7 @@ const RegisterForm = () => {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
     } else if (email === "" ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
-    } else if (password1 === "") {
+    } else if (password1 === "" || password1.length < 8) {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
@@ -128,7 +130,7 @@ const RegisterForm = () => {
             Please enter your details.
           </Text>
           <br />
-          <form>
+          <FormControl>
             <Input
               mb={"0px"}
               placeholder="Your First Name"
@@ -157,7 +159,7 @@ const RegisterForm = () => {
               mt={"30px"}
               placeholder="Your Email Id"
               name="email"
-              type="Email"
+               type="email"
               onChange={handleChange}
               value={email}
             />
@@ -272,7 +274,7 @@ const RegisterForm = () => {
             >
               Create Account
             </Button>
-          </form>
+          </FormControl>
         </Box>
       </Box>
     </>
