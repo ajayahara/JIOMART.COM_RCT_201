@@ -74,7 +74,8 @@ a:hover {
   width: 80%;
 }
 .product__name {
-  border: 1px solid rgb(118, 118, 8);
+  /* border: 1px solid rgb(118, 118, 8); */
+  font-weight: bold;
   width: 90%;
 }
 .product__name-light {
@@ -83,7 +84,7 @@ a:hover {
 
 .mrp{
     display: flex;
-    border:1px solid red;
+    /* border:1px solid red; */
     width:100%;
 }
 
@@ -246,6 +247,7 @@ a:hover {
   .product__name {
     width: 100%;
     /* border:5px solid blue; */
+    font-weight: lighter;
   }
 
   .space_Between {
