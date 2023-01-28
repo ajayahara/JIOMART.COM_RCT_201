@@ -23,7 +23,7 @@ export const CartLoginItems = () =>{
     <div className="CartLoginitems">
       <div>
         <div>
-          <div>{`My Cart : (${cart.length})`}</div>
+          <div>{`My Cart : (${cart.length} Items)`}</div>
           <div></div>
         </div>
         <div className="cart1">
@@ -31,7 +31,7 @@ export const CartLoginItems = () =>{
             <div className="basket">
               <div>
                 <div>
-                  Groceries Basket <span>({cart.length} items)</span>
+                  My Basket List<span>({cart.length} items)</span>
                 </div>
                 <div>₹ {(price*0.8).toFixed(2)}</div>
               </div>
@@ -51,7 +51,7 @@ export const CartLoginItems = () =>{
             <div></div>
           </div>
           <div>
-            <Applycoupon />
+            <Applycoupon cartPrice={price} />
             <PaymentDetils cartPrice={price} />
             <div className="PaymentButton">
               <button
