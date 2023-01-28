@@ -13,6 +13,7 @@ import {Address} from '../Pages/Cart/Address';
 import {PaymentPage} from '../Pages/Cart/PaymentPage';
 import Admin from '../Pages/Admin';
 import Adminpanel from '../Pages/AdminPanel';
+import AccountPage from "../Pages/Cart/UserAccount"
 const AllRoutes = () => {
   return (
     <div>
@@ -30,6 +31,7 @@ const AllRoutes = () => {
             <Route path='/payment' element={<PaymentPage />}/>
             <Route path='/admin' element={<Admin />}/>
             <Route path='/adminPanel' element={<Adminpanel />}/>
+            <Route path='/user' element={<AccountPage />}/>
             <Route path='*' element={<h1>*Error* Page Not Found</h1>}/>
         </Routes>
     </div>

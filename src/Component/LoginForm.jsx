@@ -11,8 +11,8 @@ import {
   useToast,
   InputRightElement,
 } from "@chakra-ui/react";
-import Navbar from "../Pages/Navbar";
-import Navlist from "./Navlist";
+// import Navbar from "../Pages/Navbar";
+// import Navlist from "./Navlist";
 import { useNavigate } from "react-router";
 
 const initMsg = {
@@ -85,7 +85,6 @@ export default function Login() {
       setMsg({ status: true, notice: "Please enter your OTP!" });
     } else if (inputOtp == otp) {
       localStorage.setItem("phone", phoneNumber);
-      // console.log("Sucess");
       navigate("/register");
     } else {
       setMsg({ status: true, notice: "Invalid OTP!" });
@@ -94,13 +93,6 @@ export default function Login() {
 
   return (
     <>
-      {/* <Navbar/> */}
-      {/* <Navlist /> */}
-      {/* <Box ml="90%" mt="10px">
-        <Button  colorScheme="blue">
-          Admin Login
-        </Button>
-      </Box> */}
       <br />
       <br />
       <Box w="90%" m="auto" display="flex">
@@ -187,6 +179,9 @@ export default function Login() {
               ) : null}
             </Box>
           )}
+          {/* <Box>
+            <Text>via Email</Text>
+          </Box> */}
 
           <Box mt={"10"} pl={"65%"}>
             <Button

@@ -11,6 +11,7 @@ import {
   Flex,
   Spacer,
   Checkbox,
+  FormControl,
 } from "@chakra-ui/react";
 // import Navbar from "../Pages/Navbar";
 // import Navlist from "./Navlist";
@@ -35,11 +36,11 @@ const initMsg = {
   },
   email: {
     status: false,
-    notice: "Please enter your Email",
+    notice: "Please enter a valid Email",
   },
   password1: {
     status: false,
-    notice: "Please enter your Password",
+    notice: "Please enter a strong Password",
   },
   password2: {
     status: false,
@@ -65,7 +66,9 @@ const RegisterForm = () => {
 
 
 
-  const token = useSelector((store) => store.AuthReducer.token);
+  // const token = useSelector((store) => store.AuthReducer.userData);
+  // console.log("store",token)
+
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
   const navigate = useNavigate();
@@ -82,28 +85,28 @@ const RegisterForm = () => {
 
    dispatch(getAuthRequest())
 
-    dispatch(getAuthRequest());
+    // dispatch(getAuthRequest());
 
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
     } else if (lastName === "") {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
-    } else if (email === "") {
+    } else if (email === "" || !email.includes("@") ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
-    } else if (password1 === "") {
+    } else if (password1 === "" || password1.length < 8) {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     } else {
-      dispatch(getAuthSuccess(form.firstName));
+      dispatch(getAuthSuccess(form));
       navigate("/");
-      console.log(form);
+      // console.log(form);
     }
    
    
   
-    console.log(form);
+    // console.log(form);
 
   };
   // localStorage.setItem("Details", JSON.stringify(form));
@@ -128,7 +131,7 @@ const RegisterForm = () => {
             Please enter your details.
           </Text>
           <br />
-          <form>
+          <FormControl>
             <Input
               mb={"0px"}
               placeholder="Your First Name"
@@ -157,6 +160,8 @@ const RegisterForm = () => {
               mt={"30px"}
               placeholder="Your Email Id"
               name="email"
+               type="email"
+              
               onChange={handleChange}
               value={email}
             />
@@ -271,7 +276,7 @@ const RegisterForm = () => {
             >
               Create Account
             </Button>
-          </form>
+          </FormControl>
         </Box>
       </Box>
     </>
