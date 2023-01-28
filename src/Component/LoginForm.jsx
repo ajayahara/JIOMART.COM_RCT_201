@@ -11,8 +11,6 @@ import {
   useToast,
   InputRightElement,
 } from "@chakra-ui/react";
-// import Navbar from "../Pages/Navbar";
-// import Navlist from "./Navlist";
 import { useNavigate } from "react-router";
 
 const initMsg = {
@@ -95,9 +93,9 @@ export default function Login() {
     <>
       <br />
       <br />
-      <Box w="90%" m="auto" display="flex">
-        <Image src="https://www.jiomart.com/msassets/images/login-banner.jpg" />
-        <Box ml="200px" mt="100px">
+      <Box w="90%" m="auto" display={{ lg:"flex"}}>
+        <Image margin={{md:"auto",lg:"0px"}} src="https://www.jiomart.com/msassets/images/login-banner.jpg" />
+        <Box ml={{base:"15px",md:"80px",lg:"200px"}} mt="100px">
           <Text fontSize="27px" fontWeight="bold">
             Sign in
           </Text>

@@ -20,7 +20,6 @@ import {
   // import OrderList from "../Components/OrdersList"
   
   const AccountPage = () => {
-    const user = useSelector((store) => console.log("users",store));
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [orders, setOrders] = useState([])
