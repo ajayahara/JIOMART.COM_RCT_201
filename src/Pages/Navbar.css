@@ -9,6 +9,7 @@
   align-items: center;
   /* border:"1px solid red"; */
   width: 100vw;
+  padding-right: 1rem;
 }
 
 .menu-bars {
@@ -210,6 +211,7 @@ hr{
   width: 180px;
   /* height: 100%; */
   margin-left: -100px;
+  cursor: pointer;
   /* border: 1px solid red; */
 }
 /* .R-input-Element{

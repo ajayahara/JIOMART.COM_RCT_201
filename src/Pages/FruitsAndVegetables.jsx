@@ -11,6 +11,7 @@ import {
   getGrocerriesFailure,
   getGrocerriesSuccess,
 } from "../redux/groceries/action";
+import { AddToCart } from "../redux/Cart/action";
 
 
 const CurrentIndivisualData = (payload) => {
@@ -38,9 +39,9 @@ const sortDataByDesc = () => {
   );
 };
 
-const AddToCart = (payload) => {
-  return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
-};
+// const AddToCart = (payload) => {
+//   return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
+// };
 
 const filterByCategory = (param) => {
   return axios.get(
@@ -104,7 +105,7 @@ const FruitsAndVegetables = () => {
   };
 
   const PostToCart = (item) => {
-    AddToCart(item).then((res) => {
+    dispatch(AddToCart(item)).then((res) => {
       // alert("Item Added Successfully to the cart");
       toast({
         title: "Verification Reminder",
