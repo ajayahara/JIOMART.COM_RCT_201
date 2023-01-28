@@ -161,7 +161,6 @@ const RegisterForm = () => {
               placeholder="Your Email Id"
               name="email"
                type="email"
-              
               onChange={handleChange}
               value={email}
             />

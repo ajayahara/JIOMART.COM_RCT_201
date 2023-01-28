@@ -93,7 +93,8 @@ setLog(true)
                 // style={{width:"660px"}}
                 className="R-inputBox"
                 type="text"
-                placeholder="Search essential,goods and much more......"
+                placeholder="Search only for Fruits & Vegitables..."
+                onChange={(e)=>e.target.value}
               />
             </InputGroup>
           </div>
