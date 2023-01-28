@@ -9,6 +9,7 @@
   align-items: center;
   /* border:"1px solid red"; */
   width: 100vw;
+  padding-right: 1rem;
 }
 
 .menu-bars {

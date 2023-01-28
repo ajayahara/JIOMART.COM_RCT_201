@@ -8,13 +8,13 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import { Show, Hide,Center } from "@chakra-ui/react";
 const CurrentIndivisualData = (payload) => {
   return axios.put(
     "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
     payload
   );
 };
-
 
 const responsive = {
   desktop: {
@@ -24,13 +24,13 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 564 },
-    items: 3,
-    slidesToSlide: 3, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
     items: 2,
     slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 563, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
   },
 };
 
@@ -131,16 +131,21 @@ const IndivisualPage = () => {
             />
           </div>
         </div>
+        {/* space_top_bottom */}
         <div className="right-data">
-          <h3 className="product__name space_top_bottom">
-            <b>{data.title || data.name}</b>
-          </h3>
+          <Hide below="sm">
+            <h3 className="product__name space_top_bottom ">
+              {data.title || data.name}
+            </h3>
+          </Hide>
+          <Show below="sm" >{data.title || data.name}</Show>
+
           <h4 className="product__name-light space_top_bottom">FINISH</h4>
 
-          <p className="space_top_bottom">
-            <b className="space_Between">₹ {data.price} </b> M.R.P:
-            <span className="crossedLine">₹ 1599.00</span>
-          </p>
+          
+          <span className="crossedLine space_top_bottom">₹ 1599.00</span>
+         
+          <b className="space_Between">Price : ₹ {data.price} </b>
           <p className="space_top_bottom">
             <span>
               You Save: ₹ <b className="green__text space_Between">833.00</b>
@@ -278,7 +283,6 @@ const IndivisualPage = () => {
           })}
       </Carousel>
       ;
-      
     </div>
   );
 };

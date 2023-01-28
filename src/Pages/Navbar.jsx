@@ -142,7 +142,7 @@ function Navbar() {
     icon={ <AiOutlineDown/> }
     variant='outline'
   />
-  <MenuList  p="0px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
+  <MenuList  p="0px"  color='black' boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px">
   <Box
                       borderRadius="5px 5px 0% 0%"
                       bgColor="#008ecc"
