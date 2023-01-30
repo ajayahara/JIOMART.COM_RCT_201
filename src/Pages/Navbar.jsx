@@ -94,14 +94,14 @@ function Navbar() {
       timer = setTimeout(() => {
         timer = null;
         func.apply(context, args);
-      }, 300);
+      }, 0);
     };
   };
 
   const handleChange = (value) => {
     return setFilteredData(
       arr.filter((el) => {
-        if (el.name.split(' ').includes(value)) {
+        if (el.name.includes(value)) {
           return el;
         }
       })

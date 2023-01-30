@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import "./Styles.css";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
 
 const Navlist = () => {
   const navigate = useNavigate();
   return (
-    <div className="navlist">
+    <Box className="navlist" >
       <ul>
-        <li>
+        <li style={{zIndex:1000}}>
           Groceries
           <ChevronDownIcon />
           <ul className="dropdown">
@@ -24,7 +25,7 @@ const Navlist = () => {
             <li onClick={() => navigate("/electronicProducts")}> Beauty</li>
           </ul>
         </li>
-        <li>
+        <li style={{zIndex:1000}}>
           Premium Fruits
           <ChevronDownIcon />
           <ul className="dropdown">
@@ -40,7 +41,7 @@ const Navlist = () => {
             <li>Seasonal & Minor Fruits</li>
           </ul>
         </li>
-        <li>
+        <li  style={{zIndex:1000}}>
           Home & Kitchen
           <ChevronDownIcon />
           <ul className="dropdown">
@@ -56,7 +57,7 @@ const Navlist = () => {
             <li>Pooja Needs</li>
           </ul>
         </li>
-        <li>
+        <li  style={{zIndex:1000}}>
           <Link>
             Fashion
             <ChevronDownIcon />
@@ -70,7 +71,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li>
+        <li  style={{zIndex:1000}}>
           <Link>
             Electronics
             <ChevronDownIcon />
@@ -87,7 +88,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li>
+        <li  style={{zIndex:1000}}>
           <Link>
             Beauty
             <ChevronDownIcon />
@@ -102,7 +103,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li>
+        <li  style={{zIndex:1000}}>
           Jewellery
           <ChevronDownIcon />
           <ul className="dropdown">
@@ -111,7 +112,7 @@ const Navlist = () => {
           </ul>
         </li>
       </ul>
-    </div>
+    </Box>
   );
 };
 export default Navlist;
