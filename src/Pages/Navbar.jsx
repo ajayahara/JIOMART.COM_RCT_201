@@ -81,7 +81,7 @@ function Navbar() {
 
   const handleGetAllData = () => {
     getAllData().then((res) => {
-      // console.log(res.data);
+      console.log(res,"setarr res");
       setArr(res.data);
     });
   };
@@ -98,10 +98,26 @@ function Navbar() {
     };
   };
 
-  const handleChange = (value) => {
+  const handleChange = async(value) => {
+   // console.log(value,arr, "**************************")
+    // handleGetAllData()
+
+    let x = await  getAllData().then((res) => res.data);
+    console.log(x,"x data")
+
+
+
+
+
+
+
+
+
+
     return setFilteredData(
-      arr.filter((el) => {
-        if (el.name.split(' ').includes(value)) {
+      x.filter((el) => {
+        console.log(el.name.split(" ").join("").includes(value), el.name.split(" ").join(""))
+        if (el.name.split(" ").join("").includes(value)) {
           return el;
         }
       })
@@ -166,7 +182,7 @@ function Navbar() {
               
             </InputGroup>
             {filteredData.length !== 0 ? (
-              <Box
+              <Box 
                 w={"560px"}
                 h={"280px"}
                 pos="absolute"
