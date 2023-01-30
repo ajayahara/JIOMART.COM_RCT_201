@@ -17,15 +17,17 @@ const ImageCrausal = () => {
   
 
     <Box ml={"40px"} >
-   
+        <Center>
         <SimpleGrid columns={[1,2,4,6]} w={"83%"}  >
+
            {mg.length>0 && mg.map(({img},index)=>(
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>
                 <Box >
-                <Image  src={img} w={"180px"} h={"210px"}   _groupHover={{ color: 'tomato' }}></Image>
+                <Image  src={img} w={"200px"} h={"210px"}   _groupHover={{ color: 'tomato' }}></Image>
                 </Box>
                 </Center>
+
                 
                
                
@@ -34,6 +36,7 @@ const ImageCrausal = () => {
            }
          
         </SimpleGrid>
+        </Center>
         
     </Box>
    

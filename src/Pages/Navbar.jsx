@@ -168,6 +168,8 @@ function Navbar() {
                 // color={"white"}
                 // ml={"60px"}
                 // style={{width:"660px"}}
+                style={{borderRadiusTopLeft:"20px"}}
+                borderRadiusLeft={"20px"}
                 bgColor='white'
                 border={"1px solid red"}
                 className="R-inputBox"
@@ -178,7 +180,7 @@ function Navbar() {
               <Hide below='md'><InputRightAddon onClick={()=>{
                 optimizedFn("")
               }} 
-               h={55} ml='-79' pointerEvents='none' children={<FaWindowClose />} /></Hide>
+               h={55} ml='-100' pointerEvents='none' children={<FaWindowClose />} /></Hide>
               
             </InputGroup>
             {filteredData.length !== 0 ? (
