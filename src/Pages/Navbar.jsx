@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback,useRef } from "react";
 import * as FaIcons from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import logo from "../Resources/bcg-noBackground.png";
@@ -51,6 +51,7 @@ const getAllData = () => {
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const [searchbar, setSearchbar] = useState(false);
   const navigate = useNavigate();
   const [log, setLog] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -61,7 +62,7 @@ function Navbar() {
   const [arr, setArr] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [filteredData, setFilteredData] = useState([]);
-
+  const input_value=useRef();
   const handleGet = () => {
     setLength(cart.length);
   };
@@ -99,9 +100,14 @@ function Navbar() {
   };
 
   const handleChange = async(value) => {
-
+    if(value==""){
+      setSearchbar(true)
+    }
+    else{
+      setSearchbar(false)
+    }
     let x = await  getAllData().then((res) => res.data);
-    console.log(x,"x data")
+    // console.log(x,"x data")
 
 
     return setFilteredData(
@@ -151,36 +157,46 @@ function Navbar() {
           <div>
             <InputGroup  >
               <input
+              ref={input_value}
                 // bg={"white"}
                 // w={"660px"}
                 // color={"white"}
                 // ml={"60px"}
                 // style={{width:"660px"}}
-                style={{borderRadiusTopLeft:"20px"}}
+                style={{borderRadiusTopLeft:"20px",border:"transparent"}}
                 borderRadiusLeft={"20px"}
                 bgColor='white'
-                border={"1px solid red"}
+                // border={"1px solid red"}
                 className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
                 onChange={(e) => optimizedFn(e.target.value)}
               />
-              <Hide below='md'><InputRightAddon onClick={()=>{
-                optimizedFn("")
+              
+              <Button ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
+                
+                input_value.current.value="";
+
+                setSearchbar(true)
+               
               }} 
-               h={55} ml='-100' pointerEvents='none' children={<FaWindowClose />} /></Hide>
+              
+              >< FaWindowClose/></Button>
+              
               
             </InputGroup>
             {filteredData.length !== 0 ? (
+              <Hide below="md">
               <Box 
-                w={"560px"}
+                w={"543px"}
                 h={"280px"}
                 pos="absolute"
                 overflow={"scroll"}
-                top={"10%"}
+                top={"9%"}
                 bg="white"
                 border={"3px solid grey"}
-                zIndex="1000"
+                zIndex="2000"
+                className={searchbar==true?"searchbarbox":null}
               >
                 {filteredData.length > 0 &&
                   filteredData.map((el, i) => {
@@ -205,6 +221,7 @@ function Navbar() {
                     );
                   })}
               </Box>
+              </Hide>
             ) : (
               ""
             )}

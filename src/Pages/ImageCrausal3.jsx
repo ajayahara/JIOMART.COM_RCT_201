@@ -22,7 +22,7 @@ const ImageCrausal3 = () => {
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>
                 <Box >
-                <Image  src={img} w={"180px"} h={"210px"}   _groupHover={{ color: 'tomato' }}></Image>
+                <Image  src={img} w={"180px"} h={"210px"}_groupHover={{ color: 'tomato' }}></Image>
                 </Box>
                 </Center>
                 </SimpleGrid >
