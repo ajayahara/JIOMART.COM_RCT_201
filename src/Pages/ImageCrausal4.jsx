@@ -10,8 +10,8 @@ const ImageCrausal4 = () => {
 
     },[])
   return (
-<Box h={["1350px","700px","500px","300px"]}>
-<Text textAlign={"left"} ml={"38px"} fontSize={"20px"} fontWeight= {'bold'}>Freash Fruits</Text>
+<Box h={["1370px","700px","500px","350px"]}>
+<Text textAlign={"left"} ml={"38px"} fontSize={"20px"} fontWeight= {'bold'}>Freash Fruits Category</Text>
     <Box mt={"20px"} h={"300px"} color={"black"} >
     <Box ml={"40px"}>
     <Center>

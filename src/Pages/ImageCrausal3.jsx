@@ -25,9 +25,6 @@ const ImageCrausal3 = () => {
                 <Image  src={img} w={"180px"} h={"210px"}   _groupHover={{ color: 'tomato' }}></Image>
                 </Box>
                 </Center>
-                
-               
-               
                 </SimpleGrid >
             ))
            }
