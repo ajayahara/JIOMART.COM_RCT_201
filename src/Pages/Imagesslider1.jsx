@@ -47,7 +47,7 @@ const Imagesslidershop = ({url}) => {
             settings.slidesToShow = 3;
         }
         else if (windowSize.innerWidth > 600 && windowSize.innerWidth <= 900) {
-            settings.slidesToShow = 5;
+            settings.slidesToShow = 4;
         }
         else {
             settings.slidesToShow = 6;
@@ -61,8 +61,8 @@ const Imagesslidershop = ({url}) => {
                     cat.length > 0 && cat.map(({ img, title }, index) => (
 
                         <div key={index}>
-                            <Box className='image_crausal'>
-                                <Image className='scale_img' w={"200px"} src={img} alt="Image" h={"210px"} />
+                            <Box className='image_crausal' display="flex" justifyContent="center"  alignItems="center">
+                                <Image className='scale_img' w={{base:"250px",md:"180px",lg:"180px"}} src={img} alt="Image" h={"210px"} />
                             </Box>
                             <Text>{title}</Text>
                         </div>

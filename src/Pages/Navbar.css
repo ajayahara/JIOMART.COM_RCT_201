@@ -202,6 +202,8 @@ hr{
   width: 560px;
   margin-right: 80px;
   padding: 1rem;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .R-Text{
