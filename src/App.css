@@ -12,7 +12,6 @@
 @media all and (max-width:1272px) and (min-width:720px){
   .App{
     width: auto;
-    padding: 1rem;
   }
 }
 

@@ -53,7 +53,7 @@ export const Address = () => {
         <div>
           <PaymentDetils cartPrice={price}/>
           <div className='PaymentButton'><button onClick={()=>{
-            localStorage.setItem("price",(price*0.8).toFixed(2))
+            localStorage.setItem("price",price.toFixed(2))
               navigate('/payment')
           } }>Make Payment</button></div>
         </div>

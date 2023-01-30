@@ -23,6 +23,8 @@ import {
   Button,
   MenuItem,
   useDisclosure,
+  InputRightAddon,
+  Hide
 } from "@chakra-ui/react";
 import Sidebar from "./sidebar";
 import { Input } from "@chakra-ui/react";
@@ -39,6 +41,7 @@ import {
   RepeatIcon,
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
+import { FaWindowClose } from "react-icons/fa";
 
 // https://kiwi-discovered-pyjama.glitch.me/alldata
 
@@ -56,8 +59,8 @@ function Navbar() {
   let cart = useSelector((store) => store.CartReducer.cart);
   const [query, setQuery] = useState("");
   const [arr, setArr] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const [filteredData, setFilteredData] = useState(arr || []);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [filteredData, setFilteredData] = useState([]);
 
   const handleGet = () => {
     setLength(cart.length);
@@ -98,7 +101,7 @@ function Navbar() {
   const handleChange = (value) => {
     return setFilteredData(
       arr.filter((el) => {
-        if (el.name.includes(value)) {
+        if (el.name.split(' ').includes(value)) {
           return el;
         }
       })
@@ -113,8 +116,7 @@ function Navbar() {
 
   useEffect(() => {
     handleGetAllData();
-    
-  }, []);
+  }, [filteredData]);
 
   return (
     <Box>
@@ -142,36 +144,64 @@ function Navbar() {
             className="R-input-logo"
             onClick={() => navigate("/")}
           />
-          <div >
-            <InputGroup gap={5}>
+          <div>
+            <InputGroup  >
               <input
                 // bg={"white"}
                 // w={"660px"}
                 // color={"white"}
                 // ml={"60px"}
                 // style={{width:"660px"}}
+                bgColor='white'
                 border={"1px solid red"}
                 className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
                 onChange={(e) => optimizedFn(e.target.value)}
               />
-            </InputGroup >
-            {filteredData.length!==0? <Box w={"560px"} h={"280px"} pos="absolute" overflow={"scroll"} top={"10%"}  bg="white" border={"1px solid red"} zIndex="1000">
+              <Hide below='md'><InputRightAddon onClick={()=>{
+                optimizedFn("")
+              }} 
+               h={55} ml='-79' pointerEvents='none' children={<FaWindowClose />} /></Hide>
+              
+            </InputGroup>
+            {filteredData.length !== 0 ? (
+              <Box
+                w={"560px"}
+                h={"280px"}
+                pos="absolute"
+                overflow={"scroll"}
+                top={"10%"}
+                bg="white"
+                border={"3px solid grey"}
+                zIndex="1000"
+              >
                 {filteredData.length > 0 &&
-                filteredData.map((el, i) => {
-                  return (
-                    <Box pt={2} pl={5} _hover={{bg:"gray", color:"white"}}>
-                    <Box display={"flex"} key={i} gap={10} >
-                      <Image w={"50px"} h={"50px"} mb={2} src={el.image}></Image>
-                      <h1><b>{el.name}</b></h1>
-                    </Box>
-                    </Box>
-                  );
-                })}
-            </Box>:""}
-          
-  
+                  filteredData.map((el, i) => {
+                    return (
+                      <Box
+                        pt={2}
+                        pl={5}
+                        _hover={{ bg: "gray", color: "white" }}
+                      >
+                        <Box display={"flex"} key={i} gap={10}>
+                          <Image
+                            w={"50px"}
+                            h={"50px"}
+                            mb={2}
+                            src={el.image}
+                          ></Image>
+                          <h1>
+                            <b>{el.name}</b>
+                          </h1>
+                        </Box>
+                      </Box>
+                    );
+                  })}
+              </Box>
+            ) : (
+              ""
+            )}
           </div>
           <Flex
             gap={{ base: 1, md: 2, lg: 4 }}

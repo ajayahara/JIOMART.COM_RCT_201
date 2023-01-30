@@ -15,7 +15,7 @@ export const AddressItem = ({image,name,price,qty}) => {
         <div>
              <span>{price*0.8}</span>
                 <span>{price}</span>
-                <span>You Save {price*0.2}</span>
+                <span>You Save {(price*0.2).toFixed(2)}</span>
         </div>
         <div>
             <span>Sold By </span>
