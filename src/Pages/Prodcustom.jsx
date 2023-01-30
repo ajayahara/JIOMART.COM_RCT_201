@@ -23,6 +23,43 @@ const Prodcustom = ({url}) => {
         gap:"5px"
 
     }
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+      function handleWindowResize() {
+  
+        setWindowSize(getWindowSize());
+      }
+  
+      window.addEventListener('resize', handleWindowResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
+ 
+    function getWindowSize() {
+      const { innerWidth, innerHeight } = window;
+      return { innerWidth, innerHeight };
+  
+    }
+    if (windowSize.innerWidth <= 623) {
+      settings.slidesToShow = 1;
+    }
+    else if (windowSize.innerWidth > 623 && windowSize.innerWidth <= 800) {
+      settings.slidesToShow = 3;
+    }
+    else if (windowSize.innerWidth > 800 && windowSize.innerWidth <= 1000) {
+      settings.slidesToShow = 3;
+    }
+    else {
+      settings.slidesToShow = 6;
+    }
+  
+  
+
+
+
   return (
     <div className='cont' >
     
