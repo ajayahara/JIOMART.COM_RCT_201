@@ -99,19 +99,9 @@ function Navbar() {
   };
 
   const handleChange = async(value) => {
-   // console.log(value,arr, "**************************")
-    // handleGetAllData()
 
     let x = await  getAllData().then((res) => res.data);
     console.log(x,"x data")
-
-
-
-
-
-
-
-
 
 
     return setFilteredData(
@@ -124,9 +114,7 @@ function Navbar() {
     );
   };
 
-  // setArr(json.filter((el)=>{
-  //   return el.name.split(' ').includes(value)
-  // }))
+  
   const optimizedFn = useCallback(debounce(handleChange), []);
   console.log(filteredData);
 
@@ -270,6 +258,7 @@ function Navbar() {
                     variant="outline"
                   />
                   <MenuList
+                  zIndex="2000"
                     p="0px"
                     color="black"
                     boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
