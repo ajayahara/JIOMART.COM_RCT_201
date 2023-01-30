@@ -1,6 +1,7 @@
 
 import { Box, Center, Flex, Image ,Text} from '@chakra-ui/react'
 import Autocrausel from '../Pages/Autocrausel'
+import Autocrausel2 from '../Pages/Autocrausal2'
 import ImageCrausal3 from '../Pages/ImageCrausal3'
 import ImageCrausal4 from '../Pages/ImageCrausal4'
 import ImageCrausal from '../Pages/ImageCrausel'
@@ -19,7 +20,7 @@ const Home = () => {
  
   return (
     <Box >
-      {/* <Autocrausel/> */}
+      <Autocrausel2/>
       <Center>
       <Flex direction={"column"} pt={"10px"} w={"99%"}>
        

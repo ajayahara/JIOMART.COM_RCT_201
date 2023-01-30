@@ -6,6 +6,19 @@ import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 export const Address = () => {
   let navigate=useNavigate()
+  // let [ad,setAdd]=useState(null);
+  // let [ad1,setAd1]=useState({
+  //   a:"",
+  //   b:"",
+  //   c:"",
+  //   d:"",
+  //   e:"",
+  //   f:"",
+  //   g:"",
+  //   h:"",
+  //   i:"",
+  //   j:""
+  // })
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
   useEffect(()=>{
@@ -39,12 +52,11 @@ export const Address = () => {
         <div>
           <PaymentDetils cartPrice={price}/>
           <div className='PaymentButton'><button onClick={()=>{
-            localStorage.setItem("price",(price*0.8).toFixed(2))
+            localStorage.setItem("price",price.toFixed(2))
               navigate('/payment')
           } }>Make Payment</button></div>
         </div>
       </div>
-      {/* <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} /> */}
     </div>
   )
 }

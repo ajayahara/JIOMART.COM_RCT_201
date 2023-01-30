@@ -11,14 +11,14 @@ import {
   Flex,
   Spacer,
   Checkbox,
+  FormControl,
 } from "@chakra-ui/react";
-// import Navbar from "../Pages/Navbar";
-// import Navlist from "./Navlist";
 import { Navigate } from "react-router";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import verified from "../Resources/verified.gif";
 import {
   getAuthError,
   getAuthRequest,
@@ -35,11 +35,11 @@ const initMsg = {
   },
   email: {
     status: false,
-    notice: "Please enter your Email",
+    notice: "Please enter a valid Email",
   },
   password1: {
     status: false,
-    notice: "Please enter your Password",
+    notice: "Please enter a strong Password",
   },
   password2: {
     status: false,
@@ -60,67 +60,59 @@ const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(initMsg);
 
-  // const [send, setSend] = useState(false)
+
    let value = localStorage.getItem("phone");
 
 
 
-  const token = useSelector((store) => store.AuthReducer.token);
+
+
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
   const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // console.log(name, value);
     setform({ ...form, [name]: value });
   };
 
   const handleClick = () => setShow(!show);
 
   const handleForm = async (e) => {
-    // e.prevantDefault();
+
 
    dispatch(getAuthRequest())
 
-    dispatch(getAuthRequest());
 
     setMsg(initMsg);
     if (firstName === "") {
       setMsg({ ...msg, firstName: { ...msg.firstName, status: true } });
     } else if (lastName === "") {
       setMsg({ ...msg, lastName: { ...msg.lastName, status: true } });
-    } else if (email === "") {
+    } else if (email === "" || !email.includes("@") ) {
       setMsg({ ...msg, email: { ...msg.email, status: true } });
-    } else if (password1 === "") {
+    } else if (password1 === "" || password1.length < 8) {
       setMsg({ ...msg, password1: { ...msg.password1, status: true } });
     } else if (password2 === "" || password1 !== password2) {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     } else {
-      dispatch(getAuthSuccess(form.firstName));
+      dispatch(getAuthSuccess(form));
+      localStorage.setItem("Details", JSON.stringify(form));
       navigate("/");
-      console.log(form);
     }
-   
-   
-  
-    console.log(form);
-
   };
-  // localStorage.setItem("Details", JSON.stringify(form));
+ 
 
   return (
     <>
-      {/* <Navbar/>
-        <Navlist /> */}
       <br />
       <br />
-      <Box w="90%" m="auto" display="flex">
+      <Box w="90%" m={"auto"} display={{ lg:"flex"}}>
         <Image
-          m={50}
+          margin={{md:"auto",lg:"0px"}}
           h={600}
           src="https://www.jiomart.com/msassets/images/login-banner.jpg"
         />
-        <Box ml="200px" mt="100px">
+        <Box ml={{base:"15px",md:"40px",lg:"200px"}} mt="100px">
           <Text fontSize="27px" fontWeight="bold">
             Sign up
           </Text>
@@ -128,7 +120,7 @@ const RegisterForm = () => {
             Please enter your details.
           </Text>
           <br />
-          <form>
+          <FormControl>
             <Input
               mb={"0px"}
               placeholder="Your First Name"
@@ -157,6 +149,7 @@ const RegisterForm = () => {
               mt={"30px"}
               placeholder="Your Email Id"
               name="email"
+               type="email"
               onChange={handleChange}
               value={email}
             />
@@ -241,17 +234,18 @@ const RegisterForm = () => {
               </Text>
               <Spacer />
               <Box p={"10px"} fontSize={"32px"} color={"#48df62"}>
-                <BsFillPatchCheckFill />
+                <Image w={"40px"} src={verified}></Image>
+                {/* <BsFillPatchCheckFill /> */}
               </Box>
             </Flex>
 
-            <Text as={"span"} mb={"10px"} fontSize="14px" color="##e3c6b0">
+            <Text as={"span"}  mb={"10px"} fontSize="14px" color="##e3c6b0">
               This Phone Number is already Verified{" "}
               <Text as={"b"}>+91-{value}</Text>{" "}
             </Text>
 
             <Button
-              ml={10}
+              ml={{md:10}}
               fontSize={"13px"}
               color="#e23911"
               boder="0"
@@ -271,7 +265,7 @@ const RegisterForm = () => {
             >
               Create Account
             </Button>
-          </form>
+          </FormControl>
         </Box>
       </Box>
     </>

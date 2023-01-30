@@ -1,17 +1,5 @@
-// import { Box, Heading } from "@chakra-ui/react";
-// import React from "react";
 
-// const Admin = () => {
-//   return (
-//     <Box >
-//       <Heading as="h3" fontSize="lg" textAlign='center'>ADMIN PANEL</Heading>
-    
-//     </Box>
-//   );
-// };
-
-// export default Admin;
-import { Box, Input,Button, Center, SimpleGrid, Toast, useToast } from '@chakra-ui/react'
+import { Input,Button, Center, SimpleGrid, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useRef } from 'react'
 import axios from "axios"
@@ -27,7 +15,6 @@ const statuses ="error"
 function handleAuth(){
  if(username.current.value===admindata.username && userpass.current.value ===admindata.password ){
     navigate(`/adminPanel`)
-    // console.log('Success')
  }
  else{
     toast({

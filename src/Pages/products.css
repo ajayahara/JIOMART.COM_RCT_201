@@ -1,6 +1,5 @@
 .productPage{
     width: 100vw;
-    /* border: 1px solid black; */
     display: flex;
     text-align: center;
     margin: auto;
@@ -8,17 +7,13 @@
 }
 .productPage> .options{
     width: 20%;
-    /* background-color: beige; */
 }
 .options{
     padding: 1.5rem;
-    /* position: fixed;
-    height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    /* width: 100%; */
     margin-left: 20px;
     border-right-color: 1px solid grey;
 }
@@ -31,7 +26,6 @@
     grid-template-columns: repeat(4,1fr);
     gap: 12px;
     padding: 2rem;
-    /* position: relative; */
 }
 .singleProduct{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -40,7 +34,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /* gap:1rem; */
     height: 320px;
     object-fit: cover;
     margin: 0.7rem;
@@ -50,8 +43,7 @@
     height: 150px;
 }
 .sortData>label,.sortData>input :hover{
-    /* border: 1px solid; */
-    /* width: 100%; */
+
     cursor: pointer;
 }
 
@@ -82,7 +74,6 @@
     .products{
         display: grid;
         grid-template-columns: 1fr;
-        /* gap: 1rem; */
         margin-left: 1rem;
     }
     .productPage> .options{

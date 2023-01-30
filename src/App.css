@@ -3,7 +3,6 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: sans-serif;
-  /* border: 1px solid black; */
   width: 100%;
   object-fit: fill;
   overflow: scroll;
@@ -14,4 +13,5 @@
     width: auto;
   }
 }
+
 

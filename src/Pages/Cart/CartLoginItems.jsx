@@ -10,6 +10,9 @@ export const CartLoginItems = () =>{
   let navigate = useNavigate();
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
+  let coupon=useSelector((store)=>store.CartReducer.coupon);
+
+  
   useEffect(()=>{
    let x=0;
     for(let i=0;i<cart.length;i++){
@@ -17,13 +20,15 @@ export const CartLoginItems = () =>{
     }
     setPrice(x);
   },[cart])
+
+
   return cart.length === 0 ? (
     <CartLogin />
   ) : (
     <div className="CartLoginitems">
       <div>
         <div>
-          <div>{`My Cart : (${cart.length})`}</div>
+          <div>{`My Cart : (${cart.length} Items)`}</div>
           <div></div>
         </div>
         <div className="cart1">
@@ -31,9 +36,9 @@ export const CartLoginItems = () =>{
             <div className="basket">
               <div>
                 <div>
-                  Groceries Basket <span>({cart.length} items)</span>
+                  My Basket List<span>({cart.length} items)</span>
                 </div>
-                <div>₹ {(price*0.8).toFixed(2)}</div>
+                <div>₹ {price.toFixed(2)}</div>
               </div>
               <div>
                 {cart.length &&
@@ -51,12 +56,12 @@ export const CartLoginItems = () =>{
             <div></div>
           </div>
           <div>
-            <Applycoupon />
-            <PaymentDetils cartPrice={price} />
+            <Applycoupon cartPrice={price} />
+            <PaymentDetils cartPrice={price}   />
             <div className="PaymentButton">
               <button
                 onClick={() => {
-                  navigate("/address");
+                  navigate("/address" , {state:price});
                 }}
               >
                 Place Order

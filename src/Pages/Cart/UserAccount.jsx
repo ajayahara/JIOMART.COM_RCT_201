@@ -1,9 +1,11 @@
 import {
     Box,
+    Button,
     Flex,
     Grid,
     GridItem,
     Heading,
+    Spacer,
     Text,
   } from "@chakra-ui/react";
   import React, { useEffect, useState } from "react";
@@ -13,28 +15,21 @@ import {
   import { BsCreditCardFill } from "react-icons/bs";
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  import { logout } from "../Redux/Login/action";
-  import { GetData } from "../Utils/localStorage";
-
   
   const AccountPage = () => {
-    const { isAuth } = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    // console.log(state)
+    const [orders, setOrders] = useState([])
+    const val = JSON.parse(localStorage.getItem("Details"));
+    const phone = JSON.parse(localStorage.getItem("phone"));
+   console.log(val)
+
   
-    const handleLogout = () =>{
-      dispatch(logout())
-      navigate("/loginForm")
-    }
-  
-    useEffect(() => {
-      // console.log(isAuth)
-      if (!isAuth) {
-        navigate("/account/login");
-      }
-    //   setOrders(GetData("JioMartCloneOrders"))
-    }, []);
+
+    const handleLogout = () => {
+      localStorage.removeItem("Jio Mart User")
+      navigate('/')
+    };
   
     return (
       <Box bg={"whitesmoke"} padding={"50px 150px"}>
@@ -61,12 +56,12 @@ import {
                 <CgProfile />{" "}
               </GridItem>
               <GridItem ml="-135px" w="100%" h="10" bg="#008ecc">
-                <Text as={"b"}>{`${isAuth.firstName} ${isAuth.lastName}`}</Text> <br />
+                <Text as={"b"}>{`${val.firstName} `}</Text> <br />
                 <Text as={"i"} color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.email}
+                  {val.email}
                 </Text>
                 <Text color={"#cecece"} fontSize={"12px"}>
-                  {isAuth.number}
+                  {phone}
                 </Text>
               </GridItem>
   
@@ -132,7 +127,7 @@ import {
             w="120%"
             h="240px"
           >
-            <Text p={"20px"} as={"b"}>
+            <Text p={"30px"} fontSize={'30'} as={"b"}>
               Account Information
             </Text>
   
@@ -142,7 +137,7 @@ import {
                   Full Name
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                {`${isAuth.firstName} ${isAuth.lastName}`}
+                {`${val.firstName} ${val.lastName}`}
                 </Text>
               </GridItem>
               <GridItem w="100%" h="10">
@@ -159,7 +154,7 @@ import {
                   Email id
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.email}
+                  {val.email}
                 </Text>
               </GridItem>
   
@@ -168,7 +163,7 @@ import {
                   Mobile Number
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {isAuth.number}
+                  {phone}
                 </Text>
               </GridItem>
             </Grid>
@@ -213,14 +208,16 @@ import {
               </Text>
             </Box>
             <hr />
-            <Box p={"20px"} onClick={handleLogout}>
-              <Text fontSize={"sm"} as={"b"}>
+            <Box p={"20px"} >
+              <Button fontSize={"sm"} color="red"  onClick={() => handleLogout()} as={"b"}>
                 Logout
-              </Text>
+              </Button>
             </Box>
           </GridItem>
   
-          
+          {/* <GridItem w="120%" ml='-28' >
+            {orders.map((order,index)=> <OrderList key={index} order={order} visible={false}/>)}
+          </GridItem> */}
         </Grid>
       </Box>
     );

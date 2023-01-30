@@ -10,34 +10,32 @@ const ImageCrausal3 = () => {
 
     },[])
   return (
-<>
+<Box  h={["1350px","700px","500px","300px"]}>
 <Text textAlign={"left"} ml={"38px"} fontSize={"20px"} fontWeight= {'bold'}>Food & Snacks Essentials</Text>
     <Box mt={"20px"} h={"300px"} color={"black"} >
   
 
     <Box ml={"40px"} >
-   
-        <SimpleGrid columns={[1,2,4,6]} w={"83%"}  >
+        <Center>
+        <SimpleGrid columns={[1,2,3,6]} w={"83%"} >
            {g.length>0 && g.map(({img},index)=>(
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>
                 <Box >
-                <Image  src={img} w={"180px"} h={"210px"}   _groupHover={{ color: 'tomato' }}></Image>
+                <Image  src={img} w={["250px","200px","200px","180px"]} h={"210px"}_groupHover={{ color: 'tomato' }}></Image>
                 </Box>
                 </Center>
-                
-               
-               
                 </SimpleGrid >
             ))
            }
          
         </SimpleGrid>
+        </Center>
         
     </Box>
    
     </Box>
-    </>
+    </Box>
   )
     
 }

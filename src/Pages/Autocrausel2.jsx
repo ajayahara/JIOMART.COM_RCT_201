@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -10,7 +9,7 @@ import "./crausel.css";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Box } from '@chakra-ui/react'
-export default function Autocrausel() {
+export default function Autocrausel2() {
   return (
     <Box mt={"10px"}>
       <Swiper
@@ -31,30 +30,30 @@ export default function Autocrausel() {
         className="mySwiper"
       >
         <SwiperSlide >
-            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1669913386_1669808764_KV_1680x320.jpg"></img>
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675014035_1674923987_Never_before_deals_1680.jpg"></img>
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1670867865_Home-and-Kitchen-Appliances-Carnival_1680-x-320.jpg"></img>
+        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675014163_1674841440_1674798765_1674756780_Kitchenware_Desktop.jpg"></img>
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671214311_1671175829_1670868095_Bindaas-Biscuiting_1680x320.jpg"></img> </SwiperSlide>
+        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675015110_1674924685_1674841337_1674756979_MonthEndDeals_1680x320.jpg"></img> </SwiperSlide>
         <SwiperSlide>
-        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671197544_MUMBAI.jpg"></img>
+        <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675014461_1674841627_Samsung_Galaxy_A14_5G_Desktop.jpg"></img>
         </SwiperSlide>
         <SwiperSlide>
-            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671128097_1671021458_Storage_Sets_1680x320.jpg" alt="" />
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675015347_1674966364_Laptop-Carnival-JioMart--Carousel-Banner-13_09_2022_1680x320.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671034200_Health-and-wellness-banner_1680x320.jpg" alt="" />
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675015568_1674927599_Sugar--jaggery_1680x320.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671215573_HPMC_Dec_17th-WEB.jpg" alt="" />
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1675015820_1674824242_foodbanner_1680x325.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
             <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671127591_1671037823_HOME-FURNISHING_1680x320.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1671214493_Baby-Care_1680x320.jpg" alt="" />
+            <img src="https://www.jiomart.com/images/cms/aw_rbslider/slides/1674824802_CM_HPMC_BANNER_NEW_1680.jpg" alt="" />
         </SwiperSlide>
       </Swiper>
     </Box>
