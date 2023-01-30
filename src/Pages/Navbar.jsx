@@ -41,7 +41,7 @@ import {
   RepeatIcon,
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
-import { FaWindowClose } from "react-icons/fa";
+import {ImCross } from "react-icons/im";
 
 // https://kiwi-discovered-pyjama.glitch.me/alldata
 
@@ -112,7 +112,7 @@ function Navbar() {
 
     return setFilteredData(
       x.filter((el) => {
-        console.log(el.name.split(" ").join("").includes(value), el.name.split(" ").join(""))
+        // console.log(el.name.split(" ").join("").includes(value), el.name.split(" ").join(""))
         if (el.name.split(" ").join("").includes(value)) {
           return el;
         }
@@ -154,7 +154,7 @@ function Navbar() {
             className="R-input-logo"
             onClick={() => navigate("/")}
           />
-          <div>
+          <div border={"1px solid black"}>
             <InputGroup  >
               <input
               ref={input_value}
@@ -173,7 +173,7 @@ function Navbar() {
                 onChange={(e) => optimizedFn(e.target.value)}
               />
               
-              <Button ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
+              <Button bg={"white"} _hover={{backgroundColor:"red"}} display={{base:"none",md:"none"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
                 
                 input_value.current.value="";
 
@@ -181,7 +181,7 @@ function Navbar() {
                
               }} 
               
-              >< FaWindowClose/></Button>
+              ><ImCross/></Button>
               
               
             </InputGroup>
@@ -239,7 +239,7 @@ function Navbar() {
             <Box
               style={{
                 position: "absolute",
-                right: "20.5%",
+                right: "21.3%",
                 backgroundColor: "red",
                 color: "white",
                 borderRadius: "40px",
@@ -248,7 +248,7 @@ function Navbar() {
                 fontSize: "13px",
                 lineHeight: "13px",
                 textAlign: "center",
-                top: "24px",
+                top: "16.8px",
               }}
               className="R-icons-top"
             >
