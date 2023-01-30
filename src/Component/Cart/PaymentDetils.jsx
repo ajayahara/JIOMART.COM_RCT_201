@@ -16,15 +16,15 @@ export const PaymentDetils = ({cartPrice}) => {
             <hr />
             <div className='payee'>
                 <div>Product Discount</div>
-                <div>-{coupon ? "50%" : Math.floor(cartPrice*0.2)}</div>
+                <div>-{coupon ? Math.floor(cartPrice*0.4) : Math.floor(cartPrice*0.2)}</div>
             </div>
             <hr />
             <div className='payee last'>
                 <div>Total Amount</div>
-                <div>{coupon ? cartPrice*0.5 : Math.floor(cartPrice*0.8)}</div>
+                <div>{coupon ? cartPrice*0.6 : Math.floor(cartPrice*0.8)}</div>
             </div>
             <div className='green'>
-                You will save {coupon ? Math.floor(cartPrice*0.5) : Math.floor(cartPrice*0.2)}
+                You will save {coupon ? "40% " : Math.floor(cartPrice*0.2)} 
             </div>
         </div>
     )

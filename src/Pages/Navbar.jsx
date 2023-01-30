@@ -216,7 +216,7 @@ function Navbar() {
             <Box
               style={{
                 position: "absolute",
-                right: "19.8%",
+                right: "20.5%",
                 backgroundColor: "red",
                 color: "white",
                 borderRadius: "40px",
