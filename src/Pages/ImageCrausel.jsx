@@ -11,7 +11,7 @@ const ImageCrausal = () => {
 
     },[])
   return (
-<>
+<Box h={["1350px","700px","500px","300px"]}>
 <Text textAlign={"left"} ml={"38px"} fontSize={"20px"} fontWeight= {'bold'}>Home & Cleaning Essentials</Text>
     <Box mt={"20px"} h={"300px"} color={"black"} >
   
@@ -28,9 +28,6 @@ const ImageCrausal = () => {
                 </Box>
                 </Center>
 
-                
-               
-               
                 </SimpleGrid >
             ))
            }
@@ -41,7 +38,7 @@ const ImageCrausal = () => {
     </Box>
    
     </Box>
-    </>
+    </Box>
   )
 }
 
