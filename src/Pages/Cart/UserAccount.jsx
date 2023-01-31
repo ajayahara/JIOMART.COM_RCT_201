@@ -1,6 +1,7 @@
 import {
     Box,
     Button,
+    Center,
     Flex,
     Grid,
     GridItem,
@@ -22,9 +23,12 @@ import {
     const [orders, setOrders] = useState([])
     const val = JSON.parse(localStorage.getItem("Details"));
     const phone = JSON.parse(localStorage.getItem("phone"));
-   console.log(val)
+   const list=useSelector((store)=>store.CartReducer.purchasedItems)
 
-  
+useEffect(()=>{
+  setOrders(list)
+},[])
+console.log("orders",orders)
 
     const handleLogout = () => {
       localStorage.removeItem("Jio Mart User")
@@ -215,9 +219,21 @@ import {
             </Box>
           </GridItem>
   
-          {/* <GridItem w="120%" ml='-28' >
-            {orders.map((order,index)=> <OrderList key={index} order={order} visible={false}/>)}
-          </GridItem> */}
+          <GridItem w="120%"  ml='-28' >
+          <Center fontSize={"30px"} fontWeight="bold" mb={5}>
+            {!orders &&  <h1>My Order List</h1>}
+               
+            </Center>
+            <Box display={"flex"} >
+            { orders.map((el)=> {
+              return <Box mr={15} border={"2px solid royalblue"} >   
+                <b>{el.name}</b>
+              <img src={el.image}  />
+              <h1>Rs.<Text color="green">{el.price}</Text></h1>
+              </Box>
+            })}
+            </Box>
+          </GridItem>
         </Grid>
       </Box>
     );

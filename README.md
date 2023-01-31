@@ -48,6 +48,8 @@ Technologies used in the project:
 
 
 **Admin Page:**
+
+**  Admin Side      **
 ![admin](https://user-images.githubusercontent.com/107473816/215729200-924e2410-e82e-4a41-86e3-20be606bcd71.jpg)
 
 
@@ -57,7 +59,9 @@ Technologies used in the project:
 - Responsive
 - Private Routing
 - Search Funtionality
-- Filter and sort
+- Filter and Sorting
+- Custom Components
+- Crausels
 - Form Validation (Login,Signup)
 
 
@@ -65,9 +69,7 @@ Technologies used in the project:
 
 **Front-end deployed URL:**
 
-https://shopqmart.vercel.app/
-<br/>
-https://singular-sundae-186837.netlify.app/
+https://darling-sunshine-8dc7e8.netlify.app/
 
 
 ##  📁 Folder structure
@@ -95,15 +97,15 @@ git clone https://github.com/ajayahara/JIOMART.COM_RCT_201.git
 Go to the project directory
 
 ```bash
-$ cd frontend          // go to client folder
-$ yarn # or npm i    // npm install packages
-$ npm run start        // run it locally
+$ cd JIOMART.COM_RCT_201         // go to client folder
+$ yarn # or npm i               // npm install packages
+$ npm run start                // run it locally
 
 // deployment for client app
-$ npm run build // this will compile the react code using webpack and generate a folder called docs in the root level
+$ npm run build  // this will compile the react code using webpack and generate a folder called docs in the root level
+````  
 
-
-## ✍ Authors 
+## ✍ Contributors
 
 - [@ajayahara](https://github.com/ajayahara)
 - [@anki2001ta](https://github.com/anki2001ta)
