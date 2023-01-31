@@ -177,9 +177,6 @@ export default function Login() {
               ) : null}
             </Box>
           )}
-          {/* <Box>
-            <Text>via Email</Text>
-          </Box> */}
 
           <Box mt={"10"} pl={"65%"}>
             <Button

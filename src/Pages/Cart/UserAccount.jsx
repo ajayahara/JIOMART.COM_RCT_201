@@ -15,32 +15,16 @@ import {
   import { BsCreditCardFill } from "react-icons/bs";
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  // import { logout } from "../Redux/Login/action";
-  // import { GetData } from "../Utils/localStorage";
-  // import OrderList from "../Components/OrdersList"
   
   const AccountPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [orders, setOrders] = useState([])
-    const val = JSON.parse(localStorage.getItem("Jio Mart User"));
+    const val = JSON.parse(localStorage.getItem("Details"));
     const phone = JSON.parse(localStorage.getItem("phone"));
-    let data=null
+   console.log(val)
 
-    // console.log(orders)
   
-    // const handleLogout = () =>{
-    //   dispatch(logout())
-    //   navigate("/account/login")
-    // }
-  
-    // useEffect(() => {
-    //   // console.log(isAuth)
-    //   if (!isAuth) {
-    //     navigate("/account/login");
-    //   }
-    //   setOrders(GetData("JioMartCloneOrders"))
-    // }, []);
 
     const handleLogout = () => {
       localStorage.removeItem("Jio Mart User")
@@ -72,9 +56,9 @@ import {
                 <CgProfile />{" "}
               </GridItem>
               <GridItem ml="-135px" w="100%" h="10" bg="#008ecc">
-                <Text as={"b"}>{`${val} `}</Text> <br />
+                <Text as={"b"}>{`${val.firstName} `}</Text> <br />
                 <Text as={"i"} color={"#cecece"} fontSize={"12px"}>
-                  eve.holt@reqres.in
+                  {val.email}
                 </Text>
                 <Text color={"#cecece"} fontSize={"12px"}>
                   {phone}
@@ -143,7 +127,7 @@ import {
             w="120%"
             h="240px"
           >
-            <Text p={"20px"} as={"b"}>
+            <Text p={"30px"} fontSize={'30'} as={"b"}>
               Account Information
             </Text>
   
@@ -153,7 +137,7 @@ import {
                   Full Name
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                {`${val} `}
+                {`${val.firstName} ${val.lastName}`}
                 </Text>
               </GridItem>
               <GridItem w="100%" h="10">
@@ -170,7 +154,7 @@ import {
                   Email id
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {/* {data.email} */}
+                  {val.email}
                 </Text>
               </GridItem>
   

@@ -6,7 +6,6 @@ import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { Show, Hide, Center, useToast } from "@chakra-ui/react";
 import { AddToCart } from "../redux/Cart/action";
@@ -59,9 +58,9 @@ const IndivisualPage = () => {
   const toast = useToast();
 
   const handleCurrentData = (item) => {
-    // console.log(item)
+
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
+
       handleGetdata()
     );
   };

@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import "./Styles.css";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
 
 const Navlist = () => {
   const navigate = useNavigate();
   return (
-    <div className="navlist">
+    <Box className="navlist" >
       <ul>
         <li style={{zIndex:1000}}>
           Groceries
@@ -111,7 +112,7 @@ const Navlist = () => {
           </ul>
         </li>
       </ul>
-    </div>
+    </Box>
   );
 };
 export default Navlist;

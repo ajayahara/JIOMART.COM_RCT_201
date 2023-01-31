@@ -2,9 +2,7 @@
     box-shadow: rgba(241, 235, 235, 0.932) 0px 20px ;
     
 }
-/* #photo{
 
-} */
 #photo:hover{
     margin-top: "200px";
     transform: scale(0.2); 

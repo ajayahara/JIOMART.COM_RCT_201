@@ -5,15 +5,11 @@ import logo from "../Resources/bcg-noBackground.png";
 import { BiLogOut } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import "./Navbar.css";
-import { IconContext } from "react-icons";
 import {
   Box,
   Flex,
   Image,
-  SimpleGrid,
-  Stack,
   InputGroup,
-  InputLeftElement,
   Text,
   Menu,
   MenuButton,
@@ -22,13 +18,9 @@ import {
   Center,
   Button,
   MenuItem,
-  useDisclosure,
-  InputRightAddon,
   Hide,
-  useToast,
 } from "@chakra-ui/react";
 import Sidebar from "./sidebar";
-import { Input } from "@chakra-ui/react";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import Navlist from "../Component/Navlist";
@@ -36,14 +28,10 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {
-  AddIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  RepeatIcon,
+  AddIcon
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
-import { AddToCart } from "../redux/Cart/action";
 
 const CurrentIndivisualData = (payload) => {
   return axios.put(
@@ -52,7 +40,6 @@ const CurrentIndivisualData = (payload) => {
   );
 };
 
-// https://kiwi-discovered-pyjama.glitch.me/alldata
 
 const getAllData = () => {
   return axios.get("https://kiwi-discovered-pyjama.glitch.me/alldata");
@@ -67,12 +54,9 @@ function Navbar() {
   const val = JSON.parse(localStorage.getItem("Jio Mart User"));
   const token = useSelector((store) => store.AuthReducer);
   let cart = useSelector((store) => store.CartReducer.cart);
-  const [query, setQuery] = useState("");
   const [arr, setArr] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [filteredData, setFilteredData] = useState([]);
   const input_value = useRef();
-  const toast = useToast();
   const dispatch = useDispatch();
   const handleGet = () => {
     setLength(cart.length);
@@ -93,7 +77,6 @@ function Navbar() {
 
   const handleGetAllData = () => {
     getAllData().then((res) => {
-      console.log(res, "setarr res");
       setArr(res.data);
     });
   };
@@ -106,7 +89,7 @@ function Navbar() {
       timer = setTimeout(() => {
         timer = null;
         func.apply(context, args);
-      }, 300);
+      }, 0);
     };
   };
 
@@ -117,11 +100,10 @@ function Navbar() {
       setSearchbar(false);
     }
     let x = await getAllData().then((res) => res.data);
-    // console.log(x,"x data")
+
 
     return setFilteredData(
       x.filter((el) => {
-        // console.log(el.name.split(" ").join("").includes(value), el.name.split(" ").join(""))
         if (el.name.split(" ").join("").includes(value)) {
           return el;
         }
@@ -130,15 +112,12 @@ function Navbar() {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
 
   const optimizedFn = useCallback(debounce(handleChange), []);
-  // console.log(filteredData);
 
   useEffect(() => {
     handleGetAllData();
@@ -147,16 +126,12 @@ function Navbar() {
   return (
     <Box>
       <Box style={{ display: "flex", justifyContent: "space-evenly" }}>
-        {/* <IconContext.Provider value={{ color: 'yellow' }}> */}
         <Flex className="navbar">
-          {/* fbars icons for side bar */}
           <Box className="sideup" ml={{ base: "10px", md: "30px", lg: "50px" }}>
             <Box className="menu-bars">
               <FaIcons.FaBars
                 onClick={showSidebar}
                 color="white"
-                // mt={"5px"}
-                // pt={"5px"}
               />
             </Box>
           </Box>
@@ -164,9 +139,6 @@ function Navbar() {
           {/* other items navbar */}
           <img
             src={logo}
-            // w={"180px"}
-            // h={"140px"}
-            // ml={"160px"}
             className="R-input-logo"
             onClick={() => navigate("/")}
           />
@@ -174,11 +146,6 @@ function Navbar() {
             <InputGroup>
               <input
                 ref={input_value}
-                // bg={"white"}
-                // w={"660px"}
-                // color={"white"}
-                // ml={"60px"}
-                // style={{width:"660px"}}
                 style={{ borderRadiusTopLeft: "20px", border: "transparent" }}
                 borderRadiusLeft={"20px"}
                 bgColor="white"
@@ -263,7 +230,7 @@ function Navbar() {
             <Box
               style={{
                 position: "absolute",
-                right: "21.3%",
+                right: "21%",
                 backgroundColor: "red",
                 color: "white",
                 borderRadius: "40px",
@@ -272,7 +239,7 @@ function Navbar() {
                 fontSize: "13px",
                 lineHeight: "13px",
                 textAlign: "center",
-                top: "16.8px",
+                top: "20.5px",
               }}
               className="R-icons-top"
             >
@@ -356,7 +323,6 @@ function Navbar() {
           </Flex>
         </Flex>
       </Box>
-      <Box>{/* <Navlist /> */}</Box>
       <Box>
         <Navlist />
       </Box>
@@ -366,10 +332,4 @@ function Navbar() {
 
 export default Navbar;
 
-{
-  /* <Link to={data == "Sign In" ? "/login" : ""}>
-<Center>
- 
-// </Center>
-// </Link> */
-}
+

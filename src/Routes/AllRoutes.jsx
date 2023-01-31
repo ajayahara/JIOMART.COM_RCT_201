@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import { CartLoginItems } from "../Pages/Cart/CartLoginItems";
 import Home from "../Component/Home";
 import IndivisualPage from "../Pages/IndivisualPage";
-// import Login from '../Pages/login'
 import LoginForm from "../Component/LoginForm";
 import BevverageProducts from "../Pages/BevverageProducts";
 import ElectronicProducts from "../Pages/ElectronicProducts";
@@ -15,6 +14,8 @@ import Admin from "../Pages/Admin";
 import Adminpanel from "../Pages/AdminPanel";
 import AccountPage from "../Pages/Cart/UserAccount";
 import ProtectedRoute from "../secured/ProtectedRoute";
+import Not from "../Resources/404.gif"
+import { Image } from "@chakra-ui/react";
 const AllRoutes = () => {
   return (
     <div>
@@ -23,7 +24,6 @@ const AllRoutes = () => {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/beverages" element={<BevverageProducts />} />
         <Route path="/electronicProducts" element={<ElectronicProducts />} />
-        {/* <Route path='/electronicProducts' element={<ElectronicProducts />}/> */}
         <Route path="/indivisualPage" element={<IndivisualPage />} />
         <Route path="/fruitsAndVegetables" element={<FruitsAndVegetables />} />
         <Route
@@ -47,7 +47,7 @@ const AllRoutes = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="*" element={<h1>*Error* Page Not Found</h1>} />
+        <Route path="*" element={<Image  src={Not}></Image>} />
       </Routes>
     </div>
   );
