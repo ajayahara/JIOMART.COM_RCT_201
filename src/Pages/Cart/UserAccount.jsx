@@ -23,7 +23,10 @@ import {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const [orders, setOrders] = useState([])
+    const val = JSON.parse(localStorage.getItem("Jio Mart User"));
+    const phone = JSON.parse(localStorage.getItem("phone"));
     let data=null
+
     // console.log(orders)
   
     // const handleLogout = () =>{
@@ -38,6 +41,11 @@ import {
     //   }
     //   setOrders(GetData("JioMartCloneOrders"))
     // }, []);
+
+    const handleLogout = () => {
+      localStorage.removeItem("Jio Mart User")
+      navigate('/')
+    };
   
     return (
       <Box bg={"whitesmoke"} padding={"50px 150px"}>
@@ -64,12 +72,12 @@ import {
                 <CgProfile />{" "}
               </GridItem>
               <GridItem ml="-135px" w="100%" h="10" bg="#008ecc">
-                <Text as={"b"}>{`${data.firstName} ${data.lastName}`}</Text> <br />
+                <Text as={"b"}>{`${val} `}</Text> <br />
                 <Text as={"i"} color={"#cecece"} fontSize={"12px"}>
-                  {data.email}
+                  eve.holt@reqres.in
                 </Text>
                 <Text color={"#cecece"} fontSize={"12px"}>
-                  {data.number}
+                  {phone}
                 </Text>
               </GridItem>
   
@@ -145,7 +153,7 @@ import {
                   Full Name
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                {`${data.firstName} ${data.lastName}`}
+                {`${val} `}
                 </Text>
               </GridItem>
               <GridItem w="100%" h="10">
@@ -162,7 +170,7 @@ import {
                   Email id
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {data.email}
+                  {/* {data.email} */}
                 </Text>
               </GridItem>
   
@@ -171,7 +179,7 @@ import {
                   Mobile Number
                 </Text>
                 <Text fontSize={"14px"} as={"b"}>
-                  {data.number}
+                  {phone}
                 </Text>
               </GridItem>
             </Grid>
@@ -217,9 +225,9 @@ import {
             </Box>
             <hr />
             <Box p={"20px"} >
-              <Text fontSize={"sm"} as={"b"}>
+              <Button fontSize={"sm"} color="red"  onClick={() => handleLogout()} as={"b"}>
                 Logout
-              </Text>
+              </Button>
             </Box>
           </GridItem>
   

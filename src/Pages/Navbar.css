@@ -158,6 +158,9 @@ span {
 #contact-text{
   font-size: 15px;
   gap:3px;
+  margin-bottom: 18px;
+  /* padding-bottom: 10px; */
+  width: 100px;
   margin-left: 0.2rem;
   font-weight: 600;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif

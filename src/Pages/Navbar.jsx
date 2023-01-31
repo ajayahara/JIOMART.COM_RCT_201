@@ -322,7 +322,7 @@ function Navbar() {
                         </Text>
                       </Center>
                     </Box>
-                    <MenuItem icon={<AddIcon />}>My Order</MenuItem>
+                    <MenuItem icon={<AddIcon />} onClick={()=>navigate('/user')}>My Account</MenuItem>
                     <MenuItem
                       icon={<FiShoppingCart />}
                       onClick={() => navigate("/cart")}
