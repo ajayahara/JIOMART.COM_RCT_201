@@ -230,7 +230,7 @@ function Navbar() {
             <Box
               style={{
                 position: "absolute",
-                right: "21.3%",
+                right: "21%",
                 backgroundColor: "red",
                 color: "white",
                 borderRadius: "40px",
@@ -239,7 +239,7 @@ function Navbar() {
                 fontSize: "13px",
                 lineHeight: "13px",
                 textAlign: "center",
-                top: "16.8px",
+                top: "20.5px",
               }}
               className="R-icons-top"
             >
