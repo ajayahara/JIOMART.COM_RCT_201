@@ -173,7 +173,7 @@ function Navbar() {
                 onChange={(e) => optimizedFn(e.target.value)}
               />
               
-              <Button bg={"white"} _hover={{backgroundColor:"red"}} display={{base:"none",md:"none"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
+              <Button bg={"white"} _hover={{backgroundColor:"red"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
                 
                 input_value.current.value="";
 

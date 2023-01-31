@@ -18,7 +18,7 @@ const ImageCrausel2 = () => {
   
     <Box ml={"40px"} >
       <Center>
-        <SimpleGrid columns={[1,2,4,6]} w={"83%"}  >
+        <SimpleGrid columns={[1,2,3,6]} w={"83%"}  >
            {mg.length>0 && mg.map(({img},index)=>(
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>
