@@ -59,7 +59,9 @@ Technologies used in the project:
 - Responsive
 - Private Routing
 - Search Funtionality
-- Filter and sort
+- Filter and Sorting
+- Custom Components
+- Crausels
 - Form Validation (Login,Signup)
 
 
