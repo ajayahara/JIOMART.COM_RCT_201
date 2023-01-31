@@ -46,6 +46,11 @@ Technologies used in the project:
 **Cart Page:**
 ![cart](https://user-images.githubusercontent.com/107473816/215728766-4676f507-1e4d-40af-bf84-dc1ad9e42525.jpg)
 
+**My Account Page**
+![myAccounts](https://user-images.githubusercontent.com/107473816/215842086-af36a8b3-32c9-49f9-afef-29bebf45361f.jpg)
+
+
+
 
 **Admin Page:**
 
