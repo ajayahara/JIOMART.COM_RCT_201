@@ -17,12 +17,12 @@ const ImageCrausal3 = () => {
 
     <Box ml={"40px"} >
         <Center>
-        <SimpleGrid columns={[1,2,4,6]} w={"83%"}  >
+        <SimpleGrid columns={[1,2,3,6]} w={"83%"} >
            {g.length>0 && g.map(({img},index)=>(
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>
                 <Box >
-                <Image  src={img} w={"180px"} h={"210px"}_groupHover={{ color: 'tomato' }}></Image>
+                <Image  src={img} w={["250px","200px","200px","180px"]} h={"210px"}_groupHover={{ color: 'tomato' }}></Image>
                 </Box>
                 </Center>
                 </SimpleGrid >

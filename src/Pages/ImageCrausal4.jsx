@@ -15,7 +15,7 @@ const ImageCrausal4 = () => {
     <Box mt={"20px"} h={"300px"} color={"black"} >
     <Box ml={"40px"}>
     <Center>
-        <SimpleGrid columns={[1,2,4,6]} w={"83%"}  >
+        <SimpleGrid columns={[1,2,3,6]} w={"83%"}  >
            {g.length>0 && g.map(({img},index)=>(
                 <SimpleGrid  key={index} columns={1}  w={"200px"}  rounded='md'  >
                 <Center>

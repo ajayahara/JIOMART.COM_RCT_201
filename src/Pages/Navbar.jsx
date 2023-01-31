@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback,useRef } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import * as FaIcons from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import logo from "../Resources/bcg-noBackground.png";
@@ -18,20 +18,31 @@ import {
   Center,
   Button,
   MenuItem,
-  Hide
+  useDisclosure,
+  InputRightAddon,
+  Hide,
+  useToast,
 } from "@chakra-ui/react";
 import Sidebar from "./sidebar";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import Navlist from "../Component/Navlist";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {
   AddIcon
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
-import {ImCross } from "react-icons/im";
+import { ImCross } from "react-icons/im";
+import { AddToCart } from "../redux/Cart/action";
+
+const CurrentIndivisualData = (payload) => {
+  return axios.put(
+    "https://kiwi-discovered-pyjama.glitch.me/indivisualPageData",
+    payload
+  );
+};
 
 
 const getAllData = () => {
@@ -49,7 +60,9 @@ function Navbar() {
   let cart = useSelector((store) => store.CartReducer.cart);
   const [arr, setArr] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const input_value=useRef();
+  const input_value = useRef();
+  const toast = useToast();
+  const dispatch = useDispatch();
   const handleGet = () => {
     setLength(cart.length);
   };
@@ -69,7 +82,7 @@ function Navbar() {
 
   const handleGetAllData = () => {
     getAllData().then((res) => {
-      console.log(res,"setarr res");
+      console.log(res, "setarr res");
       setArr(res.data);
     });
   };
@@ -86,16 +99,14 @@ function Navbar() {
     };
   };
 
-  const handleChange = async(value) => {
-    if(value==""){
-      setSearchbar(true)
+  const handleChange = async (value) => {
+    if (value == "") {
+      setSearchbar(true);
+    } else {
+      setSearchbar(false);
     }
-    else{
-      setSearchbar(false)
-    }
-    let x = await  getAllData().then((res) => res.data);
-
-
+    let x = await getAllData().then((res) => res.data);
+    // console.log(x,"x data")
 
     return setFilteredData(
       x.filter((el) => {
@@ -106,9 +117,16 @@ function Navbar() {
     );
   };
 
-  
+  const handleCurrentData = (item) => {
+    // console.log(item)
+    CurrentIndivisualData(item).then((res) =>
+      // console.log(res.data)
+      navigate("/indivisualPage")
+    );
+  };
+
   const optimizedFn = useCallback(debounce(handleChange), []);
-  console.log(filteredData);
+  // console.log(filteredData);
 
   useEffect(() => {
     handleGetAllData();
@@ -134,66 +152,86 @@ function Navbar() {
             onClick={() => navigate("/")}
           />
           <div border={"1px solid black"}>
-            <InputGroup  >
+            <InputGroup>
               <input
-              ref={input_value}
-                style={{borderRadiusTopLeft:"20px",border:"transparent"}}
+                ref={input_value}
+                // bg={"white"}
+                // w={"660px"}
+                // color={"white"}
+                // ml={"60px"}
+                // style={{width:"660px"}}
+                style={{ borderRadiusTopLeft: "20px", border: "transparent" }}
                 borderRadiusLeft={"20px"}
-                bgColor='white'
+                bgColor="white"
+                // border={"1px solid red"}
                 className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
                 onChange={(e) => optimizedFn(e.target.value)}
               />
+
               
-              <Button bg={"white"} _hover={{backgroundColor:"red"}} display={{base:"none",md:"none"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
+              <Button bg={"white"} _hover={{backgroundColor:"red"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
                 
                 input_value.current.value="";
 
-                setSearchbar(true)
-               
-              }} 
-              
-              ><ImCross/></Button>
-              
-              
+              <Button
+                bg={"white"}
+                _hover={{ backgroundColor: "red" }}
+                display={{ base: "none", md: "none" }}
+                ml={-130}
+                p={"27px 20px"}
+                zIndex="1000"
+                onClick={() => {
+                  input_value.current.value = "";
+
+                  setSearchbar(true);
+                }}
+              >
+                <ImCross />
+              </Button>
             </InputGroup>
             {filteredData.length !== 0 ? (
               <Hide below="md">
-              <Box 
-                w={"543px"}
-                h={"280px"}
-                pos="absolute"
-                overflow={"scroll"}
-                top={"9%"}
-                bg="white"
-                border={"3px solid grey"}
-                zIndex="2000"
-                className={searchbar==true?"searchbarbox":null}
-              >
-                {filteredData.length > 0 &&
-                  filteredData.map((el, i) => {
-                    return (
-                      <Box
-                        pt={2}
-                        pl={5}
-                        _hover={{ bg: "gray", color: "white" }}
-                      >
-                        <Box display={"flex"} key={i} gap={10}>
-                          <Image
-                            w={"50px"}
-                            h={"50px"}
-                            mb={2}
-                            src={el.image}
-                          ></Image>
-                          <h1>
-                            <b>{el.name}</b>
-                          </h1>
+                <Box
+                  w={"543px"}
+                  h={"280px"}
+                  pos="absolute"
+                  overflow={"scroll"}
+                  top={"9%"}
+                  bg="white"
+                  border={"3px solid grey"}
+                  zIndex="2000"
+                  className={searchbar == true ? "searchbarbox" : null}
+                >
+                  {filteredData.length > 0 &&
+                    filteredData.map((el, i) => {
+                      return (
+                        <Box
+                          pt={2}
+                          pl={5}
+                          _hover={{ bg: "gray", color: "white" }}
+                        >
+                          <Box display={"flex"} key={i} gap={10}>
+                            <Image
+                              w={"50px"}
+                              h={"50px"}
+                              mb={2}
+                              src={el.image}
+                              onClick={() => handleCurrentData(el)}
+                              _hover={{ cursor: "pointer" }}
+                            ></Image>
+                            <h1
+                              onClick={() => handleCurrentData(el)}
+                              _hover={{ cursor: "pointer" }}
+                            >
+                              <b>{el.name}</b>
+                            </h1>
+                          </Box>
                         </Box>
-                      </Box>
-                    );
-                  })}
-              </Box>
+                      );
+                    })}
+                </Box>
               </Hide>
             ) : (
               ""
@@ -248,7 +286,7 @@ function Navbar() {
                     variant="outline"
                   />
                   <MenuList
-                  zIndex="2000"
+                    zIndex="2000"
                     p="0px"
                     color="black"
                     boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
