@@ -67,8 +67,8 @@ const Prodcustom = ({url}) => {
      <Slider {...settings}>
     {
    tren.length>0 && tren.map(({img,title,Rs,Mrp,save},index)=>(
-    <Box key={index} p={"10px 10px" } ml={"4px"} fontSize={"18px"} fontWeight={600} bg={"white"} p={"10px"}>
-        <Box id='trending' border={"1px solid gray"}  >
+    <Box key={index} gap={1} ml={"4px"} fontSize={"18px"} fontWeight={600} bg={"white"} >
+        <Box id='trending' border={"1px solid gray"} p="20px"  >
     <Center>
     <Image className='scale_img' w={"80%"}src={img} h={"160px"} alt="Image 1"  />
     </Center>
