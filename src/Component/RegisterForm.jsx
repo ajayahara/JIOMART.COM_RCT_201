@@ -13,13 +13,12 @@ import {
   Checkbox,
   FormControl,
 } from "@chakra-ui/react";
-// import Navbar from "../Pages/Navbar";
-// import Navlist from "./Navlist";
 import { Navigate } from "react-router";
 import { FaWhatsappSquare } from "react-icons/fa";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import verified from "../Resources/verified.gif";
 import {
   getAuthError,
   getAuthRequest,
@@ -61,31 +60,28 @@ const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const [msg, setMsg] = useState(initMsg);
 
-  // const [send, setSend] = useState(false)
+
    let value = localStorage.getItem("phone");
 
 
 
-  // const token = useSelector((store) => store.AuthReducer.userData);
-  // console.log("store",token)
+
 
   const dispatch = useDispatch();
   const { firstName, lastName, email, password1, password2 } = form;
   const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // console.log(name, value);
     setform({ ...form, [name]: value });
   };
 
   const handleClick = () => setShow(!show);
 
   const handleForm = async (e) => {
-    // e.prevantDefault();
+
 
    dispatch(getAuthRequest())
 
-    // dispatch(getAuthRequest());
 
     setMsg(initMsg);
     if (firstName === "") {
@@ -100,21 +96,14 @@ const RegisterForm = () => {
       setMsg({ ...msg, password2: { ...msg.password2, status: true } });
     } else {
       dispatch(getAuthSuccess(form));
+      localStorage.setItem("Details", JSON.stringify(form));
       navigate("/");
-      // console.log(form);
     }
-   
-   
-  
-    // console.log(form);
-
   };
-  // localStorage.setItem("Details", JSON.stringify(form));
+ 
 
   return (
     <>
-      {/* <Navbar/>
-        <Navlist /> */}
       <br />
       <br />
       <Box w="90%" m={"auto"} display={{ lg:"flex"}}>
@@ -245,7 +234,8 @@ const RegisterForm = () => {
               </Text>
               <Spacer />
               <Box p={"10px"} fontSize={"32px"} color={"#48df62"}>
-                <BsFillPatchCheckFill />
+                <Image w={"40px"} src={verified}></Image>
+                {/* <BsFillPatchCheckFill /> */}
               </Box>
             </Flex>
 

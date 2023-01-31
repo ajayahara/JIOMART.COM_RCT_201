@@ -8,7 +8,7 @@ import "./All.css"
 
 
 const Singleslider = () => {
-    const[single,setSingle]=useState([])
+    const[single, setSingle]=useState([])
     useEffect(()=>{
          axios.get("https://kiwi-discovered-pyjama.glitch.me/Singleimage")
     .then((res)=>setSingle(res.data))

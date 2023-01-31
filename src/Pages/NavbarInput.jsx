@@ -17,12 +17,10 @@ const Test = () => {
       })
     };
     setInterval(timer, 2000);
-    
-    //cleanup function in order clear the interval timer
-    //when the component unmounts
+
     return () => { clearInterval(timer); }
   }, []);
-  // const {colorMode}=useColorMode()
+
 
   
   
@@ -31,4 +29,3 @@ const Test = () => {
   )
 }
 export default Test
-// <Input type='tel' placeholder={"Search For"+" "+placeholderText[index]}  w={"580px"} position={"relative"} pr={"160px"}/>

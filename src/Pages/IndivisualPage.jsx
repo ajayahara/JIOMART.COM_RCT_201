@@ -6,7 +6,6 @@ import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { Show, Hide,Center } from "@chakra-ui/react";
 const CurrentIndivisualData = (payload) => {
@@ -52,16 +51,12 @@ const IndivisualPage = () => {
   const [description, setDescription] = useState(false);
   const [data, setData] = useState({});
   const [imgList, setImgList] = useState([]);
-  // const [index1, setIndex1] = useState(0);
-  // const [index2, setIndex2] = useState(1);
-  // const [index3, setIndex3] = useState(2);
-  // const [index4, setIndex4] = useState(3);
-  // const [index5, setIndex5] = useState(4);
+
 
   const handleCurrentData = (item) => {
-    // console.log(item)
+
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
+
       handleGetdata()
     );
   };
@@ -76,10 +71,6 @@ const IndivisualPage = () => {
 
   const PostToCart = (item) => {
     AddToCart(item).then((res) => {
-      //   <Alert status="success">
-      //     <AlertIcon />
-      //     Item Added Successfully to the cart
-      //   </Alert>;
       alert("Item Added Successfully to the cart");
     });
   };
@@ -87,7 +78,6 @@ const IndivisualPage = () => {
   useEffect(() => {
     handleGetdata();
   }, []);
-  // console.log(data[index1].imgSrc);
   return (
     <div className="indivisualPage">
       <div className="topSection">
@@ -96,25 +86,21 @@ const IndivisualPage = () => {
             <img
               style={{ width: "90%" }}
               src={data.image || data.imgSrc}
-              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
+               alt="demo1"
+            />
+            <img
+              style={{ width: "90%" }}
+              src={data.image || data.imgSrc}
               alt="demo1"
             />
             <img
               style={{ width: "90%" }}
               src={data.image || data.imgSrc}
-              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
-              alt="demo1"
+             alt="demo1"
             />
             <img
               style={{ width: "90%" }}
               src={data.image || data.imgSrc}
-              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
-              alt="demo1"
-            />
-            <img
-              style={{ width: "90%" }}
-              src={data.image || data.imgSrc}
-              // src="https://www.jiomart.com/images/product/600x600/rvjf0pciix/finish-dishwasher-all-in-1-max-powerball-lemon-60-tablets-world-s-no-1-dishwashing-brand-product-images-orvjf0pciix-p591300720-0-202205140128.jpg"
               alt="demo1"
             />
             <img
@@ -131,7 +117,7 @@ const IndivisualPage = () => {
             />
           </div>
         </div>
-        {/* space_top_bottom */}
+       
         <div className="right-data">
           <Hide below="sm">
             <h3 className="product__name space_top_bottom ">
@@ -288,9 +274,4 @@ const IndivisualPage = () => {
 };
 
 export default IndivisualPage;
-// {imgList &&
-//   imgList?.map((item) => (
-//     <div key={item.id}>
-//       <img src={item.imgSrc} alt="img" />
-//     </div>
-//   ))}
+

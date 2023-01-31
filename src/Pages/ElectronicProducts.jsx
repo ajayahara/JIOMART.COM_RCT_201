@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { Spinner, Alert, AlertIcon, useToast, Center } from "@chakra-ui/react";
+import { useToast, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import Load from "../Resources/Seen.gif"
@@ -37,9 +37,6 @@ const sortDataByDesc = () => {
   );
 };
 
-// const AddToCart = (payload) => {
-//   return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
-// };
 
 const filterByCategory = (param) => {
   return axios.get(
@@ -48,14 +45,11 @@ const filterByCategory = (param) => {
 };
 
 const ElectronicProducts = () => {
-  // const [list, setList] = useState([]);
   const list = useSelector((store) => store.ElectronicsReducer.list);
-  // const [isLoading, setIsLoading] = useState(false);
   const isLoading = useSelector((store) => store.ElectronicsReducer.isLoading);
   const filterData = useSelector(
     (store) => store.ElectronicsReducer.filterData
   );
-  // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
@@ -64,7 +58,6 @@ const ElectronicProducts = () => {
     getData()
       .then((res) => {
         dispatch(getElectronicsSuccess(res.data));
-        // setList(res.data);
       })
       .catch((err) => dispatch(getElectronicsError()));
   };
@@ -73,7 +66,6 @@ const ElectronicProducts = () => {
     dispatch(getElectronicsRequest());
     sortDataByAsc().then((res) => {
       dispatch(getElectronicsSuccess(res.data));
-      // setList(res.data);
     });
   };
 
@@ -81,7 +73,6 @@ const ElectronicProducts = () => {
     dispatch(getElectronicsRequest());
     sortDataByDesc().then((res) => {
       dispatch(getElectronicsSuccess(res.data));
-      // setList(res.data);
     });
   };
 
@@ -111,9 +102,7 @@ const ElectronicProducts = () => {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
@@ -130,7 +119,6 @@ const ElectronicProducts = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => a.price - b.price));
             handleSortByAsc();
           }}
         >
@@ -140,7 +128,6 @@ const ElectronicProducts = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => b.price - a.price));
             handlesortByDesc();
           }}
         >
@@ -157,7 +144,6 @@ const ElectronicProducts = () => {
           </button>
         ))}
         <h3>Reset :</h3>
-        {/* Reset  */}
         <button
           className="btn"
           style={{ textAlign: "center" }}

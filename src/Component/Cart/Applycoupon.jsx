@@ -10,10 +10,6 @@ const coupon = useSelector((store)=> store.CartReducer.coupon)
   const [promo, setPromo] = useState("");
   const handleDiscount = () => {
     if (promo == "Masai40") {
-      //   let x = (cartPrice * 50) / 100;
-      //   setCoupon((cartPrice -= x));
-      //   console.log(cartPrice);
-      
       toast({
         title: "Coupon Applied",
         status: "success",

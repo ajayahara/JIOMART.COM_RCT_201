@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";
-import { Spinner, Alert, AlertIcon , useToast, Center } from "@chakra-ui/react";
+import { useToast, Center } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import Load from "../Resources/Seen.gif"
@@ -39,9 +39,6 @@ const sortDataByDesc = () => {
   );
 };
 
-// const AddToCart = (payload) => {
-//   return axios.post("https://kiwi-discovered-pyjama.glitch.me/cart", payload);
-// };
 
 const filterByCategory = (param) => {
   return axios.get(
@@ -50,14 +47,11 @@ const filterByCategory = (param) => {
 };
 
 const FruitsAndVegetables = () => {
-  // const [list, setList] = useState([]);
   const list = useSelector((store) => store.GroceriesReducer.list);
-  // const [isLoading, setIsLoading] = useState(false);
   const isLoading = useSelector((store) => store.GroceriesReducer.isLoading);
   const filterData = useSelector(
     (store) => store.GroceriesReducer.filterData
   );
-  // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast()
@@ -66,29 +60,21 @@ const FruitsAndVegetables = () => {
     dispatch(getGroceriesRequest());
     getData()
       .then((res) => {
-        // setIsLoading(false);
-        // setList(res.data);
         dispatch(getGrocerriesSuccess(res.data));
       })
       .catch((err) => dispatch(getGrocerriesFailure()));
   };
 
   const handleSortByAsc = () => {
-    // setIsLoading(true);
     dispatch(getGroceriesRequest());
     sortDataByAsc().then((res) => {
-      // setIsLoading(false);
-      // setList(res.data);
       dispatch(getGrocerriesSuccess(res.data));
     });
   };
 
   const handlesortByDesc = () => {
-    // setIsLoading(true);
     dispatch(getGroceriesRequest());
     sortDataByDesc().then((res) => {
-      // setIsLoading(false);
-      // setList(res.data);
       dispatch(getGrocerriesSuccess(res.data));
     });
   };
@@ -106,7 +92,6 @@ const FruitsAndVegetables = () => {
 
   const PostToCart = (item) => {
     dispatch(AddToCart(item)).then((res) => {
-      // alert("Item Added Successfully to the cart");
       toast({
         title: "Verification Reminder",
         description: `"Item Added To Cart Successfully."`,
@@ -119,9 +104,7 @@ const FruitsAndVegetables = () => {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
@@ -138,7 +121,6 @@ const FruitsAndVegetables = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => a.price - b.price));
             handleSortByAsc();
           }}
         >
@@ -148,7 +130,6 @@ const FruitsAndVegetables = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => b.price - a.price));
             handlesortByDesc();
           }}
         >
@@ -165,7 +146,6 @@ const FruitsAndVegetables = () => {
           </button>
         ))}
         <h3>Reset :</h3>
-        {/* Reset  */}
         <button
           className="btn"
           style={{ textAlign: "center" }}
