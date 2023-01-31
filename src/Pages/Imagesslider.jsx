@@ -1,5 +1,4 @@
-import { Box, Image, Text } from '@chakra-ui/react';
-import axios from 'axios';
+
 import React from 'react'
 import { useState, useEffect } from 'react';
 import "./imgslid.css"

@@ -5,21 +5,8 @@ import "../Cart/Address.css"
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 export const Address = () => {
-  // let [active,setActive]=useState(false)
   let navigate=useNavigate()
-  // let [ad,setAdd]=useState(null);
-  // let [ad1,setAd1]=useState({
-  //   a:"",
-  //   b:"",
-  //   c:"",
-  //   d:"",
-  //   e:"",
-  //   f:"",
-  //   g:"",
-  //   h:"",
-  //   i:"",
-  //   j:""
-  // })
+ 
   let [price,setPrice]=useState(0);
   let cart=useSelector((store)=>store.CartReducer.cart);
   useEffect(()=>{
@@ -58,7 +45,6 @@ export const Address = () => {
           } }>Make Payment</button></div>
         </div>
       </div>
-      {/* <AddAddress active={active} setActive={setActive} onsubmit={onsubmit} onchange={onchange} /> */}
     </div>
   )
 }

@@ -22,22 +22,9 @@ import {
     const [orders, setOrders] = useState([])
     const val = JSON.parse(localStorage.getItem("Jio Mart User"));
     const phone = JSON.parse(localStorage.getItem("phone"));
-    let data=null
+   
 
-    // console.log(orders)
   
-    // const handleLogout = () =>{
-    //   dispatch(logout())
-    //   navigate("/account/login")
-    // }
-  
-    // useEffect(() => {
-    //   // console.log(isAuth)
-    //   if (!isAuth) {
-    //     navigate("/account/login");
-    //   }
-    //   setOrders(GetData("JioMartCloneOrders"))
-    // }, []);
 
     const handleLogout = () => {
       localStorage.removeItem("Jio Mart User")

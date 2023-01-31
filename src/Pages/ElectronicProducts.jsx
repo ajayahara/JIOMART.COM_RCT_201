@@ -66,7 +66,6 @@ const ElectronicProducts = () => {
     dispatch(getElectronicsRequest());
     sortDataByAsc().then((res) => {
       dispatch(getElectronicsSuccess(res.data));
-      // setList(res.data);
     });
   };
 
@@ -74,7 +73,6 @@ const ElectronicProducts = () => {
     dispatch(getElectronicsRequest());
     sortDataByDesc().then((res) => {
       dispatch(getElectronicsSuccess(res.data));
-      // setList(res.data);
     });
   };
 

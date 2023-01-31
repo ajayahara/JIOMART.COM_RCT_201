@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./products.css";
 import axios from "axios";
 import { BsFillBagPlusFill } from "react-icons/bs";

@@ -18,8 +18,6 @@ const getData = () => {
 };
 
 const Adminpanel = () => {
-  const id = useRef();
-  const title = useRef();
   const image = useRef();
   const price = useRef();
   const toast = useToast();
