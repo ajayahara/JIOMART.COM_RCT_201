@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Imagesslidershop from './Imagesslider1';
 const Imagesslider = () => {
+
     return(
         <div>
             
@@ -18,4 +19,3 @@ const Imagesslider = () => {
 
 
 export default Imagesslider
-//shop by categories

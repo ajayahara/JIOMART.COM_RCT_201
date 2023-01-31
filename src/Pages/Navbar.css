@@ -202,6 +202,8 @@ hr{
   width: 560px;
   margin-right: 80px;
   padding: 1rem;
+  border-radius: 6px;
+ 
 }
 
 .R-Text{
@@ -286,4 +288,9 @@ hr{
     display: flex;
     justify-content: space-between;
   }
+}
+
+.searchbarbox{
+  opacity:0;
+  pointer-events:none
 }

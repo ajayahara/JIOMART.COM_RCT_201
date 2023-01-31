@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback,useRef } from "react";
 import * as FaIcons from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import logo from "../Resources/bcg-noBackground.png";
@@ -41,7 +41,7 @@ import {
   RepeatIcon,
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
-import { FaWindowClose } from "react-icons/fa";
+import {ImCross } from "react-icons/im";
 
 // https://kiwi-discovered-pyjama.glitch.me/alldata
 
@@ -51,6 +51,7 @@ const getAllData = () => {
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const [searchbar, setSearchbar] = useState(false);
   const navigate = useNavigate();
   const [log, setLog] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
@@ -61,7 +62,7 @@ function Navbar() {
   const [arr, setArr] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [filteredData, setFilteredData] = useState([]);
-
+  const input_value=useRef();
   const handleGet = () => {
     setLength(cart.length);
   };
@@ -81,7 +82,7 @@ function Navbar() {
 
   const handleGetAllData = () => {
     getAllData().then((res) => {
-      // console.log(res.data);
+      console.log(res,"setarr res");
       setArr(res.data);
     });
   };
@@ -98,19 +99,28 @@ function Navbar() {
     };
   };
 
-  const handleChange = (value) => {
+  const handleChange = async(value) => {
+    if(value==""){
+      setSearchbar(true)
+    }
+    else{
+      setSearchbar(false)
+    }
+    let x = await  getAllData().then((res) => res.data);
+    // console.log(x,"x data")
+
+
     return setFilteredData(
-      arr.filter((el) => {
-        if (el.name.includes(value)) {
+      x.filter((el) => {
+        // console.log(el.name.split(" ").join("").includes(value), el.name.split(" ").join(""))
+        if (el.name.split(" ").join("").includes(value)) {
           return el;
         }
       })
     );
   };
 
-  // setArr(json.filter((el)=>{
-  //   return el.name.split(' ').includes(value)
-  // }))
+  
   const optimizedFn = useCallback(debounce(handleChange), []);
   console.log(filteredData);
 
@@ -144,37 +154,49 @@ function Navbar() {
             className="R-input-logo"
             onClick={() => navigate("/")}
           />
-          <div>
+          <div border={"1px solid black"}>
             <InputGroup  >
               <input
+              ref={input_value}
                 // bg={"white"}
                 // w={"660px"}
                 // color={"white"}
                 // ml={"60px"}
                 // style={{width:"660px"}}
+                style={{borderRadiusTopLeft:"20px",border:"transparent"}}
+                borderRadiusLeft={"20px"}
                 bgColor='white'
-                border={"1px solid red"}
+                // border={"1px solid red"}
                 className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
                 onChange={(e) => optimizedFn(e.target.value)}
               />
-              <Hide below='md'><InputRightAddon onClick={()=>{
-                optimizedFn("")
+              
+              <Button bg={"white"} _hover={{backgroundColor:"red"}} display={{base:"none",md:"none"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
+                
+                input_value.current.value="";
+
+                setSearchbar(true)
+               
               }} 
-               h={55} ml='-79' pointerEvents='none' children={<FaWindowClose />} /></Hide>
+              
+              ><ImCross/></Button>
+              
               
             </InputGroup>
             {filteredData.length !== 0 ? (
-              <Box
-                w={"560px"}
+              <Hide below="md">
+              <Box 
+                w={"543px"}
                 h={"280px"}
                 pos="absolute"
                 overflow={"scroll"}
-                top={"10%"}
+                top={"9%"}
                 bg="white"
                 border={"3px solid grey"}
-                zIndex="1000"
+                zIndex="2000"
+                className={searchbar==true?"searchbarbox":null}
               >
                 {filteredData.length > 0 &&
                   filteredData.map((el, i) => {
@@ -199,6 +221,7 @@ function Navbar() {
                     );
                   })}
               </Box>
+              </Hide>
             ) : (
               ""
             )}
@@ -216,7 +239,7 @@ function Navbar() {
             <Box
               style={{
                 position: "absolute",
-                right: "20.5%",
+                right: "21.3%",
                 backgroundColor: "red",
                 color: "white",
                 borderRadius: "40px",
@@ -225,7 +248,7 @@ function Navbar() {
                 fontSize: "13px",
                 lineHeight: "13px",
                 textAlign: "center",
-                top: "24px",
+                top: "16.8px",
               }}
               className="R-icons-top"
             >
@@ -252,6 +275,7 @@ function Navbar() {
                     variant="outline"
                   />
                   <MenuList
+                  zIndex="2000"
                     p="0px"
                     color="black"
                     boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"

@@ -41,7 +41,7 @@ const Navlist = () => {
             <li>Seasonal & Minor Fruits</li>
           </ul>
         </li>
-        <li  style={{zIndex:1000}}>
+        <li style={{zIndex:1000}}>
           Home & Kitchen
           <ChevronDownIcon />
           <ul className="dropdown">
@@ -57,7 +57,7 @@ const Navlist = () => {
             <li>Pooja Needs</li>
           </ul>
         </li>
-        <li  style={{zIndex:1000}}>
+        <li style={{zIndex:1000}}>
           <Link>
             Fashion
             <ChevronDownIcon />
@@ -71,7 +71,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li  style={{zIndex:1000}}>
+        <li style={{zIndex:1000}}>
           <Link>
             Electronics
             <ChevronDownIcon />
@@ -88,7 +88,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li  style={{zIndex:1000}}>
+        <li style={{zIndex:1000}}>
           <Link>
             Beauty
             <ChevronDownIcon />
@@ -103,7 +103,7 @@ const Navlist = () => {
             </ul>
           </Link>
         </li>
-        <li  style={{zIndex:1000}}>
+        <li style={{zIndex:1000}}>
           Jewellery
           <ChevronDownIcon />
           <ul className="dropdown">
