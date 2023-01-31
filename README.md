@@ -65,9 +65,7 @@ Technologies used in the project:
 
 **Front-end deployed URL:**
 
-https://shopqmart.vercel.app/
-<br/>
-https://singular-sundae-186837.netlify.app/
+https://darling-sunshine-8dc7e8.netlify.app/
 
 
 ##  📁 Folder structure
