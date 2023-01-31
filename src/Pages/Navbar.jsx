@@ -189,21 +189,15 @@ function Navbar() {
                 onChange={(e) => optimizedFn(e.target.value)}
               />
 
-              
-              <Button bg={"white"} _hover={{backgroundColor:"red"}} ml={-130} p={"27px 20px"} zIndex="1000" onClick={()=>{
-                
-                input_value.current.value="";
-
               <Button
                 bg={"white"}
-                _hover={{ backgroundColor: "red" }}
-                display={{ base: "none", md: "none" }}
+                _hover={{ color: "red" }}
+                display={{ base: "none", md: "none",lg:"block" }}
                 ml={-130}
-                p={"27px 20px"}
+                p={"20px 20px 33px"}
                 zIndex="1000"
                 onClick={() => {
                   input_value.current.value = "";
-
                   setSearchbar(true);
                 }}
               >
@@ -327,7 +321,12 @@ function Navbar() {
                         </Text>
                       </Center>
                     </Box>
-                    <MenuItem icon={<AddIcon />} onClick={()=>navigate('/user')}>My Account</MenuItem>
+                    <MenuItem
+                      icon={<AddIcon />}
+                      onClick={() => navigate("/user")}
+                    >
+                      My Account
+                    </MenuItem>
                     <MenuItem
                       icon={<FiShoppingCart />}
                       onClick={() => navigate("/cart")}
