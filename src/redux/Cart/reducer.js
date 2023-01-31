@@ -2,6 +2,7 @@ import * as types from "./actionType";
 
 const initialData = {
   cart: [],
+  purchasedItems:[],
   coupon: false,
 };
 export const reducer = (oldState = initialData, action) => {
@@ -38,7 +39,7 @@ export const reducer = (oldState = initialData, action) => {
       });
       return { ...oldState, cart: [...newArray] };
     case types.RESET_CART:
-      return initialData;
+      return {...oldState, purchasedItems: [...oldState.cart],cart:[]};
 
     case types.APPLY_COUPON:
       return { ...oldState, coupon: true };
