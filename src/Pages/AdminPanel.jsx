@@ -52,8 +52,6 @@ const Adminpanel = () => {
   const addToServer = () => {
     let product = {
       img: image.current.value,
-      //   title: title.current.value,
-      //   price: price.current.value,
     };
     axios
       .post("https://kiwi-discovered-pyjama.glitch.me/imagesslider", product)
@@ -81,27 +79,12 @@ const Adminpanel = () => {
     <Box p="1rem">
       <Center>
         <SimpleGrid columns={1} gap={"10px"} w={"500px"} mt={"40px"}>
-          {/* <Input ref={id} type="text" placeholder="Enter Product ID here...." /> */}
-          {/* <Input
-            ref={title}
-            type="text"
-            placeholder="Enter Product Name here...."
-          /> */}
           <Input ref={image} type="url" placeholder="Enter Image URL here..." />
-          {/* <Input ref={price} type="number" placeholder="Enter Price here..." /> */}
           <SimpleGrid columns={[1, 1, 2, 2]}>
             <Button onClick={addToServer} color={"white"} bg={"#008ecc"}>
               {" "}
               ADD
             </Button>
-            {/* <Button
-              onClick={() => deleteFromServer(id.current.value)}
-              color={"white"}
-              bg={"red"}
-            >
-              {" "}
-              DELETE
-            </Button> */}
           </SimpleGrid>
         </SimpleGrid>
       </Center>
@@ -121,13 +104,8 @@ const Adminpanel = () => {
           {list &&
             list.map((item, index) => (
               <Box
-                //   w="100px"
-                //   margin="auto"
-                //   display="grid"
-                //   border="1px solid black"
                 key={index}
               >
-                {/* deleteFromServer(item.id) */}
                 <Image width="100%" src={item.img} />
                 <Button
                   onClick={() => deleteFromServer(item.id)}
@@ -145,4 +123,3 @@ const Adminpanel = () => {
   );
 };
 export default Adminpanel;
-// Collapse

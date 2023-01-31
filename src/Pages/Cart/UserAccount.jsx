@@ -15,9 +15,6 @@ import {
   import { BsCreditCardFill } from "react-icons/bs";
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
-  // import { logout } from "../Redux/Login/action";
-  // import { GetData } from "../Utils/localStorage";
-  // import OrderList from "../Components/OrdersList"
   
   const AccountPage = () => {
     const navigate = useNavigate();

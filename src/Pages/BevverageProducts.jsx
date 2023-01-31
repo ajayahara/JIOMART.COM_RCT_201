@@ -44,52 +44,34 @@ const filterByCategory = (param) => {
 };
 
 const BeverageProducts = () => {
-  // const [list, setList] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [filterData, setFilterData] = useState([
-  //   "Tea",
-  //   "Juice",
-  //   "Cold Drink",
-  //   "Powder",
-  // ]);
+ 
   const list = useSelector((store) => store.BeverageReducer.list);
-  // const [isLoading, setIsLoading] = useState(false);
   const isLoading = useSelector((store) => store.BeverageReducer.isLoading);
   const filterData = useSelector((store) => store.BeverageReducer.filterData);
-  // const [filterData, setFilterData] = useState(["Phone", "Watch"]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
 
   const handleGetData = () => {
-    // setIsLoading(true);
     dispatch(getBeverageRequest());
     getData()
       .then((res) => {
-        // setIsLoading(false);
-        // setList(res.data);
         dispatch(getBeverageSuccess(res.data));
       })
       .catch((err) => dispatch(getBeverageError()));
   };
 
   const handleSortByAsc = () => {
-    // setIsLoading(true);
     dispatch(getBeverageRequest());
     sortDataByAsc().then((res) => {
-      // setIsLoading(false);
-      // setList(res.data);
       dispatch(getBeverageSuccess(res.data));
     });
   };
 
   const handlesortByDesc = () => {
-    // setIsLoading(true);
     dispatch(getBeverageRequest());
     sortDataByDesc().then((res) => {
-      // setIsLoading(false);
       dispatch(getBeverageSuccess(res.data));
-      // setList(res.data);
     });
   };
 
@@ -117,16 +99,13 @@ const BeverageProducts = () => {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
   useEffect(() => {
     handleGetData();
   }, []);
-  // console.log("filter", filterCategory);
   console.log(list)
   if (isLoading) return <Center m="150px"> <img width={"350px"} src={Load} ></img></Center>;
   return (
@@ -137,7 +116,6 @@ const BeverageProducts = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => a.price - b.price));
             handleSortByAsc();
           }}
         >
@@ -147,7 +125,6 @@ const BeverageProducts = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => b.price - a.price));
             handlesortByDesc();
           }}
         >
@@ -164,7 +141,7 @@ const BeverageProducts = () => {
           </button>
         ))}
         <h3>Reset :</h3>
-        {/* Reset  */}
+      
         <button
           className="btn"
           style={{ textAlign: "center" }}

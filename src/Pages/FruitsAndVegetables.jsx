@@ -84,11 +84,8 @@ const FruitsAndVegetables = () => {
   };
 
   const handlesortByDesc = () => {
-    // setIsLoading(true);
     dispatch(getGroceriesRequest());
     sortDataByDesc().then((res) => {
-      // setIsLoading(false);
-      // setList(res.data);
       dispatch(getGrocerriesSuccess(res.data));
     });
   };
@@ -106,7 +103,6 @@ const FruitsAndVegetables = () => {
 
   const PostToCart = (item) => {
     dispatch(AddToCart(item)).then((res) => {
-      // alert("Item Added Successfully to the cart");
       toast({
         title: "Verification Reminder",
         description: `"Item Added To Cart Successfully."`,
@@ -119,9 +115,7 @@ const FruitsAndVegetables = () => {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
@@ -138,7 +132,6 @@ const FruitsAndVegetables = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => a.price - b.price));
             handleSortByAsc();
           }}
         >
@@ -148,7 +141,6 @@ const FruitsAndVegetables = () => {
           className="btn"
           style={{ textAlign: "center" }}
           onClick={() => {
-            // setList(list.sort((a, b) => b.price - a.price));
             handlesortByDesc();
           }}
         >
@@ -165,7 +157,6 @@ const FruitsAndVegetables = () => {
           </button>
         ))}
         <h3>Reset :</h3>
-        {/* Reset  */}
         <button
           className="btn"
           style={{ textAlign: "center" }}
