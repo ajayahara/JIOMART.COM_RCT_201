@@ -105,7 +105,7 @@ $ npm run start        // run it locally
 $ npm run build  // this will compile the react code using webpack and generate a folder called docs in the root level
 ````  
 
-## ✍ Authors 
+## ✍ Contributors
 
 - [@ajayahara](https://github.com/ajayahara)
 - [@anki2001ta](https://github.com/anki2001ta)
