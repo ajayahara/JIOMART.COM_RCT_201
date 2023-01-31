@@ -77,7 +77,6 @@ function Navbar() {
 
   const handleGetAllData = () => {
     getAllData().then((res) => {
-      console.log(res, "setarr res");
       setArr(res.data);
     });
   };
