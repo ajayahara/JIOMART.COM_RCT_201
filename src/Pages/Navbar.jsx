@@ -18,10 +18,7 @@ import {
   Center,
   Button,
   MenuItem,
-  useDisclosure,
-  InputRightAddon,
   Hide,
-  useToast,
 } from "@chakra-ui/react";
 import Sidebar from "./sidebar";
 import Person2RoundedIcon from "@mui/icons-material/Person2Rounded";
@@ -35,7 +32,6 @@ import {
 } from "@chakra-ui/icons";
 import { AiOutlineDown } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
-import { AddToCart } from "../redux/Cart/action";
 
 const CurrentIndivisualData = (payload) => {
   return axios.put(
@@ -61,7 +57,6 @@ function Navbar() {
   const [arr, setArr] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const input_value = useRef();
-  const toast = useToast();
   const dispatch = useDispatch();
   const handleGet = () => {
     setLength(cart.length);
@@ -106,7 +101,7 @@ function Navbar() {
       setSearchbar(false);
     }
     let x = await getAllData().then((res) => res.data);
-    // console.log(x,"x data")
+
 
     return setFilteredData(
       x.filter((el) => {
@@ -118,15 +113,12 @@ function Navbar() {
   };
 
   const handleCurrentData = (item) => {
-    // console.log(item)
     CurrentIndivisualData(item).then((res) =>
-      // console.log(res.data)
       navigate("/indivisualPage")
     );
   };
 
   const optimizedFn = useCallback(debounce(handleChange), []);
-  // console.log(filteredData);
 
   useEffect(() => {
     handleGetAllData();
@@ -155,11 +147,6 @@ function Navbar() {
             <InputGroup>
               <input
                 ref={input_value}
-                // bg={"white"}
-                // w={"660px"}
-                // color={"white"}
-                // ml={"60px"}
-                // style={{width:"660px"}}
                 style={{ borderRadiusTopLeft: "20px", border: "transparent" }}
                 borderRadiusLeft={"20px"}
                 bgColor="white"

@@ -6,7 +6,6 @@ import { BsWhatsapp } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { Show, Hide,Center } from "@chakra-ui/react";
 const CurrentIndivisualData = (payload) => {
