@@ -39,7 +39,14 @@ const AllRoutes = () => {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/adminPanel" element={<Adminpanel />} />
-        <Route path="/user" element={<AccountPage />} />
+        <Route
+          path="/user"
+          element={
+            <ProtectedRoute>
+              <AccountPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<h1>*Error* Page Not Found</h1>} />
       </Routes>
     </div>
