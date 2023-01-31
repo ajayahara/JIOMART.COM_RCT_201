@@ -97,9 +97,9 @@ git clone https://github.com/ajayahara/JIOMART.COM_RCT_201.git
 Go to the project directory
 
 ```bash
-$ cd frontend          // go to client folder
-$ yarn # or npm i    // npm install packages
-$ npm run start        // run it locally
+$ cd JIOMART.COM_RCT_201         // go to client folder
+$ yarn # or npm i               // npm install packages
+$ npm run start                // run it locally
 
 // deployment for client app
 $ npm run build  // this will compile the react code using webpack and generate a folder called docs in the root level
