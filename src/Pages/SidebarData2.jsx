@@ -1,25 +1,29 @@
 export const SidebarData2 = [
     {
       title: 'My Account',
-      cName: 'nav-text'
+      cName: 'nav-text',
+      link:"/user"
     },
     {
       title: 'Need Help',
       
       
-      cName: 'nav-text'
+      cName: 'nav-text',
+      link:"*"
     },
     {
       title: 'About us',
      
      
-      cName: 'nav-text'
+      cName: 'nav-text',
+      link:"*"
     },
     {
       title: 'Guide',
       
      
-      cName: 'nav-text'
+      cName: 'nav-text',
+      link:"*"
     },
     
   ];
