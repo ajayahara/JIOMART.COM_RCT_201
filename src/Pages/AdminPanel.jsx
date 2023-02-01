@@ -52,6 +52,49 @@ const postFruitsAndVegetables = (payload) => {
   );
 };
 
+const deleteBeverage = (id) => {
+  return axios.delete(
+    `https://kiwi-discovered-pyjama.glitch.me/baverage/${id}`
+  );
+};
+const deleteFruitsAndVegetables = (id) => {
+  return axios.delete(
+    `https://kiwi-discovered-pyjama.glitch.me/fruitsAndVegetables/${id}`
+  );
+};
+const deleteElectronics = (id) => {
+  return axios.delete(
+    `https://kiwi-discovered-pyjama.glitch.me/electronics/${id}`
+  );
+};
+
+const updateBeverage = (id, payload) => {
+  return axios({
+    method:"patch",
+    url:`https://kiwi-discovered-pyjama.glitch.me/baverage/${id}`,
+    data:JSON.stringify(payload),
+    headers:{
+      'Content-type':"application/json"
+    }
+  })
+};
+const updateFruitsAndVegetables = (id, payload) => {
+  return axios.patch(
+    `https://kiwi-discovered-pyjama.glitch.me/fruitsAndVegetables/${id}`,
+    { payload }
+  );
+};
+const updateElectronics = (id, payload) => {
+  return axios({
+    method:"patch",
+    url:`https://kiwi-discovered-pyjama.glitch.me/electronics/${id}`,
+    data:JSON.stringify(payload),
+    headers:{
+      'Content-type':"application/json"
+    }
+  })
+};
+
 const Adminpanel = () => {
   const image = useRef();
   const price = useRef();
@@ -59,7 +102,7 @@ const Adminpanel = () => {
   const [type, setType] = useState("");
   const [name, setName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
-
+  const [idCheck, setIdCheck] = useState(null);
   const statuses = ["success", "error"];
   const [list, setList] = useState([]);
 
@@ -82,73 +125,34 @@ const Adminpanel = () => {
   };
 
   const deleteFromServer = (id) => {
-    axios
-      .delete(`https://kiwi-discovered-pyjama.glitch.me/imagesslider/${id}`)
-      .then(() => {
-        toast({
-          title: `Sucessfully Deleted`,
-          status: statuses[0],
-          isClosable: true,
-        });
-        handleget();
-      })
-      .catch(() => {
-        toast({
-          title: `Error Occured while Deleting`,
-          status: statuses[1],
-          isClosable: true,
-        });
-      });
-  };
-
-  // console.log(list);
-  const addToServer = async() => {
     if (type === "fruitsAndVegetables") {
-      try{
-        const payload = {
-          image:image.current.value,
-          name,
-          productPrice,
-        };
-        postFruitsAndVegetables(payload).then((res) => {
+      try {
+        deleteFruitsAndVegetables(id).then((res) => {
           handleget();
         });
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     } else if (type === "electronics") {
-      try{
-        const payload = {
-          image:image.current.value,
-          name,
-          productPrice,
-        };
-        PostELectronics(payload).then((res) => {
+      try {
+        deleteElectronics(id).then((res) => {
           handleget();
         });
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     } else if (type === "beverages") {
-      try{
-        const payload = {
-          image:image.current.value,
-          name,
-          productPrice,
-        };
-        postBeverage(payload).then((res) => {
+      try {
+        deleteBeverage(id).then((res) => {
           handleget();
         });
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     } else {
-      try{
-        let product = {
-          img: image.current.value,
-        };
+      try {
         axios
-          .post("https://kiwi-discovered-pyjama.glitch.me/imagesslider", product)
+          .post(`https://kiwi-discovered-pyjama.glitch.me/imagesslider/${id}`)
           .then(() => {
             toast({
               title: `Sucessfully Added`,
@@ -164,12 +168,170 @@ const Adminpanel = () => {
               isClosable: true,
             });
           });
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     }
   };
 
+  console.log(list);
+  const addToServer = async () => {
+    if (type === "fruitsAndVegetables") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price:productPrice,
+        };
+        postFruitsAndVegetables(payload).then((res) => {
+          toast({
+            title: `Sucessfully Added`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+          
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (type === "electronics") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price: productPrice,
+        };
+        PostELectronics(payload).then((res) => {
+          toast({
+            title: `Sucessfully Added`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (type === "beverages") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price:productPrice,
+        };
+        postBeverage(payload).then((res) => {
+          toast({
+            title: `Sucessfully Added`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      try {
+        let product = {
+          img: image.current.value,
+        };
+        axios
+          .post(
+            "https://kiwi-discovered-pyjama.glitch.me/imagesslider",
+            product
+          )
+          .then(() => {
+            toast({
+              title: `Sucessfully Added`,
+              status: statuses[0],
+              isClosable: true,
+            });
+            handleget();
+          })
+          .catch(() => {
+            toast({
+              title: `Error Occured while Adding`,
+              status: statuses[1],
+              isClosable: true,
+            });
+          });
+      } catch (err) {
+        toast({
+          title: `Error Occured while Adding`,
+          status: statuses[1],
+          isClosable: true,
+        });
+        console.log(err);
+      }
+    }
+
+    setName("");
+    setProductPrice(0);
+    image.current.value = "";
+  };
+
+  const handleUpdate = (id) => {
+    if (type === "fruitsAndVegetables") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price:productPrice,
+        };
+        updateFruitsAndVegetables(id, payload).then((res) => {
+          toast({
+            title: `Data Successfully updated`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (type === "electronics") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price:productPrice,
+        };
+        updateElectronics(id, payload).then((res) => {
+          toast({
+            title: `Data Successfully updated`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (type === "beverages") {
+      try {
+        const payload = {
+          image: image.current.value,
+          name,
+          price:productPrice,
+        };
+        updateBeverage(id, payload).then((res) => {
+          toast({
+            title: `Data Successfully updated`,
+            status: statuses[0],
+            isClosable: true,
+          });
+          handleget();
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    setName("");
+    setProductPrice(0);
+    image.current.value = "";
+    setIdCheck(null);
+  };
   useEffect(() => {
     handleget();
   }, [type]);
@@ -229,6 +391,7 @@ const Adminpanel = () => {
       <Box className="input__">
         <Center>
           <SimpleGrid columns={1} gap={"10px"} w={"500px"} mt={"40px"}>
+            <Heading>Input</Heading>
             {type === "" ? (
               <Box>
                 {" "}
@@ -255,11 +418,13 @@ const Adminpanel = () => {
                   type="number"
                   onChange={(e) => setProductPrice(e.target.value)}
                   placeholder="Enter Price"
+                  value={productPrice}
                 />
                 <Input
                   type="name"
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter name"
+                  value={name}
                 />
                 <SimpleGrid columns={[1, 1, 2, 2]}>
                   <Button onClick={addToServer} color={"white"} bg={"#008ecc"}>
@@ -267,6 +432,36 @@ const Adminpanel = () => {
                     ADD
                   </Button>
                 </SimpleGrid>
+                
+              </Box>
+            )}
+            {idCheck && (
+              <Box>
+                <Heading> Update Data</Heading>
+                <Input
+                  ref={image}
+                  type="url"
+                  placeholder="Enter Image URL here..."
+                />
+                <Input
+                  type="number"
+                  onChange={(e) => setProductPrice(e.target.value)}
+                  placeholder="Enter Price"
+                  value={productPrice}
+                />
+                <Input
+                  type="name"
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter name"
+                  value={name}
+                />
+                <Button
+                  onClick={() => {
+                    handleUpdate(idCheck);
+                  }}
+                >
+                  Update
+                </Button>
               </Box>
             )}
           </SimpleGrid>
@@ -281,8 +476,12 @@ const Adminpanel = () => {
             width: "300px",
             margin: "auto",
             display: "grid",
-            gridTemplateColumns: "repeat(1,1fr)",
+            gridTemplateColumns: "repeat(2,1fr)",
             gap: "2rem",
+            padding: "2rem",
+            borderLeft: "1px solid grey",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           {list &&
@@ -300,6 +499,7 @@ const Adminpanel = () => {
                   {" "}
                   DELETE
                 </Button>
+                <Button onClick={() => setIdCheck(item.id)}>Update</Button>
               </Box>
             ))}
         </Box>
