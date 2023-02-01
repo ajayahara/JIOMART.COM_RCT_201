@@ -46,9 +46,16 @@ Technologies used in the project:
 **Cart Page:**
 ![cart](https://user-images.githubusercontent.com/107473816/215728766-4676f507-1e4d-40af-bf84-dc1ad9e42525.jpg)
 
+**My Account Page**
+![myAccounts](https://user-images.githubusercontent.com/107473816/215842086-af36a8b3-32c9-49f9-afef-29bebf45361f.jpg)
+
+
+
 
 **Admin Page:**
-![admin](https://user-images.githubusercontent.com/107473816/215729200-924e2410-e82e-4a41-86e3-20be606bcd71.jpg)
+
+
+![admin](https://user-images.githubusercontent.com/107473816/216014545-3dca0a22-8f7f-481e-97cf-cd13463ad5ee.jpg)
 
 
 
@@ -57,8 +64,25 @@ Technologies used in the project:
 - Responsive
 - Private Routing
 - Search Funtionality
-- Filter and sort
+- Filter and Sorting
+- Custom Components
+- Crausels
 - Form Validation (Login,Signup)
+
+
+## Pages
+
+- Home Page
+- Login/Sign Up Page
+- Admin Panel 
+- Product Page
+    - Beverages
+    - Electronic Products
+    - Fruits and Vegetables
+- Cart Page
+- My Account
+- Checkout Page
+- Payment Page
 
 
 ## 🚀 Demo
@@ -93,15 +117,15 @@ git clone https://github.com/ajayahara/JIOMART.COM_RCT_201.git
 Go to the project directory
 
 ```bash
-$ cd frontend          // go to client folder
-$ yarn # or npm i    // npm install packages
-$ npm run start        // run it locally
+$ cd JIOMART.COM_RCT_201         // go to client folder
+$ yarn # or npm i               // npm install packages
+$ npm run start                // run it locally
 
 // deployment for client app
-$ npm run build // this will compile the react code using webpack and generate a folder called docs in the root level
+$ npm run build  // this will compile the react code using webpack and generate a folder called docs in the root level
+````  
 
-
-## ✍ Authors 
+## ✍ Contributors
 
 - [@ajayahara](https://github.com/ajayahara)
 - [@anki2001ta](https://github.com/anki2001ta)
