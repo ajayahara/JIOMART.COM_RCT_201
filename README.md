@@ -54,7 +54,6 @@ Technologies used in the project:
 
 **Admin Page:**
 
-**  Admin Side      **
 
 ![admin](https://user-images.githubusercontent.com/107473816/216014545-3dca0a22-8f7f-481e-97cf-cd13463ad5ee.jpg)
 
