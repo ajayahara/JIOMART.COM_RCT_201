@@ -55,7 +55,8 @@ Technologies used in the project:
 **Admin Page:**
 
 **  Admin Side      **
-![admin](https://user-images.githubusercontent.com/107473816/215729200-924e2410-e82e-4a41-86e3-20be606bcd71.jpg)
+
+![admin](https://user-images.githubusercontent.com/107473816/216014545-3dca0a22-8f7f-481e-97cf-cd13463ad5ee.jpg)
 
 
 
@@ -68,6 +69,21 @@ Technologies used in the project:
 - Custom Components
 - Crausels
 - Form Validation (Login,Signup)
+
+
+## Pages
+
+- Home Page
+- Login/Sign Up Page
+- Admin Panel 
+- Product Page
+    - Beverages
+    - Electronic Products
+    - Fruits and Vegetables
+- Cart Page
+- My Account
+- Checkout Page
+- Payment Page
 
 
 ## 🚀 Demo
