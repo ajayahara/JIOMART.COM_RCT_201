@@ -73,7 +73,8 @@ Technologies used in the project:
 ## Pages
 
 - Home Page
-- Login/Sign Up Page
+- Login/Logout Page
+- Sign Up Page
 - Admin Panel 
 - Product Page
     - Beverages
