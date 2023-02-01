@@ -136,7 +136,7 @@ function Navbar() {
             </Box>
           </Box>
           <Sidebar sidebar={sidebar} showSidebar={showSidebar} />
-          {/* other items navbar */}
+        
           <img
             src={logo}
             className="R-input-logo"
@@ -149,7 +149,7 @@ function Navbar() {
                 style={{ borderRadiusTopLeft: "20px", border: "transparent" }}
                 borderRadiusLeft={"20px"}
                 bgColor="white"
-                // border={"1px solid red"}
+               
                 className="R-inputBox"
                 type="text"
                 placeholder="Search essential,goods and much more......"
